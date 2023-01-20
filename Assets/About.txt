@@ -1,0 +1,42 @@
+SLAB, made during 2019 Fall Semester at KSU
+Programming by Kylie Gilde, CGDD major
+
+Each script has its name and general purpose at the top.
+Methods all have summaries as well.
+I think I've done a thorough job commenting everything,
+but if there's something you don't understand feel free
+to contact me with questions.
+
+A summary of all the scripts I wrote:
+BUILDING
+	-BuildSystem: Placement and building of previews, and deletion of built objects
+	-BuiltObject: Resizing and deletion of prefabs
+	-HideExamples: Hides and changes materials of example objects based on layer
+	-LayerSelection: Switches the active layer of materials that can be seen and placed
+	-PositionMesh: Centers mesh relative to their parent
+	-Preview: Shows the player what and where they will be building, including snapping to set points
+	-SnapPoint: A transform that previews will attach to when close
+DISPLAY
+	-CameraControl: Handles the camera's rotation and zoom
+	-InputFieldVariableSet: Sets text for an empty input field
+	-PositiveInputField: An input field that doesn't allow the '-' key
+	-UISizer: Scales certain UI elements according to screen size
+INVENTORY
+	-ClickListener: Calls a function from the parent
+	-ConstructionMaterial: Holds a type and a size of a material
+	-Entry: Holds a ConstructionMaterial and a quantity
+	-InventoryManager: Holds the inventory and allows addition and removal of entries
+	-InventorySlotDisplay: Displays the type, size, and quantity of materials in the inventory
+MANAGERS
+	-BuildManager: Handles the UI for assembly and calls BuildSystem to build
+	-CutManager: Sets up the cut UI and calculates the new sizes and waste
+	-GradeManager: Calculates the final grades, show them on screen, and save them to a file
+	-MenuManager: Switches UI screens and holds button functions
+	-ShopManager: Sets up the shop UI and adds purchases to inventory
+	-UIManagerParent: Parent of Cut- and ShopManager, holds some variables for readability
+
+
+-Kylie Gilde
+kgilde@students.kennesaw.edu
+(Note: I graduate spring 2020 so that may no longer be valid)
+https://gamesbykylie.weebly.com/
