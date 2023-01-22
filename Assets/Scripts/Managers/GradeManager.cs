@@ -152,6 +152,8 @@ public class GradeManager : MonoBehaviour
         int difference2x6 = Mathf.Abs(efficient2x6 - total2x6);
         int difference4x4 = Mathf.Abs(efficient4x4 - total4x4);
 
+        Debug.Log(differencePly);
+
         //Percentage score for each type
         //If they get it really wrong, make sure it doesn't go below 0
         float scorePly = 1 - (differencePly * qtyDifferenceReduction);
@@ -177,8 +179,8 @@ public class GradeManager : MonoBehaviour
 
         //Total score
         float avgScore = (scorePly + score2x4 + score2x6 + score4x4) / 4;
-           // shopPoints = avgScore * shopWeight;
-        shopPoints = differencePly;
+           shopPoints = avgScore * shopWeight;
+
     }
 
     /// <summary>
