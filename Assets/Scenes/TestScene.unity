@@ -1564,7 +1564,7 @@ MonoBehaviour:
   startSelection: {fileID: 438088367}
   assemblySelection: {fileID: 2086937280}
   exampleShores: {fileID: 1491483295}
-  exampleJoists: {fileID: 501321991}
+  exampleJoists: {fileID: 730657012}
   exampleStringers: {fileID: 1935665264}
   exampleSheathing: {fileID: 1455680802}
 --- !u!114 &156698736
@@ -1611,8 +1611,8 @@ MonoBehaviour:
   qtyDifferenceReduction: 0.1
   minimumWaste2x4: 55
   minimumWaste2x6: 0
-  minimumWaste4x4: 54.648
-  minimumWastePlywood: 20
+  minimumWaste4x4: 56.3
+  minimumWastePlywood: 84
   correctLayers: 02000000030000000000000001000000
   secondsForGrading:
   - 600
@@ -4535,17 +4535,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3355833368560029808, guid: 15b417746276c4a7ba8143fc312cfb01, type: 3}
   m_PrefabInstance: {fileID: 491332164}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &501321991 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 577493568122937271, guid: c3be2cbdd8957d149a03c3f64a2b8028, type: 3}
-  m_PrefabInstance: {fileID: 9124166539218842269}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97490776580a776498495f93dd83d134, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &522699680 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4045511425552236806, guid: 596e57461dfbd144ba053c951ee1e46b, type: 3}
@@ -15819,7 +15808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2056939315
 Transform:
   m_ObjectHideFlags: 0
@@ -15828,7 +15817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056939314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.662106, y: -3.3605256, z: -37.217846}
+  m_LocalPosition: {x: 42.3, y: -3.3605256, z: -37.217846}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 730657011}
@@ -17426,7 +17415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9124166539641157451, guid: c3be2cbdd8957d149a03c3f64a2b8028, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3be2cbdd8957d149a03c3f64a2b8028, type: 3}

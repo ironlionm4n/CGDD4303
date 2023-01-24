@@ -29,7 +29,7 @@ public class GradeManager : MonoBehaviour
     public float qtyDifferenceReduction = .1f;
 
     [Header("Minimum Waste Amounts")]
-   // public float minimumWastePlywood = 84;
+   //public float minimumWastePlywood = 84;
     public float minimumWaste2x4 = 55;
     public float minimumWaste2x6 = 0;
     public float minimumWaste4x4 = 56.30f;
@@ -189,8 +189,7 @@ public class GradeManager : MonoBehaviour
     private void CutPointsCalculation()
     {
         //Percent of waste related to the minimum waste
-        //float percentWastePly = Percent(minimumWastePlywood, wastePlywood);
-        float percentWastePly = Percent(84, wastePlywood);
+        float percentWastePly = Percent(minimumWastePlywood, wastePlywood);
         float percentWaste2x4 = Percent(minimumWaste2x4, waste2x4);
         float percentWaste2x6 = Percent(minimumWaste2x6, waste2x6);
         float percentWaste4x4 = Percent(minimumWaste4x4, waste4x4);
@@ -198,7 +197,7 @@ public class GradeManager : MonoBehaviour
         float tripReduction = shopVisits * extraShopReduction;
 
         float avgWaste = (percentWastePly + percentWaste2x4 + percentWaste2x6 + percentWaste4x4) / 4;
-
+        Debug.Log(avgWaste);
         // cutPoints = (avgWaste - tripReduction) * cutWeight;
         // cutPoints = (avgWaste) * cutWeight * (1- tripReduction);
         //  cutPoints = (avgWaste) * cutWeight;

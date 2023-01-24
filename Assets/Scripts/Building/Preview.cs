@@ -70,7 +70,7 @@ public class Preview : MonoBehaviour
             {
                 if (sp.InRange(transform.position))
                 {
-                    SnapToPoint(sp.transform.position);
+                    SnapToPoint(sp.transform.position, sp);
                     break;
                 }
             }
@@ -141,10 +141,11 @@ public class Preview : MonoBehaviour
     /// "Snaps" the position onto the snap point
     /// </summary>
     /// <param name="snapPos">Position of the snap point</param>
-    public void SnapToPoint(Vector3 snapPos)
+    public void SnapToPoint(Vector3 snapPos, SnapPoint sp)
     {
         buildSys.ToggleMoveWithMouse(false);
         transform.position = snapPos;
+        transform.rotation = sp.transform.rotation;
         isSnapped = true;
         ChangeColor();
     }
