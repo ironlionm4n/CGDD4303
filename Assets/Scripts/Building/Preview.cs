@@ -45,7 +45,7 @@ public class Preview : MonoBehaviour
         ChangeColor();
         
         if(formWorkType == FormWorkType.Wall)
-            ChangeRotation();
+            //ChangeRotation();
         
         //Gets all the snap points in the scene that could be snapped to
         for(int i = 0; i < snapTags.Count; i++)
