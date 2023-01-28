@@ -13,7 +13,8 @@ public class Preview : MonoBehaviour
     [Header("Building")]
     public BuiltObject builtVersion;
     public PositionMesh mesh;
-
+    public FormWorkType formWorkType = FormWorkType.Wall;
+    
     [Header("Movement and Snapping")]
     public LayerMask raycastLayers;
     public Material snappedMat;
@@ -42,7 +43,10 @@ public class Preview : MonoBehaviour
             rend = GetComponentInChildren<MeshRenderer>();
         }
         ChangeColor();
-
+        
+        if(formWorkType == FormWorkType.Wall)
+            ChangeRotation();
+        
         //Gets all the snap points in the scene that could be snapped to
         for(int i = 0; i < snapTags.Count; i++)
         {
@@ -60,6 +64,11 @@ public class Preview : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void ChangeRotation()
+    {
+        transform.rotation = Quaternion.Euler(90,0,0);
     }
 
     private void Update()

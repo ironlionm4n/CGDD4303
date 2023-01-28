@@ -1,13 +1,16 @@
 ﻿/*
-HIDE EXAMPLES
-Attached to the parents of each layer in the example build
-Handles hiding and changing the appearance of objects
+
 */
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///   HIDE EXAMPLES
+///   Attached to the parents of each layer in the example build
+///   Handles hiding and changing the appearance of objects
+/// </summary>
 public class HideExamples : MonoBehaviour
 {
     public MeshRenderer[] rends;
