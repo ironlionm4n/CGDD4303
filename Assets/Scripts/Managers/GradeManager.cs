@@ -29,7 +29,7 @@ public class GradeManager : MonoBehaviour
     public float qtyDifferenceReduction = .1f;
 
     [Header("Minimum Waste Amounts")]
-   // public float minimumWastePlywood = 84;
+   //public float minimumWastePlywood = 84;
     public float minimumWaste2x4 = 55;
     public float minimumWaste2x6 = 0;
     public float minimumWaste4x4 = 56.30f;
@@ -152,6 +152,8 @@ public class GradeManager : MonoBehaviour
         int difference2x6 = Mathf.Abs(efficient2x6 - total2x6);
         int difference4x4 = Mathf.Abs(efficient4x4 - total4x4);
 
+        Debug.Log(differencePly);
+
         //Percentage score for each type
         //If they get it really wrong, make sure it doesn't go below 0
         float scorePly = 1 - (differencePly * qtyDifferenceReduction);
@@ -177,8 +179,8 @@ public class GradeManager : MonoBehaviour
 
         //Total score
         float avgScore = (scorePly + score2x4 + score2x6 + score4x4) / 4;
-           // shopPoints = avgScore * shopWeight;
-        shopPoints = differencePly;
+           shopPoints = avgScore * shopWeight;
+
     }
 
     /// <summary>
@@ -187,8 +189,7 @@ public class GradeManager : MonoBehaviour
     private void CutPointsCalculation()
     {
         //Percent of waste related to the minimum waste
-        //float percentWastePly = Percent(minimumWastePlywood, wastePlywood);
-        float percentWastePly = Percent(84, wastePlywood);
+        float percentWastePly = Percent(minimumWastePlywood, wastePlywood);
         float percentWaste2x4 = Percent(minimumWaste2x4, waste2x4);
         float percentWaste2x6 = Percent(minimumWaste2x6, waste2x6);
         float percentWaste4x4 = Percent(minimumWaste4x4, waste4x4);
@@ -196,7 +197,7 @@ public class GradeManager : MonoBehaviour
         float tripReduction = shopVisits * extraShopReduction;
 
         float avgWaste = (percentWastePly + percentWaste2x4 + percentWaste2x6 + percentWaste4x4) / 4;
-
+        Debug.Log(avgWaste);
         // cutPoints = (avgWaste - tripReduction) * cutWeight;
         // cutPoints = (avgWaste) * cutWeight * (1- tripReduction);
         //  cutPoints = (avgWaste) * cutWeight;
