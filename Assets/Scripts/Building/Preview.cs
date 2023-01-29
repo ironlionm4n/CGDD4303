@@ -24,7 +24,7 @@ public class Preview : MonoBehaviour
     private BuildSystem buildSys;
     private BuildManager buildM;
     private InventoryManager im;
-    private int position;
+    public int position;
     private MeshRenderer rend;
     private ConstructionMaterial mat;
     private bool isSnapped = false;
