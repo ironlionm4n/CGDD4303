@@ -154,7 +154,7 @@ public class Preview : MonoBehaviour
     {
         buildSys.ToggleMoveWithMouse(false);
         transform.position = snapPos;
-        transform.rotation = sp.transform.rotation;
+        //transform.rotation = sp.transform.rotation;
         isSnapped = true;
         ChangeColor();
     }

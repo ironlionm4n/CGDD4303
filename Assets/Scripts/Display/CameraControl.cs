@@ -35,6 +35,7 @@ public class CameraControl : MonoBehaviour
 
     void Update()
     {
+        
         //Rotation
         if (Input.GetKey(rotKey) || Input.GetKey(rotKey2))
         {
