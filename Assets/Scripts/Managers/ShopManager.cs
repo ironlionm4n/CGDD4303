@@ -16,6 +16,7 @@ public class ShopManager : UIManagerParent
     public InputField amt2x4;
     public InputField amt2x6;
     public InputField amt4x4;
+    public InputField amtTie;
 
     private void Start()
     {
@@ -63,7 +64,16 @@ public class ShopManager : UIManagerParent
             im.AddEntry(new4x4);
         }
 
-        gm.StoreCheckout(qtyPly, qty2x4, qty2x6, qty4x4);
+        //4x4
+        ConstructionMaterial newTieMat = new ConstructionMaterial(tie, BuildSystem.GetDefaultSize(tie));
+        int qtyTie = amtTie.text == "" ? 0 : int.Parse(amtTie.text);
+        if (qtyTie > 0)
+        {
+            Entry newTie = new Entry(newTieMat, qtyTie);
+            im.AddEntry(newTie);
+        }
+
+        gm.StoreCheckout(qtyPly, qty2x4, qty2x6, qty4x4, qtyTie);
         LeaveShop();
     }
 
@@ -76,6 +86,7 @@ public class ShopManager : UIManagerParent
         amt2x4.text = "0";
         amt2x6.text = "0";
         amt4x4.text = "0";
+        amtTie.text = "0";
 
         mm.SwitchState(MenuManager.State.Main);
     }

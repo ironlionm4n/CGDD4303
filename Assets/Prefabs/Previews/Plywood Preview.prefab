@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   builtVersion: {fileID: 4407067037710912653, guid: 62a55814d9fcf46b5b30b4b74df0e919, type: 3}
   mesh: {fileID: 1547525372866749944}
+  formWorkType: 1
   raycastLayers:
     serializedVersion: 2
     m_Bits: 12288
@@ -21,6 +22,7 @@ MonoBehaviour:
   unsnappedMat: {fileID: 2100000, guid: 5102f319ca2c6ec4189ec147209faaa8, type: 2}
   snapTags:
   - Sheathing_Snap
+  position: 0
 --- !u!1001 &1431964132996807774
 PrefabInstance:
   m_ObjectHideFlags: 0

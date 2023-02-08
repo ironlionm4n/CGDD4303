@@ -29,6 +29,7 @@ public class BuildManager : MonoBehaviour
     public Preview wall_lumber2x4Preview;
     public Preview wall_lumber2x6Preview;
     public Preview wall_lumber4x4Preview;
+    public Preview wall_TiePreview;
 
     [Header("Slab Previews")] public Preview slab_plywoodPreview;
     public Preview slab_lumber2x4Preview;
@@ -116,6 +117,9 @@ public class BuildManager : MonoBehaviour
                         break;
                     case (ConstructionMaterial.Type.Lumber4x4):
                         preview = wall_lumber4x4Preview;
+                        break;
+                    case (ConstructionMaterial.Type.Tie):
+                        preview = wall_TiePreview;
                         break;
                     default:
                         //Do nothing, it's borked

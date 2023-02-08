@@ -10,7 +10,7 @@ using System;
 
 public class ConstructionMaterial : IComparable
 {
-    public enum Type { Plywood, Lumber2x4, Lumber4x4, Lumber2x6, None}
+    public enum Type { Plywood, Lumber2x4, Lumber4x4, Lumber2x6, Tie, None}
 
     private const float TOLERANCE = 0.01f;
     private const float TWO_INCHES = 2f / 12f;
@@ -45,6 +45,9 @@ public class ConstructionMaterial : IComparable
                 break;
             case (Type.Lumber4x4):
                 size = new Vector3(FOUR_INCHES, FOUR_INCHES, s.z);
+                break;
+            case (Type.Tie):
+                size = new Vector3(0.04f, 3f, 0.04f); //Tie cannot change size
                 break;
             default:
                 size = new Vector3();
@@ -135,6 +138,8 @@ public class ConstructionMaterial : IComparable
                     return "2x6 Lumber";
                 case (Type.Lumber4x4):
                     return "4x4 Lumber";
+                case (Type.Tie):
+                    return "Tie";
                 default:
                     return "None";
             }
@@ -220,7 +225,7 @@ public class ConstructionMaterial : IComparable
                     return (int)(size.z - compare.size.z);
                 }
             }
-            else //4x4
+            else if (type == Type.Lumber4x4)//4x4
             {
                 if (type != compare.type)
                 {
@@ -230,6 +235,10 @@ public class ConstructionMaterial : IComparable
                 {
                     return (int)(size.z - compare.size.z);
                 }
+            }
+            else //Tie
+            {
+                return 1;
             }
         }
     }

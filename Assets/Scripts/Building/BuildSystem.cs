@@ -187,6 +187,7 @@ public class BuildSystem : MonoBehaviour
         //Puts the new preview at the mouse's position
         Vector3 startPos = new Vector3();
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        Debug.Log(preview);
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, preview.raycastLayers))
         {
             startPos = hit.point;
