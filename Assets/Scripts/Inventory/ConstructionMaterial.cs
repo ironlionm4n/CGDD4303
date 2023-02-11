@@ -47,7 +47,7 @@ public class ConstructionMaterial : IComparable
                 size = new Vector3(FOUR_INCHES, FOUR_INCHES, s.z);
                 break;
             case (Type.Tie):
-                size = new Vector3(0.04f, 3f, 0.04f); //Tie cannot change size
+                size = new Vector3(41.5f, 41.5f, 4.15f); //Tie cannot change size
                 break;
             default:
                 size = new Vector3();

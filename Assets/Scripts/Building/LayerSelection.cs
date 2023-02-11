@@ -18,6 +18,7 @@ public class LayerSelection : MonoBehaviour
         Sheathing,
         Shore,
         Stringer,
+        Tie,
         None
     }
 
@@ -39,6 +40,7 @@ public class LayerSelection : MonoBehaviour
     public HideExamples wall_exampleJoists;
     public HideExamples wall_exampleStringers;
     public HideExamples wall_exampleSheathing;
+    public HideExamples wall_ties;
 
     [Header("Column Example Components")] public HideExamples column_exampleShores;
     public HideExamples column_exampleJoists;
@@ -72,6 +74,7 @@ public class LayerSelection : MonoBehaviour
             exampleBuilds[(int) Layer.Joist] = wall_exampleJoists;
             exampleBuilds[(int) Layer.Stringer] = wall_exampleStringers;
             exampleBuilds[(int) Layer.Sheathing] = wall_exampleSheathing;
+            exampleBuilds[(int)Layer.Tie] = wall_ties;
         }
 
         //Adds the layers in order to the two dropdowns

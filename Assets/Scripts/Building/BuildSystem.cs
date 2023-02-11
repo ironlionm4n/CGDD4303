@@ -198,7 +198,11 @@ public class BuildSystem : MonoBehaviour
         previewGameObject = previewScript.gameObject;
         previewScript.Mat = t;
         previewScript.SetPosition(position);
-        previewScript.Resize(t.Size);
+
+        if (t.MaterialType != ConstructionMaterial.Type.Tie)
+        {
+            previewScript.Resize(t.Size);
+        }
         isBuilding = true;
     }
 

@@ -94,8 +94,36 @@ public class Preview : MonoBehaviour
     {
         if(isSnapped)
         {
-            BuiltObject built = Instantiate(builtVersion, transform.position, transform.rotation);
-            built.Resize(mesh.transform.localScale);
+            BuiltObject built;
+
+            if (mat.MaterialType == ConstructionMaterial.Type.Tie)
+            {
+                Vector3 placePosition;
+                //Tie placement was off from where it was snapping due to resize method not being used need to manually adjust
+                if (transform.eulerAngles.y == 90)
+                {
+                    placePosition = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 2.545f); 
+                }
+                else if(transform.eulerAngles.y == 270)
+                {
+                    placePosition = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 2.545f);
+                }
+                else if (transform.eulerAngles.y == 0)
+                {
+                    placePosition = new Vector3(transform.localPosition.x + 2.545f, transform.localPosition.y, transform.localPosition.z);
+                }
+                else
+                {
+                    placePosition = new Vector3(transform.localPosition.x - 2.545f, transform.localPosition.y, transform.localPosition.z); 
+                }
+                built = Instantiate(builtVersion, placePosition, transform.rotation);
+            }
+            else
+            {
+                built = Instantiate(builtVersion, transform.position, transform.rotation);
+                built.Resize(mesh.transform.localScale);
+            }
+
             built.Mat = mat;
             
             buildSys.AddBuiltObject(built);

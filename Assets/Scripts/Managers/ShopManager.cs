@@ -64,7 +64,7 @@ public class ShopManager : UIManagerParent
             im.AddEntry(new4x4);
         }
 
-        //4x4
+        //Tie
         ConstructionMaterial newTieMat = new ConstructionMaterial(tie, BuildSystem.GetDefaultSize(tie));
         int qtyTie = amtTie.text == "" ? 0 : int.Parse(amtTie.text);
         if (qtyTie > 0)
