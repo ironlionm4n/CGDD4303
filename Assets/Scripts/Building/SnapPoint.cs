@@ -3,6 +3,7 @@ SNAP POINT
 A transform for Preview objects to attach to when they get close enough
 */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class SnapPoint : MonoBehaviour
     //Parent prevents previews from trying to snap to themselves
     public GameObject parent;
 
+    public float distanceFromMouse;
+
     /// <summary>
     /// Checks if the given position is within range of the snap point
     /// </summary>
@@ -21,5 +24,10 @@ public class SnapPoint : MonoBehaviour
     public bool InRange(Vector3 pos)
     {
         return (Vector3.Distance(pos, transform.position) <= snapDistance);
+    }
+
+    private void Update()
+    {
+        distanceFromMouse = Vector3.Distance(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 }

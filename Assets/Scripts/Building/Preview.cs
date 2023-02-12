@@ -30,6 +30,7 @@ public class Preview : MonoBehaviour
     private bool isSnapped = false;
 
     private List<SnapPoint> availableSnaps = new List<SnapPoint>();
+    private List<SnapPoint> snapsInRange = new List<SnapPoint>();
     
     private void Start()
     {
@@ -79,11 +80,40 @@ public class Preview : MonoBehaviour
             {
                 if (sp.InRange(transform.position))
                 {
+                    
+                    // add inrange snaps to list
+                    snapsInRange.Add(sp);
+                    // sort list by closest snaps
+                    // snap to closest snap
                     SnapToPoint(sp.transform.position, sp);
                     break;
                 }
             }
+
+            //var closestSnap = GetClosestSnapInRange();
+            //SnapToPoint(closestSnap.transform.position, closestSnap);
+
         }
+    }
+
+    private SnapPoint GetClosestSnapInRange()
+    {
+        var smallestDistanceFoundIndex = 0;
+        for (int i = 0; i < snapsInRange.Count - 1; i++)
+        {
+            smallestDistanceFoundIndex = i;
+            for (int j = i + 1; j < snapsInRange.Count; j++)
+            {
+                if (snapsInRange[j].distanceFromMouse < snapsInRange[smallestDistanceFoundIndex].distanceFromMouse)
+                {
+                    snapsInRange[smallestDistanceFoundIndex] = snapsInRange[j];
+                    smallestDistanceFoundIndex = j;
+                }
+            }
+        }
+        var snapToReturn = snapsInRange[smallestDistanceFoundIndex];
+        snapsInRange.Clear();
+        return snapToReturn;
     }
 
     /// <summary>

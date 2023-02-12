@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &553626914262617573
+--- !u!1 &184900977097275772
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,56 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8326552546702806328}
-  - component: {fileID: 3678616227901846185}
-  m_Layer: 15
-  m_Name: 2x6x10'
-  m_TagString: Stringer
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8326552546702806328
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553626914262617573}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.0274754, y: 0.17050076, z: 0.044112682}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2355886553579640966}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3678616227901846185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553626914262617573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mesh: {fileID: 6006785763362416098}
-  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
-  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
-  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
---- !u!1 &2587411487055245433
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 105599136969217940}
-  - component: {fileID: 3193572128547797949}
+  - component: {fileID: 2310235177669058193}
+  - component: {fileID: 948407472716903096}
   m_Layer: 15
   m_Name: Left Snap
   m_TagString: Stringer_Snap
@@ -65,35 +17,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &105599136969217940
+--- !u!4 &2310235177669058193
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2587411487055245433}
+  m_GameObject: {fileID: 184900977097275772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: -0.5}
+  m_LocalPosition: {x: -1.496, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2355886553579640966}
+  m_Father: {fileID: 128767289042129283}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3193572128547797949
+--- !u!114 &948407472716903096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2587411487055245433}
+  m_GameObject: {fileID: 184900977097275772}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7702ac3189ee604c8d9f6661555510c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   snapDistance: 2
-  parent: {fileID: 553626914262617573}
---- !u!1 &4472785565681142199
+  parent: {fileID: 2798516313923257568}
+--- !u!1 &2263680836792172722
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,49 +53,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2355886553579640966}
-  - component: {fileID: 2063833606288198427}
-  - component: {fileID: 5732703639150953338}
-  - component: {fileID: 39126170578821857}
-  - component: {fileID: 6006785763362416098}
+  - component: {fileID: 128767289042129283}
+  - component: {fileID: 4457585918792057374}
+  - component: {fileID: 7995601184790317695}
+  - component: {fileID: 2446495247131585508}
+  - component: {fileID: 8224928273753648359}
   m_Layer: 15
-  m_Name: Stringer
+  m_Name: Wale
   m_TagString: Stringer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2355886553579640966
+--- !u!4 &128767289042129283
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4472785565681142199}
+  m_GameObject: {fileID: 2263680836792172722}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.167, y: 0.5, z: 10}
   m_Children:
-  - {fileID: 5173045224777954379}
-  - {fileID: 105599136969217940}
-  m_Father: {fileID: 8326552546702806328}
+  - {fileID: 7400234720784268622}
+  - {fileID: 2310235177669058193}
+  m_Father: {fileID: 5977798501334533181}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
---- !u!33 &2063833606288198427
+--- !u!33 &4457585918792057374
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4472785565681142199}
+  m_GameObject: {fileID: 2263680836792172722}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5732703639150953338
+--- !u!23 &7995601184790317695
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4472785565681142199}
+  m_GameObject: {fileID: 2263680836792172722}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -178,26 +130,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &39126170578821857
+--- !u!65 &2446495247131585508
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4472785565681142199}
+  m_GameObject: {fileID: 2263680836792172722}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6006785763362416098
+--- !u!114 &8224928273753648359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4472785565681142199}
+  m_GameObject: {fileID: 2263680836792172722}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc6b898c6c22354a9365d62c2ea54d5, type: 3}
@@ -207,7 +159,7 @@ MonoBehaviour:
   axis: 1
   longestOnZ: 0
   useZToPosition: 1
---- !u!1 &7301784065319474086
+--- !u!1 &2798516313923257568
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,8 +167,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5173045224777954379}
-  - component: {fileID: 7704717833844103266}
+  - component: {fileID: 5977798501334533181}
+  - component: {fileID: 1330147954759285676}
+  m_Layer: 15
+  m_Name: Wale
+  m_TagString: Stringer
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5977798501334533181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2798516313923257568}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.9725246, y: 0.17050076, z: 0.044112682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 128767289042129283}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1330147954759285676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2798516313923257568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 8224928273753648359}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
+--- !u!1 &4912748347318180515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7400234720784268622}
+  - component: {fileID: 5446008017312354663}
   m_Layer: 15
   m_Name: Right Snap
   m_TagString: Stringer_Snap
@@ -224,31 +224,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5173045224777954379
+--- !u!4 &7400234720784268622
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7301784065319474086}
+  m_GameObject: {fileID: 4912748347318180515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0.5}
+  m_LocalPosition: {x: -1.496, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2355886553579640966}
+  m_Father: {fileID: 128767289042129283}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7704717833844103266
+--- !u!114 &5446008017312354663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7301784065319474086}
+  m_GameObject: {fileID: 4912748347318180515}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7702ac3189ee604c8d9f6661555510c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   snapDistance: 2
-  parent: {fileID: 553626914262617573}
+  parent: {fileID: 2798516313923257568}

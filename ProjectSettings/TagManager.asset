@@ -15,6 +15,12 @@ TagManager:
   - Shore_Snap
   - Tie
   - Tie_Snap
+  - Strut_Snap
+  - Strut
+  - Wale
+  - Wale_Snap
+  - Stud
+  - Stud_Snap
   layers:
   - Default
   - TransparentFX
