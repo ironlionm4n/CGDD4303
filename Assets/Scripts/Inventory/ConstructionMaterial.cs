@@ -10,7 +10,7 @@ using System;
 
 public class ConstructionMaterial : IComparable
 {
-    public enum Type { Plywood, Lumber2x4, Lumber4x4, Lumber2x6, Tie, None}
+    public enum Type { Plywood, Lumber2x4, Lumber4x4, Lumber2x6, Tie, Strut, None}
 
     private const float TOLERANCE = 0.01f;
     private const float TWO_INCHES = 2f / 12f;
@@ -48,6 +48,9 @@ public class ConstructionMaterial : IComparable
                 break;
             case (Type.Tie):
                 size = new Vector3(41.5f, 41.5f, 4.15f); //Tie cannot change size
+                break;
+            case(Type.Strut):
+                size = new Vector3(FOUR_INCHES, FOUR_INCHES, 20f);
                 break;
             default:
                 size = new Vector3();
