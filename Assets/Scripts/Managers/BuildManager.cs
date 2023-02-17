@@ -115,11 +115,11 @@ public class BuildManager : MonoBehaviour
                     case (ConstructionMaterial.Type.Lumber2x6):
                         preview = wall_lumber2x6Preview;
                         break;
-                    case (ConstructionMaterial.Type.Lumber4x4):
-                        preview = wall_lumber4x4Preview;
-                        break;
                     case (ConstructionMaterial.Type.Tie):
                         preview = wall_TiePreview;
+                        break;
+                    case (ConstructionMaterial.Type.Strut):
+                        preview = wall_lumber4x4Preview;
                         break;
                     default:
                         //Do nothing, it's borked

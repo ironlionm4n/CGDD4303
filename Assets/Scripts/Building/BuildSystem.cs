@@ -181,7 +181,7 @@ public class BuildSystem : MonoBehaviour
 
             //Only reflect the previous rotation if this is the same type of game object
             //There are some edge cases where this won't work but close enough
-            previewRot = Quaternion.identity;
+            previewRot = new Quaternion(preview.transform.rotation.x, preview.transform.rotation.y, preview.transform.rotation.z, preview.transform.rotation.w);
         }
 
         //Puts the new preview at the mouse's position

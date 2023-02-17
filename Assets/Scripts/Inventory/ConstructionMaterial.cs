@@ -143,6 +143,8 @@ public class ConstructionMaterial : IComparable
                     return "4x4 Lumber";
                 case (Type.Tie):
                     return "Tie";
+                case (Type.Strut):
+                    return "Strut";
                 default:
                     return "None";
             }
@@ -239,7 +241,7 @@ public class ConstructionMaterial : IComparable
                     return (int)(size.z - compare.size.z);
                 }
             }
-            else //Tie
+            else //Tie or Strut
             {
                 return 1;
             }
@@ -300,6 +302,12 @@ public class ConstructionMaterial : IComparable
 
                 break;
             case (Type.Lumber4x4):
+                xNum = "4";
+                yNum = "4";
+                zNum = s.z.ToString();
+
+                break;
+            case (Type.Strut):
                 xNum = "4";
                 yNum = "4";
                 zNum = s.z.ToString();

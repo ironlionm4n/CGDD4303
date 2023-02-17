@@ -27,6 +27,7 @@ public class UIManagerParent : MonoBehaviour
     protected ConstructionMaterial.Type lumber2x6 = ConstructionMaterial.Type.Lumber2x6;
     protected ConstructionMaterial.Type lumber4x4 = ConstructionMaterial.Type.Lumber4x4;
     protected ConstructionMaterial.Type tie = ConstructionMaterial.Type.Tie;
+    protected ConstructionMaterial.Type strut = ConstructionMaterial.Type.Strut;
     protected Vector3 defaultPly, default2x4, default2x6, default4x4;
 
     /// <summary>

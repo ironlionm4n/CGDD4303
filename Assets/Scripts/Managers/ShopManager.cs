@@ -17,6 +17,7 @@ public class ShopManager : UIManagerParent
     public InputField amt2x6;
     public InputField amt4x4;
     public InputField amtTie;
+    public InputField amtStrut;
 
     private void Start()
     {
@@ -73,7 +74,16 @@ public class ShopManager : UIManagerParent
             im.AddEntry(newTie);
         }
 
-        gm.StoreCheckout(qtyPly, qty2x4, qty2x6, qty4x4, qtyTie);
+        //Strut
+        ConstructionMaterial newStrutMat = new ConstructionMaterial(strut, BuildSystem.GetDefaultSize(strut));
+        int qtyStrut = amtStrut.text == "" ? 0 : int.Parse(amtStrut.text);
+        if (qtyStrut > 0)
+        {
+            Entry newStrut = new Entry(newStrutMat, qtyStrut);
+            im.AddEntry(newStrut);
+        }
+
+        gm.StoreCheckout(qtyPly, qty2x4, qty2x6, qty4x4, qtyTie, qtyStrut);
         LeaveShop();
     }
 
