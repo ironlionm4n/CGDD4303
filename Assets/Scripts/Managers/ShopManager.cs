@@ -66,21 +66,29 @@ public class ShopManager : UIManagerParent
         }
 
         //Tie
-        ConstructionMaterial newTieMat = new ConstructionMaterial(tie, BuildSystem.GetDefaultSize(tie));
-        int qtyTie = amtTie.text == "" ? 0 : int.Parse(amtTie.text);
-        if (qtyTie > 0)
+        int qtyTie = 0;
+        if (amtTie != null)
         {
-            Entry newTie = new Entry(newTieMat, qtyTie);
-            im.AddEntry(newTie);
+            ConstructionMaterial newTieMat = new ConstructionMaterial(tie, BuildSystem.GetDefaultSize(tie));
+            qtyTie = amtTie.text == "" ? 0 : int.Parse(amtTie.text);
+            if (qtyTie > 0)
+            {
+                Entry newTie = new Entry(newTieMat, qtyTie);
+                im.AddEntry(newTie);
+            }
         }
 
         //Strut
-        ConstructionMaterial newStrutMat = new ConstructionMaterial(strut, BuildSystem.GetDefaultSize(strut));
-        int qtyStrut = amtStrut.text == "" ? 0 : int.Parse(amtStrut.text);
-        if (qtyStrut > 0)
+        int qtyStrut = 0;
+        if (amtStrut != null)
         {
-            Entry newStrut = new Entry(newStrutMat, qtyStrut);
-            im.AddEntry(newStrut);
+            ConstructionMaterial newStrutMat = new ConstructionMaterial(strut, BuildSystem.GetDefaultSize(strut));
+            qtyStrut = amtStrut.text == "" ? 0 : int.Parse(amtStrut.text);
+            if (qtyStrut > 0)
+            {
+                Entry newStrut = new Entry(newStrutMat, qtyStrut);
+                im.AddEntry(newStrut);
+            }
         }
 
         gm.StoreCheckout(qtyPly, qty2x4, qty2x6, qty4x4, qtyTie, qtyStrut);
@@ -96,7 +104,16 @@ public class ShopManager : UIManagerParent
         amt2x4.text = "0";
         amt2x6.text = "0";
         amt4x4.text = "0";
-        amtTie.text = "0";
+
+        if (amtTie != null)
+        {
+            amtTie.text = "0";
+        }
+
+        if(amtStrut != null)
+        {
+            amtStrut.text = "0";
+        }
 
         mm.SwitchState(MenuManager.State.Main);
     }
