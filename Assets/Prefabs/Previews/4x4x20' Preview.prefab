@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6058201420602906153}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 6.79, z: -6.9}
   m_LocalScale: {x: 0.33, y: 0.33, z: 20}
   m_Children: []
   m_Father: {fileID: 7023085192968578449}
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc6b898c6c22354a9365d62c2ea54d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  center: 1
+  center: 2
   axis: 0
   longestOnZ: 0
   useZToPosition: 0
@@ -122,7 +122,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7023085192968578449}
   - component: {fileID: 2390202655785357837}
-  - component: {fileID: 4522733414610916147}
   m_Layer: 2
   m_Name: 4x4x20' Preview
   m_TagString: Shore
@@ -168,18 +167,3 @@ MonoBehaviour:
   snapTags:
   - Shore_Snap
   position: 0
---- !u!114 &4522733414610916147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9143479245855584339}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 286022a5bc539684093154f8013d557a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xRotateAmount: 45
-  yRotateAmount: 0
-  zRotateAmount: 0

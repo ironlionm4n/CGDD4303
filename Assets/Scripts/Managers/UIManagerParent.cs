@@ -28,7 +28,7 @@ public class UIManagerParent : MonoBehaviour
     protected ConstructionMaterial.Type lumber4x4 = ConstructionMaterial.Type.Lumber4x4;
     protected ConstructionMaterial.Type tie = ConstructionMaterial.Type.Tie;
     protected ConstructionMaterial.Type strut = ConstructionMaterial.Type.Strut;
-    protected Vector3 defaultPly, default2x4, default2x6, default4x4;
+    protected Vector3 defaultPly, default2x4, default2x6, default4x4, defaultStrut;
 
     /// <summary>
     /// Initializes the important values for the children
@@ -52,6 +52,7 @@ public class UIManagerParent : MonoBehaviour
         default2x4 = BuildSystem.GetDefaultSize(lumber2x4);
         default2x6 = BuildSystem.GetDefaultSize(lumber2x6);
         default4x4 = BuildSystem.GetDefaultSize(lumber4x4);
+        defaultPly = BuildSystem.GetDefaultSize(strut);
     }
 
     /// <summary>

@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class PositionMesh : MonoBehaviour
 {
-    public enum CenterPosition { BottomLeftCenter, BottomCenterCenter}
+    public enum CenterPosition { BottomLeftCenter, BottomCenterCenter, StrutCenter}
     public enum RotationAxis { X, Y, Z}
 
     public CenterPosition center;
@@ -60,6 +60,8 @@ public class PositionMesh : MonoBehaviour
                 break;
             case (CenterPosition.BottomCenterCenter):
                 transform.localPosition = new Vector3(0f, y, 0f);
+                break;
+            case (CenterPosition.StrutCenter):
                 break;
         }
 
