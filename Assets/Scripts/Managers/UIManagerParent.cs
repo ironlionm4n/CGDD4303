@@ -52,7 +52,7 @@ public class UIManagerParent : MonoBehaviour
         default2x4 = BuildSystem.GetDefaultSize(lumber2x4);
         default2x6 = BuildSystem.GetDefaultSize(lumber2x6);
         default4x4 = BuildSystem.GetDefaultSize(lumber4x4);
-        defaultPly = BuildSystem.GetDefaultSize(strut);
+        defaultStrut = BuildSystem.GetDefaultSize(strut);
     }
 
     /// <summary>

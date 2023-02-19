@@ -18662,6 +18662,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 4x4 Row
       objectReference: {fileID: 0}
+    - target: {fileID: 3573077260760393173, guid: 596e57461dfbd144ba053c951ee1e46b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3735672256581510646, guid: 596e57461dfbd144ba053c951ee1e46b, type: 3}
       propertyPath: m_Text
       value: 4x4
@@ -20276,7 +20280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3118837008368746180, guid: 596e57461dfbd144ba053c951ee1e46b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -43
+      value: 1.3999863
       objectReference: {fileID: 0}
     - target: {fileID: 3118837008368746180, guid: 596e57461dfbd144ba053c951ee1e46b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

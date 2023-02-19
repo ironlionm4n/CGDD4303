@@ -124,7 +124,11 @@ public class CutManager : UIManagerParent
         SetDropdownValues((int)default2x4.z - 1, length2x4Dropdown, false, 1);
         SetDropdownValues((int)default2x6.z - 1, length2x6Dropdown, false, 1);
         SetDropdownValues((int)default4x4.z - 1, length4x4Dropdown, false, 1);
-        SetDropdownValues((int)defaultStrut.z - 1, lengthStrutDropdown, false, 1);
+
+        if (lengthStrutDropdown != null)
+        {
+            SetDropdownValues((int)defaultStrut.z - 1, lengthStrutDropdown, false, 1);
+        }
     }
 
     /// <summary>
@@ -136,7 +140,11 @@ public class CutManager : UIManagerParent
         SetDropdownValues(qty2x4, amt2x4Dropdown, true);
         SetDropdownValues(qty2x6, amt2x6Dropdown, true);
         SetDropdownValues(qty4x4, amt4x4Dropdown, true);
-        SetDropdownValues(qtySrut, amtStrutDropdown, true);
+
+        if (amtStrutDropdown != null)
+        {
+            SetDropdownValues(qtySrut, amtStrutDropdown, true);
+        }
     }
 
     /// <summary>
@@ -199,11 +207,14 @@ public class CutManager : UIManagerParent
         float waste4x4 = (default4x4.z - size4x4.z) * num4x4;
 
         //Strut
-        Vector3 sizeStrut = new Vector3(defaultStrut.x, defaultStrut.y, DropdownToNum(lengthStrutDropdown, (int)defaultStrut.z - 1, 1, false));
-        int numStrut = DropdownToNum(amtStrutDropdown, qtySrut, 0, true);
-        Debug.Log(numStrut);
-        ChangeInventory(eStrut, sizeStrut, numStrut);
-        float wasteStrut = 0; //Need to  calculate waste
+        if (lengthStrutDropdown != null)
+        {
+            Vector3 sizeStrut = new Vector3(defaultStrut.x, defaultStrut.y, DropdownToNum(lengthStrutDropdown, (int)defaultStrut.z - 1, 1, false));
+            int numStrut = DropdownToNum(amtStrutDropdown, qtySrut, 0, true);
+            Debug.Log(numStrut);
+            ChangeInventory(eStrut, sizeStrut, numStrut);
+            float wasteStrut = 0; //Need to  calculate waste
+        }
 
         gm.CutCheckout(wastePly, waste2x4, waste2x6, waste4x4);
         LeaveCutting();
