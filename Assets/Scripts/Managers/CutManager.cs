@@ -27,6 +27,7 @@ public class CutManager : UIManagerParent
     public Dropdown length4x4Dropdown;
     public Dropdown lengthStrutDropdown;
     public PositiveInputField length4x4Decimal;
+    public PositiveInputField shore4x4Decimal;
 
     [Header("QTY Dropdowns")]
     public Dropdown amtPlyDropdown;
@@ -209,7 +210,7 @@ public class CutManager : UIManagerParent
         //Strut
         if (lengthStrutDropdown != null)
         {
-            Vector3 sizeStrut = new Vector3(defaultStrut.x, defaultStrut.y, DropdownToNum(lengthStrutDropdown, (int)defaultStrut.z - 1, 1, false));
+            Vector3 sizeStrut = new Vector3(defaultStrut.x, defaultStrut.y, float.Parse(DropdownToNum(lengthStrutDropdown, (int)defaultStrut.z - 1, 1, false)+"."+shore4x4Decimal.text));
             int numStrut = DropdownToNum(amtStrutDropdown, qtySrut, 0, true);
             ChangeInventory(eStrut, sizeStrut, numStrut);
             float wasteStrut = 0; //Need to  calculate waste
@@ -227,6 +228,7 @@ public class CutManager : UIManagerParent
     /// <param name="amt">How many to cut</param>
     private void ChangeInventory(Entry use, Vector3 size, int amt)
     {
+        
         if(amt > 0)
         {
             im.UseItem(use, amt);
