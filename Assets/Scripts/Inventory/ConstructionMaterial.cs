@@ -50,7 +50,7 @@ public class ConstructionMaterial : IComparable
                 size = new Vector3(41.5f, 41.5f, 4.15f); //Tie cannot change size
                 break;
             case(Type.Strut):
-                size = new Vector3(FOUR_INCHES, FOUR_INCHES, 20f);
+                size = new Vector3(FOUR_INCHES, FOUR_INCHES, s.z);
                 break;
             default:
                 size = new Vector3();
@@ -241,7 +241,30 @@ public class ConstructionMaterial : IComparable
                     return (int)(size.z - compare.size.z);
                 }
             }
-            else //Tie or Strut
+            else if(type == Type.Strut) //Strut
+            {
+                if (compare.type == Type.Lumber2x4)
+                {
+                    return 1;
+                }
+                else if (compare.type == Type.Lumber2x6)
+                {
+                    return 1;
+                }
+                else if (compare.type == Type.Lumber4x4)
+                {
+                    return 1;
+                }
+                else if(compare.type == Type.Tie)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return (int)(size.z - compare.size.z);
+                }
+            }
+            else //Tie
             {
                 return 1;
             }

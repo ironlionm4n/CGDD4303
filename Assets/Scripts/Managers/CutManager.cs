@@ -211,7 +211,6 @@ public class CutManager : UIManagerParent
         {
             Vector3 sizeStrut = new Vector3(defaultStrut.x, defaultStrut.y, DropdownToNum(lengthStrutDropdown, (int)defaultStrut.z - 1, 1, false));
             int numStrut = DropdownToNum(amtStrutDropdown, qtySrut, 0, true);
-            Debug.Log(numStrut);
             ChangeInventory(eStrut, sizeStrut, numStrut);
             float wasteStrut = 0; //Need to  calculate waste
         }

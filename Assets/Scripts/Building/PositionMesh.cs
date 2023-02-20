@@ -17,7 +17,7 @@ public class PositionMesh : MonoBehaviour
     public RotationAxis axis;
     public bool longestOnZ = false;
     public bool useZToPosition = false;
-    
+
     /// <summary>
     /// Positions a child relative to its parent for centering regardless of size
     /// </summary>
@@ -65,6 +65,6 @@ public class PositionMesh : MonoBehaviour
                 break;
         }
 
-        
+
     }
 }
