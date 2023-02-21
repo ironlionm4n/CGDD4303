@@ -64,11 +64,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3492044410418968546, guid: fc6677da41b4545599c14fcae1473a1d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3492044410418968546, guid: fc6677da41b4545599c14fcae1473a1d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3492044410418968546, guid: fc6677da41b4545599c14fcae1473a1d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
