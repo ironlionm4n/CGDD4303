@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     }
     public void StartLVLTwo()
     {
-        //SceneManager.LoadScene("TestScene");
+        SceneManager.LoadScene("WallScene");
     }
     public void StartLVLThree()
     {
