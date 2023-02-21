@@ -3,7 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BuildManager
+  - Sheathing
+  - Joist
+  - Stringer
+  - Shore
+  - Sheathing_Snap
+  - Stringer_Snap
+  - Joist_Snap
+  - Shore_Snap
+  - Tie
+  - Tie_Snap
+  - Strut_Snap
+  - Strut
+  - Wale
+  - Wale_Snap
+  - Stud
+  - Stud_Snap
   layers:
   - Default
   - TransparentFX

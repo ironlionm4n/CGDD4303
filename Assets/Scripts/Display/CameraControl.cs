@@ -12,12 +12,14 @@ public class CameraControl : MonoBehaviour
 {
     public Transform lookPos;
     [Header("Rotation")]
-    public KeyCode rotKey = KeyCode.Mouse1;
+    public KeyCode rotKey = KeyCode.LeftShift;
+    public KeyCode rotKey2 = KeyCode.Mouse1;
     public float rotSpeed;
     public Vector2 rotClamp;
 
     [Header("Zoom")]
     public KeyCode zoomKey = KeyCode.LeftControl;
+  
     public float zoomSpeed;
     public Vector2 zoomClamp;
 
@@ -33,8 +35,9 @@ public class CameraControl : MonoBehaviour
 
     void Update()
     {
+        
         //Rotation
-        if (Input.GetKey(rotKey))
+        if (Input.GetKey(rotKey) || Input.GetKey(rotKey2))
         {
             float sideways = Input.GetAxis("Mouse X") * rotSpeed;
             float vertical = Input.GetAxisRaw("Mouse Y") * rotSpeed;

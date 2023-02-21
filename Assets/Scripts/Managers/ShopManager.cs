@@ -16,6 +16,8 @@ public class ShopManager : UIManagerParent
     public InputField amt2x4;
     public InputField amt2x6;
     public InputField amt4x4;
+    public InputField amtTie;
+    public InputField amtStrut;
 
     private void Start()
     {
@@ -63,7 +65,33 @@ public class ShopManager : UIManagerParent
             im.AddEntry(new4x4);
         }
 
-        gm.StoreCheckout(qtyPly, qty2x4, qty2x6, qty4x4);
+        //Tie
+        int qtyTie = 0;
+        if (amtTie != null)
+        {
+            ConstructionMaterial newTieMat = new ConstructionMaterial(tie, BuildSystem.GetDefaultSize(tie));
+            qtyTie = amtTie.text == "" ? 0 : int.Parse(amtTie.text);
+            if (qtyTie > 0)
+            {
+                Entry newTie = new Entry(newTieMat, qtyTie);
+                im.AddEntry(newTie);
+            }
+        }
+
+        //Strut
+        int qtyStrut = 0;
+        if (amtStrut != null)
+        {
+            ConstructionMaterial newStrutMat = new ConstructionMaterial(strut, BuildSystem.GetDefaultSize(strut));
+            qtyStrut = amtStrut.text == "" ? 0 : int.Parse(amtStrut.text);
+            if (qtyStrut > 0)
+            {
+                Entry newStrut = new Entry(newStrutMat, qtyStrut);
+                im.AddEntry(newStrut);
+            }
+        }
+
+        gm.StoreCheckout(qtyPly, qty2x4, qty2x6, qty4x4, qtyTie, qtyStrut);
         LeaveShop();
     }
 
@@ -76,6 +104,16 @@ public class ShopManager : UIManagerParent
         amt2x4.text = "0";
         amt2x6.text = "0";
         amt4x4.text = "0";
+
+        if (amtTie != null)
+        {
+            amtTie.text = "0";
+        }
+
+        if(amtStrut != null)
+        {
+            amtStrut.text = "0";
+        }
 
         mm.SwitchState(MenuManager.State.Main);
     }

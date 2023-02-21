@@ -12,19 +12,40 @@ using UnityEngine.UI;
 
 public class LayerSelection : MonoBehaviour
 {
-    public enum Layer {Joist, Sheathing, Shore, Stringer, None}
+    public enum Layer
+    {
+        Joist,
+        Sheathing,
+        Shore,
+        Stringer,
+        Tie,
+        None
+    }
 
     public Layer currentLayer = Layer.None;
-    public int layerNum = 4;
+    public int wallLayerNum = 5;
+    public int slabLayerNum = 4;
 
     public Dropdown startSelection;
     public Dropdown assemblySelection;
 
-    [Header("Example Components")]
-    public HideExamples exampleShores;
-    public HideExamples exampleJoists;
-    public HideExamples exampleStringers;
-    public HideExamples exampleSheathing;
+    [SerializeField] private BuildManager buildManager;
+
+    [Header("Slab Example Components")] public HideExamples slab_exampleShores;
+    public HideExamples slab_exampleJoists;
+    public HideExamples slab_exampleStringers;
+    public HideExamples slab_exampleSheathing;
+
+    [Header("Wall Example Components")] public HideExamples wall_exampleShores;
+    public HideExamples wall_exampleJoists;
+    public HideExamples wall_exampleStringers;
+    public HideExamples wall_exampleSheathing;
+    public HideExamples wall_ties;
+
+    [Header("Column Example Components")] public HideExamples column_exampleShores;
+    public HideExamples column_exampleJoists;
+    public HideExamples column_exampleStringers;
+    public HideExamples column_exampleSheathing;
 
     private Layer previousLayer;
     private HideExamples[] exampleBuilds;
@@ -36,20 +57,33 @@ public class LayerSelection : MonoBehaviour
         gm = GetComponent<GradeManager>();
         bs = GetComponent<BuildSystem>();
 
-        //Creates an array for easy iteration
-        exampleBuilds = new HideExamples[layerNum];
-        exampleBuilds[(int)Layer.Shore] = exampleShores;
-        exampleBuilds[(int)Layer.Joist] = exampleJoists;
-        exampleBuilds[(int)Layer.Stringer] = exampleStringers;
-        exampleBuilds[(int)Layer.Sheathing] = exampleSheathing;
+        if (buildManager.FormworkType == FormWorkType.Slab)
+        {
+            //Creates an array for easy iteration
+            exampleBuilds = new HideExamples[slabLayerNum];
+            exampleBuilds[(int) Layer.Shore] = slab_exampleShores;
+            exampleBuilds[(int) Layer.Joist] = slab_exampleJoists;
+            exampleBuilds[(int) Layer.Stringer] = slab_exampleStringers;
+            exampleBuilds[(int) Layer.Sheathing] = slab_exampleSheathing;
+        }
+        if (buildManager.FormworkType == FormWorkType.Wall)
+        {
+            //Creates an array for easy iteration
+            exampleBuilds = new HideExamples[wallLayerNum];
+            exampleBuilds[(int) Layer.Shore] = wall_exampleShores;
+            exampleBuilds[(int) Layer.Joist] = wall_exampleJoists;
+            exampleBuilds[(int) Layer.Stringer] = wall_exampleStringers;
+            exampleBuilds[(int) Layer.Sheathing] = wall_exampleSheathing;
+            exampleBuilds[(int)Layer.Tie] = wall_ties;
+        }
 
         //Adds the layers in order to the two dropdowns
         startSelection.options.Clear();
         assemblySelection.options.Clear();
-        for(int i = 0; i < layerNum; i++)
+        for (int i = 0; i < wallLayerNum; i++)
         {
-            startSelection.options.Add(new Dropdown.OptionData(((Layer)i).ToString()));
-            assemblySelection.options.Add(new Dropdown.OptionData(((Layer)i).ToString()));
+            startSelection.options.Add(new Dropdown.OptionData(((Layer) i).ToString()));
+            assemblySelection.options.Add(new Dropdown.OptionData(((Layer) i).ToString()));
         }
     }
 
@@ -62,26 +96,27 @@ public class LayerSelection : MonoBehaviour
         bs.CancelBuild();
         foreach (HideExamples h in exampleBuilds)
         {
-            h.Hide();
+            if(h != null)
+                h.Hide();
         }
+
         if (currentLayer == Layer.None)
         {
-            foreach(HideExamples h in exampleBuilds)
+            foreach (HideExamples h in exampleBuilds)
             {
                 h.Show();
             }
         }
         else
         {
-            for(int i = 0; i < exampleBuilds.Length; i++)
+            for (int i = 0; i < exampleBuilds.Length; i++)
             {
-                if(i == (int)currentLayer)
+                if (i == (int) currentLayer)
                 {
                     exampleBuilds[i].Transparent();
                 }
             }
         }
-
     }
 
     /// <summary>
@@ -100,8 +135,7 @@ public class LayerSelection : MonoBehaviour
     /// <param name="d">Dropdown that changed</param>
     public void DropdownChanged(Dropdown d)
     {
-        currentLayer = (Layer)d.value;
+        currentLayer = (Layer) d.value;
         ChangeLayer();
     }
-
 }

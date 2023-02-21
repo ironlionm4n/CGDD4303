@@ -42,6 +42,7 @@ public class BuildSystem : MonoBehaviour
     private static Vector3 default2x4;
     private static Vector3 default2x6;
     private static Vector3 default4x4;
+    private static Vector3 defaultStrut;
 
     private bool isBuilding = false;
     private bool moveWithMouse = true;
@@ -62,6 +63,7 @@ public class BuildSystem : MonoBehaviour
         default2x4 = new Vector3(TWO_INCHES, FOUR_INCHES, default2x4Size);
         default2x6 = new Vector3(TWO_INCHES, SIX_INCHES, default2x6Size);
         default4x4 = new Vector3(FOUR_INCHES, FOUR_INCHES, default4x4Size);
+        defaultStrut = new Vector3(FOUR_INCHES, FOUR_INCHES, 20);
     }
 
     private void Update()
@@ -164,6 +166,7 @@ public class BuildSystem : MonoBehaviour
                 }
             }
         }
+
     }
 
 
@@ -180,12 +183,13 @@ public class BuildSystem : MonoBehaviour
 
             //Only reflect the previous rotation if this is the same type of game object
             //There are some edge cases where this won't work but close enough
-            previewRot = Quaternion.identity;
+            previewRot = new Quaternion(preview.transform.rotation.x, preview.transform.rotation.y, preview.transform.rotation.z, preview.transform.rotation.w);
         }
 
         //Puts the new preview at the mouse's position
         Vector3 startPos = new Vector3();
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        Debug.Log(preview);
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, preview.raycastLayers))
         {
             startPos = hit.point;
@@ -196,7 +200,11 @@ public class BuildSystem : MonoBehaviour
         previewGameObject = previewScript.gameObject;
         previewScript.Mat = t;
         previewScript.SetPosition(position);
-        previewScript.Resize(t.Size);
+
+        if (t.MaterialType != ConstructionMaterial.Type.Tie)
+        {
+            previewScript.Resize(t.Size);
+        }
         isBuilding = true;
     }
 
@@ -278,6 +286,8 @@ public class BuildSystem : MonoBehaviour
                 return default2x6;
             case (ConstructionMaterial.Type.Lumber4x4):
                 return default4x4;
+            case (ConstructionMaterial.Type.Strut):
+                return defaultStrut;
             default:
                 return Vector3.zero;
         }
