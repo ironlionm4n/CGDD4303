@@ -8,14 +8,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManagerParent : MonoBehaviour
 {
     [Header("Size Labels")]
-    public Text textPly;
-    public Text text2x4;
-    public Text text2x6;
-    public Text text4x4;
+    public TMP_Text textPly;
+    public TMP_Text text2x4;
+    public TMP_Text text2x6;
+    public TMP_Text text4x4;
+
     
     protected InventoryManager im;
     protected GradeManager gm;

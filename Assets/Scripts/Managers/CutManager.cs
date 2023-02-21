@@ -8,32 +8,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CutManager : UIManagerParent
 {
     [Header("Available QTY Text")]
-    public Text qtyPlyText;
-    public Text qty2x4Text;
-    public Text qty2x6Text;
-    public Text qty4x4Text;
+    public TMP_Text qtyPlyText;
+    public TMP_Text qty2x4Text;
+    public TMP_Text qty2x6Text;
+    public TMP_Text qty4x4Text;
 
     //These are dropdowns to prevent the player from cutting the material to longer than it is currently
     //4x4 includes a decimal input, but the ones place is still a dropdown for the same reason
     [Header("Size Inputs")]
-    public Dropdown lengthPlyDropdown;
-    public Dropdown widthPlyDropdown;
-    public Dropdown length2x4Dropdown;
-    public Dropdown length2x6Dropdown;
-    public Dropdown length4x4Dropdown;
+    public TMP_Dropdown lengthPlyDropdown;
+    public TMP_Dropdown widthPlyDropdown;
+    public TMP_Dropdown length2x4Dropdown;
+    public TMP_Dropdown length2x6Dropdown;
+    public TMP_Dropdown length4x4Dropdown;
     public PositiveInputField length4x4Decimal;
 
     [Header("QTY Dropdowns")]
-    public Dropdown amtPlyDropdown;
-    public Dropdown amt2x4Dropdown;
-    public Dropdown amt2x6Dropdown;
-    public Dropdown amt4x4Dropdown;
+    public TMP_Dropdown amtPlyDropdown;
+    public TMP_Dropdown amt2x4Dropdown;
+    public TMP_Dropdown amt2x6Dropdown;
+    public TMP_Dropdown amt4x4Dropdown;
 
-    private Dropdown[] dd;
+    private TMP_Dropdown[] dd;
     private bool initialized = false;
 
     private int qtyPly;
@@ -62,7 +63,7 @@ public class CutManager : UIManagerParent
             SetSizeDropdowns();
             SetAllQTYDropdowns();
 
-            foreach (Dropdown d in dd)
+            foreach (TMP_Dropdown d in dd)
             {
                 d.value = 0;
             }
@@ -95,7 +96,7 @@ public class CutManager : UIManagerParent
     /// </summary>
     private void PopulateDDArray()
     {
-        dd = new Dropdown[9];
+        dd = new TMP_Dropdown[9];
         dd[0] = lengthPlyDropdown;
         dd[1] = widthPlyDropdown;
         dd[2] = length2x4Dropdown;
@@ -139,7 +140,7 @@ public class CutManager : UIManagerParent
     /// <param name="d">The dropdown to set</param>
     /// <param name="ascending">If the options are going from low to high or not</param>
     /// <param name="min">The minimum value</param>
-    private void SetDropdownValues(int value, Dropdown d, bool ascending, int min = 0)
+    private void SetDropdownValues(int value, TMP_Dropdown d, bool ascending, int min = 0)
     {
         d.ClearOptions();
 
@@ -147,14 +148,14 @@ public class CutManager : UIManagerParent
         {
             for(int i = min; i <= value; i++)
             {
-                d.options.Add(new Dropdown.OptionData(i.ToString()));
+                d.options.Add(new TMP_Dropdown.OptionData(i.ToString()));
             }
         }
         else
         {
             for(int i = value; i >= min; i--)
             {
-                d.options.Add(new Dropdown.OptionData(i.ToString()));
+                d.options.Add(new TMP_Dropdown.OptionData(i.ToString()));
             }
         }
 
@@ -219,7 +220,7 @@ public class CutManager : UIManagerParent
     /// <param name="min">Smallest number</param>
     /// <param name="ascending">If the dropdown is low to high or not</param>
     /// <returns>Number corresponding to dropdown's value</returns>
-    private int DropdownToNum(Dropdown d, int max, int min, bool ascending)
+    private int DropdownToNum(TMP_Dropdown d, int max, int min, bool ascending)
     {
         if (ascending)
         {
@@ -249,11 +250,11 @@ public class CutManager : UIManagerParent
         //The label is only updated when the value changes, so we set it to 1 here then 0 when the cutting appears again
         //Adding in the "FILLER" label lets you change the value to 1, because if there's only 1 option the index won't change from 0
         //Without this, the dropdown shows up as blank instead of its 0 label
-        foreach (Dropdown d in dd)
+        foreach (TMP_Dropdown d in dd)
         {
             if (d.options.Count == 1)
             {
-                d.options.Add(new Dropdown.OptionData("FILLER"));
+                d.options.Add(new TMP_Dropdown.OptionData("FILLER"));
             }
             d.value = 1;
         }
