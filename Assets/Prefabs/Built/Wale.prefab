@@ -43,8 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7702ac3189ee604c8d9f6661555510c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snapDistance: 2
+  snapDistance: 0.5
   parent: {fileID: 2798516313923257568}
+  distanceFromMouse: 0
 --- !u!1 &2263680836792172722
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,5 +251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7702ac3189ee604c8d9f6661555510c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snapDistance: 2
+  snapDistance: 0.5
   parent: {fileID: 2798516313923257568}
+  distanceFromMouse: 0
