@@ -69,6 +69,7 @@ public class GradeManager : MonoBehaviour
     private int total4x4 = 0;
     private int totalTie = 0;
     private int totalStrut = 0;
+    private int totalStud = 0;
 
     private float wastePlywood = 0;
     private float waste2x4 = 0;
@@ -109,7 +110,7 @@ public class GradeManager : MonoBehaviour
     /// <param name="twoByFour">Amount of 2x4</param>
     /// <param name="twoBySix">Amount of 2x6</param>
     /// <param name="fourByFour">Amount of 4x4</param>
-    public void StoreCheckout(int ply, int twoByFour, int twoBySix, int fourByFour, int tie, int strut)
+    public void StoreCheckout(int ply, int twoByFour, int twoBySix, int fourByFour, int tie, int strut, int stud)
     {
         totalPlywood += ply;
         total2x4 += twoByFour;
@@ -117,6 +118,7 @@ public class GradeManager : MonoBehaviour
         total4x4 += fourByFour;
         totalTie += tie;
         totalStrut += strut;
+        totalStud += stud;
     }
 
     /// <summary>

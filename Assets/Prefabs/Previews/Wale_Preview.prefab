@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6126747677228502841}
   - component: {fileID: 6126747677228502840}
   m_Layer: 15
-  m_Name: Left Snap
+  m_Name: Left Snap Preview
   m_TagString: Stringer_Snap
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 6126747677950794358}
   - component: {fileID: 6126747677950794353}
   m_Layer: 15
-  m_Name: Right Snap
+  m_Name: Right Snap Preview
   m_TagString: Stringer_Snap
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

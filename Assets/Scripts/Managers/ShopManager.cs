@@ -18,7 +18,8 @@ public class ShopManager : UIManagerParent
     public InputField amt4x4;
     public InputField amtTie;
     public InputField amtStrut;
-
+    public InputField amtStud;
+    
     private void Start()
     {
         Setup();
@@ -90,8 +91,21 @@ public class ShopManager : UIManagerParent
                 im.AddEntry(newStrut);
             }
         }
+        
+        // Stud
+        int qtyStud = 0;
+        if (amtStud != null)
+        {
+            ConstructionMaterial newStudMat = new ConstructionMaterial(stud, BuildSystem.GetDefaultSize(stud));
+            qtyStud = amtStud.text == "" ? 0 : int.Parse(amtStud.text);
+            if (qtyStud > 0)
+            {
+                Entry newStud = new Entry(newStudMat, qtyStud);
+                im.AddEntry(newStud);
+            }
+        }
 
-        gm.StoreCheckout(qtyPly, qty2x4, qty2x6, qty4x4, qtyTie, qtyStrut);
+        gm.StoreCheckout(qtyPly, qty2x4, qty2x6, qty4x4, qtyTie, qtyStrut, qtyStud);
         LeaveShop();
     }
 

@@ -121,8 +121,10 @@ public class BuildManager : MonoBehaviour
                     case (ConstructionMaterial.Type.Strut):
                         preview = wall_lumber4x4Preview;
                         break;
+                    case (ConstructionMaterial.Type.Stud):
+                        preview = wall_lumber2x4Preview;
+                        break;
                     default:
-                        //Do nothing, it's borked
                         break;
                 }
             }

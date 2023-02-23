@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8463438436735794282}
   - component: {fileID: 4796271547423352805}
   m_Layer: 2
-  m_Name: 2x6 Preview
+  m_Name: 2x6 Preview_Wall
   m_TagString: Stringer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,6 +54,7 @@ MonoBehaviour:
   unsnappedMat: {fileID: 2100000, guid: 1d20f93db03b015438b8bd798be0c923, type: 2}
   snapTags:
   - Stringer_Snap
+  position: 0
 --- !u!1 &2671094243349430571
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,8 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7702ac3189ee604c8d9f6661555510c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snapDistance: 2
+  snapDistance: 0.3
   parent: {fileID: 96571999666994359}
+  distanceFromMouse: 0
 --- !u!1 &4101496955957754085
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,5 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7702ac3189ee604c8d9f6661555510c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snapDistance: 2
+  snapDistance: 0.3
   parent: {fileID: 96571999666994359}
+  distanceFromMouse: 0
