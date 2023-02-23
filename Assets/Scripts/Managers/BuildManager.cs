@@ -151,7 +151,7 @@ public class BuildManager : MonoBehaviour
                 }
             }
 
-            buildSystem.CreatePreview(preview, t, position);
+            buildSystem.CreatePreview(preview, t, position, preview.transform.rotation);
         }
     }
 

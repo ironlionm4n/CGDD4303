@@ -207,6 +207,41 @@ public class BuildSystem : MonoBehaviour
         }
         isBuilding = true;
     }
+    public void CreatePreview(Preview preview, ConstructionMaterial t, int position, Quaternion previewRotation)
+    {
+        //If there's already a preview object, destroy it
+        //That way you can switch without having to press cancel each time
+        if(previewGameObject != null)
+        {
+            Destroy(previewGameObject);
+
+            //Only reflect the previous rotation if this is the same type of game object
+            //There are some edge cases where this won't work but close enough
+            //previewRot = new Quaternion(preview.transform.rotation.x, preview.transform.rotation.y, preview.transform.rotation.z, preview.transform.rotation.w);
+        }
+        previewRot = previewRotation;
+
+        //Puts the new preview at the mouse's position
+        Vector3 startPos = new Vector3();
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        Debug.Log(preview);
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f, preview.raycastLayers))
+        {
+            startPos = hit.point;
+        }
+
+        //Sets all the necessary variables
+        previewScript = Instantiate(preview, startPos, previewRot);
+        previewGameObject = previewScript.gameObject;
+        previewScript.Mat = t;
+        previewScript.SetPosition(position);
+
+        if (t.MaterialType != ConstructionMaterial.Type.Tie)
+        {
+            previewScript.Resize(t.Size);
+        }
+        isBuilding = true;
+    }
 
     /// <summary>
     /// Cancels the current build and removes the preview object
