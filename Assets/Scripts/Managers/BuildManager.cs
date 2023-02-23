@@ -10,6 +10,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BuildManager : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class BuildManager : MonoBehaviour
     public GameObject assemblyPopup;
     public Button assemblyButton;
     public Button finalizeButton;
-    public Text timerText;
+    public TMP_Text timerText;
     public GameObject finalizePopup;
 
     public FormWorkType FormworkType;
