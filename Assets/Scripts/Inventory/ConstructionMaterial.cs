@@ -339,6 +339,13 @@ public class ConstructionMaterial : IComparable
                 zNum = s.z.ToString();
 
                 break;
+
+            case (Type.Tie):
+                xNum = "5";
+                yNum = "5";
+                zNum = s.z.ToString();
+
+                break;
             default:
                 return "0'x0'x0'";
         }

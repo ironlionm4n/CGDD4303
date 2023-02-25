@@ -17,6 +17,8 @@ public class UIManagerParent : MonoBehaviour
     public TMP_Text text2x4;
     public TMP_Text text2x6;
     public TMP_Text text4x4;
+    public TMP_Text textStrut;
+    public TMP_Text textTie;
 
     
     protected InventoryManager im;
@@ -31,7 +33,7 @@ public class UIManagerParent : MonoBehaviour
     protected ConstructionMaterial.Type tie = ConstructionMaterial.Type.Tie;
     protected ConstructionMaterial.Type strut = ConstructionMaterial.Type.Strut;
     protected ConstructionMaterial.Type stud = ConstructionMaterial.Type.Stud;
-    protected Vector3 defaultPly, default2x4, default2x6, default4x4, defaultStrut, defaultStud;
+    protected Vector3 defaultPly, default2x4, default2x6, default4x4, defaultStrut, defaultTie;
 
     /// <summary>
     /// Initializes the important values for the children
@@ -56,7 +58,7 @@ public class UIManagerParent : MonoBehaviour
         default2x6 = BuildSystem.GetDefaultSize(lumber2x6);
         default4x4 = BuildSystem.GetDefaultSize(lumber4x4);
         defaultStrut = BuildSystem.GetDefaultSize(strut);
-        defaultStud = BuildSystem.GetDefaultSize(stud);
+        defaultTie = BuildSystem.GetDefaultSize(tie);
     }
 
     /// <summary>
@@ -72,5 +74,15 @@ public class UIManagerParent : MonoBehaviour
         text2x4.text = ConstructionMaterial.SizeToText(lumber2x4, default2x4, true);
         text2x6.text = ConstructionMaterial.SizeToText(lumber2x6, default2x6, true);
         text4x4.text = ConstructionMaterial.SizeToText(lumber4x4, default4x4, true);
+
+        if(textStrut != null)
+        {
+            textStrut.text = ConstructionMaterial.SizeToText(strut, defaultStrut, true);
+        }
+
+        if(textTie != null)
+        {
+            textTie.text = ConstructionMaterial.SizeToText(tie, defaultTie, true);
+        }
     }
 }

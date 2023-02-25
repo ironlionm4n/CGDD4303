@@ -35,6 +35,7 @@ public class BuildSystem : MonoBehaviour
 
     private const float TWO_INCHES = 2f / 12f;
     private const float FOUR_INCHES = 4f / 12f;
+    private const float FIVE_INCHES = 5f / 12f;
     private const float SIX_INCHES = 6f / 12f;
     private const float THREE_QUARTERS_INCH = .75f / 12f;
 
@@ -43,6 +44,7 @@ public class BuildSystem : MonoBehaviour
     private static Vector3 default2x6;
     private static Vector3 default4x4;
     private static Vector3 defaultStrut;
+    private static Vector3 defaultTie;
 
     private bool isBuilding = false;
     private bool moveWithMouse = true;
@@ -64,6 +66,7 @@ public class BuildSystem : MonoBehaviour
         default2x6 = new Vector3(TWO_INCHES, SIX_INCHES, default2x6Size);
         default4x4 = new Vector3(FOUR_INCHES, FOUR_INCHES, default4x4Size);
         defaultStrut = new Vector3(FOUR_INCHES, FOUR_INCHES, 20);
+        defaultTie = new Vector3(FIVE_INCHES, FIVE_INCHES, 3);
     }
 
     private void Update()
@@ -323,6 +326,8 @@ public class BuildSystem : MonoBehaviour
                 return default4x4;
             case (ConstructionMaterial.Type.Strut):
                 return defaultStrut;
+            case (ConstructionMaterial.Type.Tie):
+                return defaultTie;
             default:
                 return Vector3.zero;
         }

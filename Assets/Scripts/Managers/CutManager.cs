@@ -17,6 +17,7 @@ public class CutManager : UIManagerParent
     public TMP_Text qty2x4Text;
     public TMP_Text qty2x6Text;
     public TMP_Text qty4x4Text;
+    public TMP_Text qtyStrutText;
 
     //These are dropdowns to prevent the player from cutting the material to longer than it is currently
     //4x4 includes a decimal input, but the ones place is still a dropdown for the same reason
@@ -112,6 +113,11 @@ public class CutManager : UIManagerParent
         qty2x4Text.text = "x" + qty2x4;
         qty2x6Text.text = "x" + qty2x6;
         qty4x4Text.text = "x" + qty4x4;
+
+        if (qtyStrutText != null)
+        {
+            qtyStrutText.text = "x" + qtySrut;
+        }
     }
 
     /// <summary>
@@ -119,7 +125,7 @@ public class CutManager : UIManagerParent
     /// </summary>
     private void PopulateDDArray()
     {
-        dd = new TMP_Dropdown[9];
+        dd = new TMP_Dropdown[10];
         dd[0] = lengthPlyDropdown;
         dd[1] = widthPlyDropdown;
         dd[2] = length2x4Dropdown;
@@ -129,6 +135,15 @@ public class CutManager : UIManagerParent
         dd[6] = amt2x4Dropdown;
         dd[7] = amt2x6Dropdown;
         dd[8] = amt4x4Dropdown;
+        
+        if(amtStrutDropdown != null)
+        {
+            dd[9] = amtStrutDropdown;
+        }
+        else
+        {
+            dd[9] = amt4x4Dropdown;
+        }
     }
 
     /// <summary>
@@ -226,16 +241,17 @@ public class CutManager : UIManagerParent
         float waste4x4 = (default4x4.z - size4x4.z) * num4x4;
 
         //Strut
+        float wasteStrut = 0;
         if (lengthStrutDropdown != null)
         {
             Vector3 sizeStrut = new Vector3(defaultStrut.x, defaultStrut.y, float.Parse(DropdownToNum(lengthStrutDropdown, (int)defaultStrut.z - 1, 1, false)+"."+shore4x4Decimal.text));
             int numStrut = DropdownToNum(amtStrutDropdown, qtySrut, 0, true);
             ChangeInventory(eStrut, sizeStrut, numStrut);
-            float wasteStrut = 0; //Need to  calculate waste
+            wasteStrut = (defaultStrut.z - sizeStrut.z) * numStrut; //Need to  calculate waste
         }
 
-        gm.CutCheckout(wastePly, waste2x4, waste2x6, waste4x4);
-        LeaveCutting();
+        gm.CutCheckout(wastePly, waste2x4, waste2x6, waste4x4, wasteStrut);
+        ResetDropdowns();
     }
 
     /// <summary>
@@ -297,9 +313,9 @@ public class CutManager : UIManagerParent
         {
             if (d.options.Count == 1)
             {
-                d.options.Add(new TMP_Dropdown.OptionData("FILLER"));
+                d.options.Add(new TMP_Dropdown.OptionData("0"));
             }
-            d.value = 1;
+            d.value = 0;
         }
 
         length4x4Decimal.ClearText();
