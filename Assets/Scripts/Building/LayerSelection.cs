@@ -22,6 +22,16 @@ public class LayerSelection : MonoBehaviour
         None
     }
 
+    public enum WallLayer
+    {
+        Stud,
+        Sheathing,
+        Strut,
+        Wale,
+        Tie,
+        None
+    }
+
     public Layer currentLayer = Layer.None;
     public int wallLayerNum = 5;
     public int slabLayerNum = 4;
@@ -65,6 +75,15 @@ public class LayerSelection : MonoBehaviour
             exampleBuilds[(int) Layer.Joist] = slab_exampleJoists;
             exampleBuilds[(int) Layer.Stringer] = slab_exampleStringers;
             exampleBuilds[(int) Layer.Sheathing] = slab_exampleSheathing;
+
+            //Adds the layers in order to the two dropdowns
+            startSelection.options.Clear();
+            assemblySelection.options.Clear();
+            for (int i = 0; i < slabLayerNum; i++)
+            {
+                startSelection.options.Add(new Dropdown.OptionData(((Layer)i).ToString()));
+                assemblySelection.options.Add(new Dropdown.OptionData(((Layer)i).ToString()));
+            }
         }
         if (buildManager.FormworkType == FormWorkType.Wall)
         {
@@ -75,15 +94,15 @@ public class LayerSelection : MonoBehaviour
             exampleBuilds[(int) Layer.Stringer] = wall_exampleStringers;
             exampleBuilds[(int) Layer.Sheathing] = wall_exampleSheathing;
             exampleBuilds[(int)Layer.Tie] = wall_ties;
-        }
 
-        //Adds the layers in order to the two dropdowns
-        startSelection.options.Clear();
-        assemblySelection.options.Clear();
-        for (int i = 0; i < wallLayerNum; i++)
-        {
-            startSelection.options.Add(new Dropdown.OptionData(((Layer) i).ToString()));
-            assemblySelection.options.Add(new Dropdown.OptionData(((Layer) i).ToString()));
+            //Adds the layers in order to the two dropdowns
+            startSelection.options.Clear();
+            assemblySelection.options.Clear();
+            for (int i = 0; i < wallLayerNum; i++)
+            {
+                startSelection.options.Add(new Dropdown.OptionData(((WallLayer)i).ToString()));
+                assemblySelection.options.Add(new Dropdown.OptionData(((WallLayer)i).ToString()));
+            }
         }
     }
 
