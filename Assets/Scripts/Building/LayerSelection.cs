@@ -7,6 +7,7 @@ Sets non-selected layers to invisible and inactive
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,7 +38,7 @@ public class LayerSelection : MonoBehaviour
     public int slabLayerNum = 4;
 
     public Dropdown startSelection;
-    public Dropdown assemblySelection;
+    public TMP_Dropdown assemblySelection;
 
     [SerializeField] private BuildManager buildManager;
 
@@ -82,7 +83,7 @@ public class LayerSelection : MonoBehaviour
             for (int i = 0; i < slabLayerNum; i++)
             {
                 startSelection.options.Add(new Dropdown.OptionData(((Layer)i).ToString()));
-                assemblySelection.options.Add(new Dropdown.OptionData(((Layer)i).ToString()));
+                assemblySelection.options.Add(new TMP_Dropdown.OptionData(((Layer)i).ToString()));
             }
         }
         if (buildManager.FormworkType == FormWorkType.Wall)
@@ -101,7 +102,7 @@ public class LayerSelection : MonoBehaviour
             for (int i = 0; i < wallLayerNum; i++)
             {
                 startSelection.options.Add(new Dropdown.OptionData(((WallLayer)i).ToString()));
-                assemblySelection.options.Add(new Dropdown.OptionData(((WallLayer)i).ToString()));
+                assemblySelection.options.Add(new TMP_Dropdown.OptionData(((WallLayer)i).ToString()));
             }
         }
     }
@@ -155,6 +156,12 @@ public class LayerSelection : MonoBehaviour
     public void DropdownChanged(Dropdown d)
     {
         currentLayer = (Layer) d.value;
+        ChangeLayer();
+    }
+
+    public void TMPDropdownChanged(TMP_Dropdown dropdown)
+    {
+        currentLayer = (Layer) dropdown.value;
         ChangeLayer();
     }
 }
