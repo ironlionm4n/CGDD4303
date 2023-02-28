@@ -34,8 +34,15 @@ public class CameraFly : MonoBehaviour
             transform.position += transform.forward * vertical * speed * Time.deltaTime;
         }
 
+
+        /*
         transform.position =
-            new Vector3(transform.position.x, Mathf.Max(2f, transform.position.y), transform.position.z);
+            new Vector3(Mathf.Max(-30f, transform.position.x), Mathf.Max(2f, transform.position.y),
+                transform.position.z);
+                */
+        var currentPosition = transform.position;
+        transform.position = new Vector3(Mathf.Clamp(currentPosition.x, -30, 30),
+            Mathf.Clamp(currentPosition.y, 2f, 30f), Mathf.Clamp(currentPosition.z, -35, 35));
 
         if (Input.GetKey(KeyCode.Mouse1))
         {
