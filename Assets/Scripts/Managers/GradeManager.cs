@@ -144,9 +144,9 @@ public class GradeManager : MonoBehaviour
     {
         wastePlywood += plyWaste;
         waste2x4 += twoByFourWaste;
-        waste2x6 = twoBySixWaste;
-        waste4x4 = fourByFourWaste;
-        wasteStrut = strutWaste;
+        waste2x6 += twoBySixWaste;
+        waste4x4 += fourByFourWaste;
+        wasteStrut += strutWaste;
     }
 
     /// <summary>
