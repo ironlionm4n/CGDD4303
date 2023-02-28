@@ -310,6 +310,12 @@ public class GradeManager : MonoBehaviour
     /// <returns>Percentage</returns>
     private float Percent(float efficient, float actual)
     {
+
+        if(efficient == actual)
+        {
+            return 1;
+        }
+
         if(efficient != 0)
         {
             return ( Mathf.Abs(actual - efficient)) / efficient;
