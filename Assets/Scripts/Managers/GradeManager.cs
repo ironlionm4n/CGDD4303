@@ -93,6 +93,8 @@ public class GradeManager : MonoBehaviour
     [Header("Formwork")]
     public Formwork type;
 
+    [SerializeField] private Explode explode;
+
     public enum Formwork
     {
         Slab,
@@ -394,6 +396,7 @@ public class GradeManager : MonoBehaviour
 
         AssemblePointsCalculation();
         totalPoints = shopPoints + cutPoints + assemblePoints;
+      
     }
 
     #endregion
@@ -406,8 +409,16 @@ public class GradeManager : MonoBehaviour
     public void EndGame()
     {
         TotalPointsCalculation();
-        SetScoreUI();
-        SaveToFile();
+
+        if (assemblePoints > 0)
+        {
+            SetScoreUI();
+            SaveToFile();
+        }
+        else
+        {
+            explode.ExplodeBuild();
+        }
     }
 
     /// <summary>
