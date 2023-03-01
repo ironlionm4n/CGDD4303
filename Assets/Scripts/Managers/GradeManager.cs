@@ -412,13 +412,15 @@ public class GradeManager : MonoBehaviour
 
         if (assemblePoints > 0)
         {
-            SetScoreUI();
-            SaveToFile();
+         
         }
         else
         {
-            explode.ExplodeBuild();
+            //explode.ExplodeBuild();
         }
+
+        SetScoreUI();
+        SaveToFile();
     }
 
     /// <summary>
