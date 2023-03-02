@@ -164,4 +164,12 @@ public class LayerSelection : MonoBehaviour
         currentLayer = (Layer) dropdown.value;
         ChangeLayer();
     }
+
+    public void HideAllLayers()
+    {
+        for (int i = 0; i < exampleBuilds.Length; i++)
+        {
+            exampleBuilds[i].gameObject.SetActive(false);
+        }
+    }
 }

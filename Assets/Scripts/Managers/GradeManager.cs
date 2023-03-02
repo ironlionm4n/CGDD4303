@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 using System.IO;
+using System.Collections;
 
 public class GradeManager : MonoBehaviour
 {
@@ -93,7 +94,13 @@ public class GradeManager : MonoBehaviour
     [Header("Formwork")]
     public Formwork type;
 
+    [Header("Explosion")]
     [SerializeField] private Explode explode;
+    [SerializeField] private float suspenseTime = 3f;
+    [SerializeField] private float timeTillResults = 3f;
+
+    [Header("Events")]
+    [SerializeField] private GameEvent hideLayers;
 
     public enum Formwork
     {
@@ -408,17 +415,33 @@ public class GradeManager : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
+        //Disables all layers
+        hideLayers.TriggerEvent();
+
         TotalPointsCalculation();
 
-        if (assemblePoints > 0)
+        StartCoroutine(Suspense());
+    }
+
+    public IEnumerator Suspense()
+    {
+        yield return new WaitForSeconds(suspenseTime);
+
+        if (assemblePoints == 400)
         {
-         
+
+            StartCoroutine(ShowResults());
         }
         else
         {
-            //explode.ExplodeBuild();
+            explode.ExplodeBuild();
+            StartCoroutine(ShowResults());
         }
+    }
 
+    public IEnumerator ShowResults()
+    {
+        yield return new WaitForSeconds(timeTillResults);
         SetScoreUI();
         SaveToFile();
     }
