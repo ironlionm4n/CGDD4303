@@ -228,6 +228,14 @@ public class ConstructionMaterial : IComparable
                 {
                     return -1;
                 }
+                else if(compare.type == Type.Strut)
+                {
+                    return -1;
+                }
+                else if(compare.type == Type.Tie)
+                {
+                    return -1;
+                }
                 else
                 {
                     return (int)(size.z - compare.size.z);
@@ -235,9 +243,17 @@ public class ConstructionMaterial : IComparable
             }
             else if (type == Type.Lumber4x4)//4x4
             {
-                if (type != compare.type)
+                if (type != compare.type && compare.type != Type.Strut && compare.type != Type.Tie)
                 {
                     return 1;
+                }
+                else if(compare.type == Type.Strut)
+                {
+                    return -1;
+                }
+                else if(compare.type == Type.Tie)
+                {
+                    return -1;
                 }
                 else
                 {
@@ -267,7 +283,30 @@ public class ConstructionMaterial : IComparable
                     return (int)(size.z - compare.size.z);
                 }
             }
-            else //Tie
+            else if (type == Type.Tie)//Tie
+            {
+                if (compare.type == Type.Lumber2x4)
+                {
+                    return 1;
+                }
+                else if (compare.type == Type.Lumber2x6)
+                {
+                    return 1;
+                }
+                else if (compare.type == Type.Lumber4x4)
+                {
+                    return 1;
+                }
+                else if (compare.type == Type.Strut)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return (int)(size.z - compare.size.z);
+                }
+            }
+            else
             {
                 return 1;
             }
