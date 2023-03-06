@@ -19,7 +19,6 @@ public class LayerSelection : MonoBehaviour
         Sheathing,
         Shore,
         Stringer,
-        Tie,
         None
     }
 
@@ -33,9 +32,19 @@ public class LayerSelection : MonoBehaviour
         None
     }
 
+    public enum ColumnLayer
+    {
+        Stud,
+        Sheathing,
+        Strut,
+        Clamp,
+        None
+    }
+
     public Layer currentLayer = Layer.None;
     public int wallLayerNum = 5;
     public int slabLayerNum = 4;
+    public int columnLayerNum = 4;
 
     public Dropdown startSelection;
     public TMP_Dropdown assemblySelection;
@@ -54,9 +63,10 @@ public class LayerSelection : MonoBehaviour
     public HideExamples wall_ties;
 
     [Header("Column Example Components")] public HideExamples column_exampleShores;
-    public HideExamples column_exampleJoists;
-    public HideExamples column_exampleStringers;
+    public HideExamples column_exampleStuds;
+    public HideExamples column_exampleStruts;
     public HideExamples column_exampleSheathing;
+    public HideExamples column_exampleClamps;
 
     private Layer previousLayer;
     private HideExamples[] exampleBuilds;
@@ -86,7 +96,7 @@ public class LayerSelection : MonoBehaviour
                 assemblySelection.options.Add(new TMP_Dropdown.OptionData(((Layer)i).ToString()));
             }
         }
-        if (buildManager.FormworkType == FormWorkType.Wall)
+        else if (buildManager.FormworkType == FormWorkType.Wall)
         {
             //Creates an array for easy iteration
             exampleBuilds = new HideExamples[wallLayerNum];
@@ -94,7 +104,7 @@ public class LayerSelection : MonoBehaviour
             exampleBuilds[(int) Layer.Joist] = wall_exampleJoists;
             exampleBuilds[(int) Layer.Stringer] = wall_exampleStringers;
             exampleBuilds[(int) Layer.Sheathing] = wall_exampleSheathing;
-            exampleBuilds[(int)Layer.Tie] = wall_ties;
+            exampleBuilds[(int)WallLayer.Tie] = wall_ties;
 
             //Adds the layers in order to the two dropdowns
             startSelection.options.Clear();
@@ -103,6 +113,23 @@ public class LayerSelection : MonoBehaviour
             {
                 startSelection.options.Add(new Dropdown.OptionData(((WallLayer)i).ToString()));
                 assemblySelection.options.Add(new TMP_Dropdown.OptionData(((WallLayer)i).ToString()));
+            }
+        }
+        else
+        {
+            exampleBuilds = new HideExamples[columnLayerNum];
+            exampleBuilds[(int)ColumnLayer.Strut] = column_exampleStruts;
+            exampleBuilds[(int)ColumnLayer.Stud] = column_exampleStuds;
+            exampleBuilds[(int)ColumnLayer.Sheathing] = column_exampleSheathing;
+            exampleBuilds[(int)ColumnLayer.Clamp] = column_exampleClamps;
+
+            //Adds the layers in order to the two dropdowns
+            startSelection.options.Clear();
+            assemblySelection.options.Clear();
+            for (int i = 0; i < columnLayerNum; i++)
+            {
+                startSelection.options.Add(new Dropdown.OptionData(((ColumnLayer)i).ToString()));
+                assemblySelection.options.Add(new TMP_Dropdown.OptionData(((ColumnLayer)i).ToString()));
             }
         }
     }
