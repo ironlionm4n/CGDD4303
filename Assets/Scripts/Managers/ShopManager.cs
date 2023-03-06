@@ -19,6 +19,7 @@ public class ShopManager : UIManagerParent
     public InputField amtTie;
     public InputField amtStrut;
     public InputField amtStud;
+    public InputField amtClamp;
     
     private void Start()
     {
@@ -92,7 +93,20 @@ public class ShopManager : UIManagerParent
             }
         }
 
-        gm.StoreCheckout(qtyPly, qty2x4, qty2x6, qty4x4, qtyTie, qtyStrut);
+        //Clamp
+        int qtyClamp = 0;
+        if (amtClamp != null)
+        {
+            ConstructionMaterial newClampMaterial = new ConstructionMaterial(clamp, BuildSystem.GetDefaultSize(clamp));
+            qtyClamp = amtClamp.text == "" ? 0 : int.Parse(amtClamp.text);
+            if(qtyClamp > 0)
+            {
+                Entry newClamp = new Entry(newClampMaterial, qtyClamp);
+                im.AddEntry(newClamp);
+            }
+        }
+
+        gm.StoreCheckout(qtyPly, qty2x4, qty2x6, qty4x4, qtyTie, qtyStrut, qtyClamp);
         LeaveShop();
     }
 
@@ -101,10 +115,25 @@ public class ShopManager : UIManagerParent
     /// </summary>
     public void LeaveShop()
     {
-        amtPly.text = "0";
-        amt2x4.text = "0";
-        amt2x6.text = "0";
-        amt4x4.text = "0";
+        if (amtPly != null)
+        {
+            amtPly.text = "0";
+        }
+
+        if (amt2x4 != null)
+        {
+            amt2x4.text = "0";
+        }
+
+        if (amt2x6 != null)
+        {
+            amt2x6.text = "0";
+        }
+
+        if (amt4x4 != null)
+        {
+            amt4x4.text = "0";
+        }
 
         if (amtTie != null)
         {
@@ -114,6 +143,11 @@ public class ShopManager : UIManagerParent
         if(amtStrut != null)
         {
             amtStrut.text = "0";
+        }
+
+        if(amtClamp != null)
+        {
+            amtClamp.text = "0";
         }
 
         mm.SwitchState(MenuManager.State.Main);

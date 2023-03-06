@@ -19,6 +19,7 @@ public class UIManagerParent : MonoBehaviour
     public TMP_Text text4x4;
     public TMP_Text textStrut;
     public TMP_Text textTie;
+    public TMP_Text textClamp;
 
     
     protected InventoryManager im;
@@ -33,7 +34,8 @@ public class UIManagerParent : MonoBehaviour
     protected ConstructionMaterial.Type tie = ConstructionMaterial.Type.Tie;
     protected ConstructionMaterial.Type strut = ConstructionMaterial.Type.Strut;
     protected ConstructionMaterial.Type stud = ConstructionMaterial.Type.Stud;
-    protected Vector3 defaultPly, default2x4, default2x6, default4x4, defaultStrut, defaultTie;
+    protected ConstructionMaterial.Type clamp = ConstructionMaterial.Type.Clamp;
+    protected Vector3 defaultPly, default2x4, default2x6, default4x4, defaultStrut, defaultTie, defaultClamp;
 
     /// <summary>
     /// Initializes the important values for the children
@@ -59,6 +61,7 @@ public class UIManagerParent : MonoBehaviour
         default4x4 = BuildSystem.GetDefaultSize(lumber4x4);
         defaultStrut = BuildSystem.GetDefaultSize(strut);
         defaultTie = BuildSystem.GetDefaultSize(tie);
+        defaultClamp = BuildSystem.GetDefaultSize(clamp);
     }
 
     /// <summary>
@@ -70,10 +73,26 @@ public class UIManagerParent : MonoBehaviour
         {
             SetDefaultSizes();
         }
-        textPly.text = ConstructionMaterial.SizeToText(ply, defaultPly, true);
-        text2x4.text = ConstructionMaterial.SizeToText(lumber2x4, default2x4, true);
-        text2x6.text = ConstructionMaterial.SizeToText(lumber2x6, default2x6, true);
-        text4x4.text = ConstructionMaterial.SizeToText(lumber4x4, default4x4, true);
+
+        if (textPly.text != null)
+        {
+            textPly.text = ConstructionMaterial.SizeToText(ply, defaultPly, true);
+        }
+
+        if (text2x4.text != null)
+        {
+            text2x4.text = ConstructionMaterial.SizeToText(lumber2x4, default2x4, true);
+        }
+
+        if (text2x6.text != null)
+        {
+            text2x6.text = ConstructionMaterial.SizeToText(lumber2x6, default2x6, true);
+        }
+
+        if (text4x4.text != null)
+        {
+            text4x4.text = ConstructionMaterial.SizeToText(lumber4x4, default4x4, true);
+        }
 
         if(textStrut != null)
         {
@@ -83,6 +102,11 @@ public class UIManagerParent : MonoBehaviour
         if(textTie != null)
         {
             textTie.text = ConstructionMaterial.SizeToText(tie, defaultTie, true);
+        }
+
+        if(textClamp != null)
+        {
+            textClamp.text = ConstructionMaterial.SizeToText(clamp, defaultClamp, true);
         }
     }
 }

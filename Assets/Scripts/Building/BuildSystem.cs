@@ -45,6 +45,7 @@ public class BuildSystem : MonoBehaviour
     private static Vector3 default4x4;
     private static Vector3 defaultStrut;
     private static Vector3 defaultTie;
+    private static Vector3 defaultClamp;
 
     private bool isBuilding = false;
     private bool moveWithMouse = true;
@@ -67,6 +68,7 @@ public class BuildSystem : MonoBehaviour
         default4x4 = new Vector3(FOUR_INCHES, FOUR_INCHES, default4x4Size);
         defaultStrut = new Vector3(FOUR_INCHES, FOUR_INCHES, 20);
         defaultTie = new Vector3(FIVE_INCHES, FIVE_INCHES, 3);
+        defaultClamp = new Vector3(1.18f, 0.05f, 0.1f);
     }
 
     private void Update()
@@ -328,6 +330,8 @@ public class BuildSystem : MonoBehaviour
                 return defaultStrut;
             case (ConstructionMaterial.Type.Tie):
                 return defaultTie;
+            case (ConstructionMaterial.Type.Clamp):
+                return defaultClamp;
             default:
                 return Vector3.zero;
         }

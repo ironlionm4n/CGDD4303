@@ -26,20 +26,23 @@ public class BuildManager : MonoBehaviour
 
     public FormWorkType FormworkType;
 
-    [Header("Wall Previews")] public Preview wall_plywoodPreview;
+    [Header("Wall Previews")] 
+    public Preview wall_plywoodPreview;
     public Preview wall_lumber2x4Preview;
     public Preview wall_lumber2x6Preview;
     public Preview wall_lumber4x4Preview;
     public Preview wall_TiePreview;
 
-    [Header("Slab Previews")] public Preview slab_plywoodPreview;
+    [Header("Slab Previews")]
+    public Preview slab_plywoodPreview;
     public Preview slab_lumber2x4Preview;
     public Preview slab_lumber2x6Preview;
     public Preview slab_lumber4x4Preview;
 
-    [Header("Column Previews")] public Preview column_plywoodPreview;
+    [Header("Column Previews")] 
+    public Preview column_plywoodPreview;
     public Preview column_lumber2x4Preview;
-    public Preview column_lumber2x6Preview;
+    public Preview column_clampPreview;
     public Preview column_lumber4x4Preview;
 
     private BuildSystem buildSystem;
@@ -139,10 +142,10 @@ public class BuildManager : MonoBehaviour
                     case (ConstructionMaterial.Type.Lumber2x4):
                         preview = column_lumber2x4Preview;
                         break;
-                    case (ConstructionMaterial.Type.Lumber2x6):
-                        preview = column_lumber2x6Preview;
+                    case (ConstructionMaterial.Type.Clamp):
+                        preview = column_clampPreview;
                         break;
-                    case (ConstructionMaterial.Type.Lumber4x4):
+                    case (ConstructionMaterial.Type.Strut):
                         preview = column_lumber4x4Preview;
                         break;
                     default:
