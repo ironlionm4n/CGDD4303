@@ -484,7 +484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMin.x
@@ -492,7 +492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_SizeDelta.x
@@ -532,11 +532,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3691,6 +3691,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 251308492}
+  - component: {fileID: 251308493}
   m_Layer: 2
   m_Name: 2x4 Preview_Column (2)
   m_TagString: Joist
@@ -3713,6 +3714,22 @@ Transform:
   m_Father: {fileID: 1155582987}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!114 &251308493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251308491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 1474034999}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!1001 &252389735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3930,6 +3947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 280494941}
+  - component: {fileID: 280494942}
   m_Layer: 2
   m_Name: 2x4 Preview_Column (2)
   m_TagString: Joist
@@ -3952,6 +3970,22 @@ Transform:
   m_Father: {fileID: 721956196}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!114 &280494942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280494940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 1775702276}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!1 &283420280
 GameObject:
   m_ObjectHideFlags: 0
@@ -4941,6 +4975,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 341693344}
+  - component: {fileID: 341693345}
   m_Layer: 2
   m_Name: 2x4 Preview_Column
   m_TagString: Joist
@@ -4963,6 +4998,22 @@ Transform:
   m_Father: {fileID: 721956196}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!114 &341693345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341693343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 1447384495}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!1001 &349484659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5760,6 +5811,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 418311688}
+  - component: {fileID: 418311689}
   m_Layer: 2
   m_Name: 2x4 Preview_Column (1)
   m_TagString: Joist
@@ -5782,6 +5834,22 @@ Transform:
   m_Father: {fileID: 1155582987}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!114 &418311689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418311687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 608907183}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!1 &434818468
 GameObject:
   m_ObjectHideFlags: 0
@@ -8366,7 +8434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMin.x
@@ -8374,7 +8442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_SizeDelta.x
@@ -8414,11 +8482,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 762
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8806,6 +8874,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 643249259}
+  - component: {fileID: 643249260}
   m_Layer: 2
   m_Name: 2x4 Preview_Column
   m_TagString: Joist
@@ -8828,6 +8897,22 @@ Transform:
   m_Father: {fileID: 1030576311}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!114 &643249260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643249258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 84845051}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!4 &644876155 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3355833368560029808, guid: 15b417746276c4a7ba8143fc312cfb01, type: 3}
@@ -9253,6 +9338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 663235513}
+  - component: {fileID: 663235514}
   m_Layer: 2
   m_Name: 2x4 Preview_Column (1)
   m_TagString: Joist
@@ -9275,6 +9361,22 @@ Transform:
   m_Father: {fileID: 1030576311}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!114 &663235514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663235512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 649158529}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!1 &664101526
 GameObject:
   m_ObjectHideFlags: 0
@@ -11680,7 +11782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMin.x
@@ -11688,7 +11790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_SizeDelta.x
@@ -11728,11 +11830,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 574
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15504,8 +15606,8 @@ MonoBehaviour:
   - {fileID: 649158531}
   - {fileID: 1977047235}
   - {fileID: 969499553}
-  baseMat: {fileID: 0}
-  hiddenMat: {fileID: 0}
+  baseMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  hiddenMat: {fileID: 2100000, guid: 78f3bc085d112144bbb0dd741eb45a9f, type: 2}
   disable: []
 --- !u!1 &1172417521
 GameObject:
@@ -18236,7 +18338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMin.x
@@ -18244,7 +18346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_SizeDelta.x
@@ -18284,11 +18386,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 198
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -18347,7 +18449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMin.x
@@ -18355,7 +18457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_SizeDelta.x
@@ -18395,11 +18497,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 950
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -20949,7 +21051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMin.x
@@ -20957,7 +21059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_SizeDelta.x
@@ -20997,11 +21099,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 386
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -21545,7 +21647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMin.x
@@ -21553,7 +21655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_SizeDelta.x
@@ -21593,11 +21695,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1138
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7729678710632754119, guid: 8948e6f5e697ead43b420b2aaa8bb041, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22362,7 +22464,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1590585772}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.6661562
+  m_Size: 0.71879786
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -22683,6 +22785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1656542370}
+  - component: {fileID: 1656542371}
   m_Layer: 2
   m_Name: 2x4 Preview_Column
   m_TagString: Joist
@@ -22705,6 +22808,22 @@ Transform:
   m_Father: {fileID: 1155582987}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!114 &1656542371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656542369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 1125696942}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!4 &1658075734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3355833368560029808, guid: 15b417746276c4a7ba8143fc312cfb01, type: 3}
@@ -22966,6 +23085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1665617071}
+  - component: {fileID: 1665617072}
   m_Layer: 2
   m_Name: 2x4 Preview_Column (3)
   m_TagString: Joist
@@ -22988,6 +23108,22 @@ Transform:
   m_Father: {fileID: 1030576311}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!114 &1665617072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665617070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 969499551}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!1001 &1665891968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25126,6 +25262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1812632649}
+  - component: {fileID: 1812632650}
   m_Layer: 2
   m_Name: 2x4 Preview_Column (3)
   m_TagString: Joist
@@ -25148,6 +25285,22 @@ Transform:
   m_Father: {fileID: 721956196}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!114 &1812632650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812632648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 401251654}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!1 &1815676932
 GameObject:
   m_ObjectHideFlags: 0
@@ -25322,6 +25475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1848181234}
+  - component: {fileID: 1848181235}
   m_Layer: 2
   m_Name: 2x4 Preview_Column (2)
   m_TagString: Joist
@@ -25344,6 +25498,22 @@ Transform:
   m_Father: {fileID: 1030576311}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!114 &1848181235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848181233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 1977047233}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!1 &1851182978
 GameObject:
   m_ObjectHideFlags: 0
@@ -26698,6 +26868,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1963398328}
+  - component: {fileID: 1963398329}
   m_Layer: 2
   m_Name: 2x4 Preview_Column (1)
   m_TagString: Joist
@@ -26720,6 +26891,22 @@ Transform:
   m_Father: {fileID: 721956196}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!114 &1963398329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963398327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 1314944127}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!1 &1964793279
 GameObject:
   m_ObjectHideFlags: 0
@@ -28047,6 +28234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2053454191}
+  - component: {fileID: 2053454192}
   m_Layer: 2
   m_Name: 2x4 Preview_Column (3)
   m_TagString: Joist
@@ -28069,6 +28257,22 @@ Transform:
   m_Father: {fileID: 1155582987}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!114 &2053454192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053454190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 965742450}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!1 &2059126055
 GameObject:
   m_ObjectHideFlags: 0
@@ -30343,6 +30547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6875578118967946152}
+  - component: {fileID: 583123009542357046}
   m_Layer: 2
   m_Name: 2x4 Preview_Column (3)
   m_TagString: Joist
@@ -30350,6 +30555,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &583123009542357046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583123009542357045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 3437598741306363040}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!4 &915934234309523806
 Transform:
   m_ObjectHideFlags: 0
@@ -33588,6 +33809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7669090601650497844}
+  - component: {fileID: 4400944627511935658}
   m_Layer: 2
   m_Name: 2x4 Preview_Column (1)
   m_TagString: Joist
@@ -33595,6 +33817,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4400944627511935658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4400944627511935657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 1923086847018733116}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!33 &4457585918313653175
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -42056,6 +42294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4321230705098069901}
+  - component: {fileID: 7819734364254174225}
   m_Layer: 2
   m_Name: 2x4 Preview_Column (2)
   m_TagString: Joist
@@ -42063,6 +42302,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7819734364254174225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7819734364254174224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 5415051228990976133}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!1 &7948502556060242926
 GameObject:
   m_ObjectHideFlags: 0
@@ -42072,6 +42327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4121812225518745715}
+  - component: {fileID: 7948502556060242927}
   m_Layer: 2
   m_Name: 2x4 Preview_Column
   m_TagString: Joist
@@ -42079,6 +42335,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7948502556060242927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7948502556060242926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7ef6b9abe87d944bfdee774b8ddef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 5327096900351238011}
+  regularMat: {fileID: 2100000, guid: cd006a3e237d59142a4d3c76600e501b, type: 2}
+  deletionMat: {fileID: 2100000, guid: 9b298b6dddb562741bc430e907b278a6, type: 2}
+  selectedDeletionMat: {fileID: 2100000, guid: 49b3757549e3f2540ba1ab4c91b3831d, type: 2}
 --- !u!23 &7995601183701333312
 MeshRenderer:
   m_ObjectHideFlags: 0
