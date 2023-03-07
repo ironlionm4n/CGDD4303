@@ -21,6 +21,7 @@ TagManager:
   - Wale_Snap
   - Stud
   - Stud_Snap
+  - Clamp_Snap
   layers:
   - Default
   - TransparentFX

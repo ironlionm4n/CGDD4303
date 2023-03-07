@@ -56,7 +56,7 @@ public class ConstructionMaterial : IComparable
                 size = new Vector3(FOUR_INCHES, FOUR_INCHES, s.z);
                 break;
             case (Type.Clamp):
-                size = new Vector3(1.18f, 0.05f, 0.1f);
+                size = new Vector3(-0.0192f, 0.0017f, 0.0005f);
                 break;
             default:
                 size = new Vector3();
