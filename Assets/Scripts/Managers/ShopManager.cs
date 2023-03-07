@@ -51,11 +51,15 @@ public class ShopManager : UIManagerParent
         
         //2x6
         ConstructionMaterial new2x6Mat = new ConstructionMaterial(lumber2x6, BuildSystem.GetDefaultSize(lumber2x6));
-        int qty2x6 = amt2x6.text == "" ? 0 : int.Parse(amt2x6.text);
-        if(qty2x6 > 0)
+        int qty2x6 = 0;
+        if (amt2x6 != null)
         {
-            Entry new2x6 = new Entry(new2x6Mat, qty2x6);
-            im.AddEntry(new2x6);
+           qty2x6 = amt2x6.text == "" ? 0 : int.Parse(amt2x6.text);
+            if (qty2x6 > 0)
+            {
+                Entry new2x6 = new Entry(new2x6Mat, qty2x6);
+                im.AddEntry(new2x6);
+            }
         }
         
         //4x4

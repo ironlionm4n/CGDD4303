@@ -74,22 +74,22 @@ public class UIManagerParent : MonoBehaviour
             SetDefaultSizes();
         }
 
-        if (textPly.text != null)
+        if (textPly!= null)
         {
             textPly.text = ConstructionMaterial.SizeToText(ply, defaultPly, true);
         }
 
-        if (text2x4.text != null)
+        if (text2x4 != null)
         {
             text2x4.text = ConstructionMaterial.SizeToText(lumber2x4, default2x4, true);
         }
 
-        if (text2x6.text != null)
+        if (text2x6!= null)
         {
             text2x6.text = ConstructionMaterial.SizeToText(lumber2x6, default2x6, true);
         }
 
-        if (text4x4.text != null)
+        if (text4x4 != null)
         {
             text4x4.text = ConstructionMaterial.SizeToText(lumber4x4, default4x4, true);
         }

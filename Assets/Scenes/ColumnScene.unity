@@ -2804,7 +2804,7 @@ GameObject:
   - component: {fileID: 170503863}
   - component: {fileID: 170503862}
   m_Layer: 5
-  m_Name: Lumber 2x6 Label
+  m_Name: Clamp Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8039,10 +8039,10 @@ MonoBehaviour:
   slab_lumber2x4Preview: {fileID: 6242751324354696504, guid: e917f778365f59b4f90d79effd101d84, type: 3}
   slab_lumber2x6Preview: {fileID: 4987929243457978795, guid: a5a6cc561665e2d4b8935000d10881b0, type: 3}
   slab_lumber4x4Preview: {fileID: 1108564293191017243, guid: af34853d87a03b94897b0eb8f556571d, type: 3}
-  column_plywoodPreview: {fileID: 0}
-  column_lumber2x4Preview: {fileID: 0}
-  column_clampPreview: {fileID: 0}
-  column_lumber4x4Preview: {fileID: 0}
+  column_plywoodPreview: {fileID: 6972456008963615391, guid: 9e82b681aee5a744483b7c80dd8dae62, type: 3}
+  column_lumber2x4Preview: {fileID: 6242751324354696504, guid: e917f778365f59b4f90d79effd101d84, type: 3}
+  column_clampPreview: {fileID: 8326825839385618607, guid: c23e6219fe2df7541ace4ce87d8be88b, type: 3}
+  column_lumber4x4Preview: {fileID: 2390202655785357837, guid: 997f0ba76004fae47ae4f9d2742d1ae0, type: 3}
 --- !u!114 &603570268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8749,19 +8749,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textPly: {fileID: 1187549793}
   text2x4: {fileID: 1074962065}
-  text2x6: {fileID: 170503862}
+  text2x6: {fileID: 0}
   text4x4: {fileID: 1805302224}
   textStrut: {fileID: 480357969}
   textTie: {fileID: 1614955886}
-  textClamp: {fileID: 0}
+  textClamp: {fileID: 170503862}
   amtPly: {fileID: 620403583}
   amt2x4: {fileID: 1937465041}
-  amt2x6: {fileID: 1950796328}
+  amt2x6: {fileID: 0}
   amt4x4: {fileID: 1882650610}
   amtTie: {fileID: 933376838}
   amtStrut: {fileID: 1315301634}
   amtStud: {fileID: 0}
-  amtClamp: {fileID: 0}
+  amtClamp: {fileID: 1950796328}
 --- !u!1 &643249258
 GameObject:
   m_ObjectHideFlags: 0
@@ -20098,7 +20098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!223 &1490838052
 Canvas:
   m_ObjectHideFlags: 0
@@ -26712,7 +26712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5336406779474256440, guid: c5fd4b53e6b4f6e479ac61ef9c5290ff, type: 3}
       propertyPath: m_Name
-      value: 2x6 Input
+      value: Clamp Input
       objectReference: {fileID: 0}
     - target: {fileID: 5336406779474256447, guid: c5fd4b53e6b4f6e479ac61ef9c5290ff, type: 3}
       propertyPath: m_Pivot.x

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7635058283241444825}
   - component: {fileID: 3292232399896772198}
   - component: {fileID: 7566764146115222244}
+  - component: {fileID: 7213118383986600951}
   m_Layer: 0
   m_Name: Clamp (2)
   m_TagString: Untagged
@@ -98,6 +99,19 @@ MonoBehaviour:
   axis: 0
   longestOnZ: 0
   useZToPosition: 0
+--- !u!65 &7213118383986600951
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249872657704314}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 200.00002, y: 2359.9995, z: 200}
+  m_Center: {x: 0, y: 1079.9998, z: 1.2278177e-10}
 --- !u!1 &8326825839385618606
 GameObject:
   m_ObjectHideFlags: 0
