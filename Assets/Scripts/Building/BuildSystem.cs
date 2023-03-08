@@ -18,6 +18,7 @@ public class BuildSystem : MonoBehaviour
     [Header("Building Modifiers")]
     public float rotateAmount = 90f;
     public float snapTolerance = 1.5f;
+    public FormWorkType workType;
 
     [Header("Raycasting")]
     public LayerMask deletionLayers;
@@ -78,8 +79,17 @@ public class BuildSystem : MonoBehaviour
         {
             if(previewGameObject != null)
             {
-                previewGameObject.transform.Rotate(0, rotateAmount, 0);
-                previewRot = previewGameObject.transform.rotation;
+                //Column 2x4 needs to face sideways for some of the placements
+                if (workType == FormWorkType.Column && previewGameObject.name.Contains("2x4"))
+                {
+                    previewGameObject.transform.Rotate(0, 0, rotateAmount);
+                    previewRot = previewGameObject.transform.rotation;
+                }
+                else
+                {
+                    previewGameObject.transform.Rotate(0, rotateAmount, 0);
+                    previewRot = previewGameObject.transform.rotation;
+                }
             }
         }
 

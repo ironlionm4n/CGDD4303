@@ -64,11 +64,15 @@ public class ShopManager : UIManagerParent
         
         //4x4
         ConstructionMaterial new4x4Mat = new ConstructionMaterial(lumber4x4, BuildSystem.GetDefaultSize(lumber4x4));
-        int qty4x4 = amt4x4.text == "" ? 0 : int.Parse(amt4x4.text);
-        if(qty4x4 > 0)
+        int qty4x4 = 0;
+        if (amt4x4 != null)
         {
-            Entry new4x4 = new Entry(new4x4Mat, qty4x4);
-            im.AddEntry(new4x4);
+            qty4x4 = amt4x4.text == "" ? 0 : int.Parse(amt4x4.text);
+            if (qty4x4 > 0)
+            {
+                Entry new4x4 = new Entry(new4x4Mat, qty4x4);
+                im.AddEntry(new4x4);
+            }
         }
 
         //Tie
