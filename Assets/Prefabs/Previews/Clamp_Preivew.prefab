@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 8326825839385618607}
   m_Layer: 0
   m_Name: Clamp_Preivew
-  m_TagString: Stud_Snap
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
