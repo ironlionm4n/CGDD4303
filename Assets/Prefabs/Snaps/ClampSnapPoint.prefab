@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7702ac3189ee604c8d9f6661555510c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snapDistance: 2
+  snapDistance: 1
   parent: {fileID: 0}
   distanceFromMouse: 0
