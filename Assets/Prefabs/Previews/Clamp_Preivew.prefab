@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3292232399896772198}
   - component: {fileID: 7566764146115222244}
   - component: {fileID: 7213118383986600951}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Clamp (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6103482624027288078}
   - component: {fileID: 8326825839385618607}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Clamp_Preivew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
