@@ -93,6 +93,19 @@ public class BuildSystem : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            if(previewGameObject != null)
+            {
+                //Column 2x4 needs to face sideways for some of the placements
+                if (workType == FormWorkType.Column && previewGameObject.name.Contains("Plywood Preview_Column"))
+                {
+                    previewGameObject.transform.Rotate(0, 0, rotateAmount);
+                    previewRot = previewGameObject.transform.rotation;
+                }
+            }
+        }
+
         //Cancel
         if (Input.GetKeyDown(cancelKey))
         {
