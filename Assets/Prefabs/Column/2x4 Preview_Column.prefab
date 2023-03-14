@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7feaad6052b22af45a004cd35d374b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  builtVersion: {fileID: 8202821333840306537, guid: fc6677da41b4545599c14fcae1473a1d, type: 3}
+  builtVersion: {fileID: 8202821333840306537, guid: 2bccffe278cdcde4d8fe52a04cae2b26, type: 3}
   mesh: {fileID: 7685926600515425303}
   raycastLayers:
     serializedVersion: 2
