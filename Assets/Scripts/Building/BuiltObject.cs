@@ -33,7 +33,7 @@ public class BuiltObject : MonoBehaviour
     public void Resize(Vector3 s)
     {
         mesh.transform.localScale = s;
-        mesh.Reposition();
+       mesh.Reposition();
     }
 
     /// <summary>

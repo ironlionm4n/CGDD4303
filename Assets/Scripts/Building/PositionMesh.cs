@@ -10,14 +10,14 @@ using UnityEngine;
 
 public class PositionMesh : MonoBehaviour
 {
-    public enum CenterPosition { BottomLeftCenter, BottomCenterCenter}
+    public enum CenterPosition { BottomLeftCenter, BottomCenterCenter, StrutCenter}
     public enum RotationAxis { X, Y, Z}
 
     public CenterPosition center;
     public RotationAxis axis;
     public bool longestOnZ = false;
     public bool useZToPosition = false;
-    
+
     /// <summary>
     /// Positions a child relative to its parent for centering regardless of size
     /// </summary>
@@ -61,8 +61,10 @@ public class PositionMesh : MonoBehaviour
             case (CenterPosition.BottomCenterCenter):
                 transform.localPosition = new Vector3(0f, y, 0f);
                 break;
+            case (CenterPosition.StrutCenter):
+                break;
         }
 
-        
+
     }
 }

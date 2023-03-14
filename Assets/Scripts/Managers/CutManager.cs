@@ -8,40 +8,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CutManager : UIManagerParent
 {
     [Header("Available QTY Text")]
-    public Text qtyPlyText;
-    public Text qty2x4Text;
-    public Text qty2x6Text;
-    public Text qty4x4Text;
+    public TMP_Text qtyPlyText;
+    public TMP_Text qty2x4Text;
+    public TMP_Text qty2x6Text;
+    public TMP_Text qty4x4Text;
+    public TMP_Text qtyStrutText;
 
     //These are dropdowns to prevent the player from cutting the material to longer than it is currently
     //4x4 includes a decimal input, but the ones place is still a dropdown for the same reason
     [Header("Size Inputs")]
-    public Dropdown lengthPlyDropdown;
+
+    /*public Dropdown lengthPlyDropdown;
     public Dropdown widthPlyDropdown;
     public Dropdown length2x4Dropdown;
     public Dropdown length2x6Dropdown;
     public Dropdown length4x4Dropdown;
+    public Dropdown lengthStrutDropdown;*/
+
+    public TMP_Dropdown lengthPlyDropdown;
+    public TMP_Dropdown widthPlyDropdown;
+    public TMP_Dropdown length2x4Dropdown;
+    public TMP_Dropdown length2x6Dropdown;
+    public TMP_Dropdown length4x4Dropdown;
+    public TMP_Dropdown lengthStrutDropdown;
+
     public PositiveInputField length4x4Decimal;
+    public PositiveInputField shore4x4Decimal;
 
     [Header("QTY Dropdowns")]
-    public Dropdown amtPlyDropdown;
+
+    /*public Dropdown amtPlyDropdown;
     public Dropdown amt2x4Dropdown;
     public Dropdown amt2x6Dropdown;
     public Dropdown amt4x4Dropdown;
+    public Dropdown amtStrutDropdown;*/
 
-    private Dropdown[] dd;
+    public TMP_Dropdown amtPlyDropdown;
+    public TMP_Dropdown amt2x4Dropdown;
+    public TMP_Dropdown amt2x6Dropdown;
+    public TMP_Dropdown amt4x4Dropdown;
+    public TMP_Dropdown amtStrutDropdown;
+
+
+    private TMP_Dropdown[] dd;
     private bool initialized = false;
 
     private int qtyPly;
     private int qty2x4;
     private int qty2x6;
     private int qty4x4;
+    private int qtySrut;
 
-    private Entry ePly, e2x4, e2x6, e4x4;
+    private Entry ePly, e2x4, e2x6, e4x4, eStrut;
 
     private void Start()
     {
@@ -62,7 +85,7 @@ public class CutManager : UIManagerParent
             SetSizeDropdowns();
             SetAllQTYDropdowns();
 
-            foreach (Dropdown d in dd)
+            foreach (TMP_Dropdown d in dd)
             {
                 d.value = 0;
             }
@@ -78,16 +101,23 @@ public class CutManager : UIManagerParent
         e2x4 = im.Contains(ConstructionMaterial.Type.Lumber2x4, default2x4);
         e2x6 = im.Contains(ConstructionMaterial.Type.Lumber2x6, default2x6);
         e4x4 = im.Contains(ConstructionMaterial.Type.Lumber4x4, default4x4);
+        eStrut = im.Contains(ConstructionMaterial.Type.Strut, defaultStrut);
 
         qtyPly = ePly != null ? ePly.Qty : 0;
         qty2x4 = e2x4 != null ? e2x4.Qty : 0;
         qty2x6 = e2x6 != null ? e2x6.Qty : 0;
         qty4x4 = e4x4 != null ? e4x4.Qty : 0;
+        qtySrut = eStrut != null ? eStrut.Qty : 0;
 
         qtyPlyText.text = "x" + qtyPly;
         qty2x4Text.text = "x" + qty2x4;
         qty2x6Text.text = "x" + qty2x6;
         qty4x4Text.text = "x" + qty4x4;
+
+        if (qtyStrutText != null)
+        {
+            qtyStrutText.text = "x" + qtySrut;
+        }
     }
 
     /// <summary>
@@ -95,7 +125,7 @@ public class CutManager : UIManagerParent
     /// </summary>
     private void PopulateDDArray()
     {
-        dd = new Dropdown[9];
+        dd = new TMP_Dropdown[10];
         dd[0] = lengthPlyDropdown;
         dd[1] = widthPlyDropdown;
         dd[2] = length2x4Dropdown;
@@ -105,6 +135,15 @@ public class CutManager : UIManagerParent
         dd[6] = amt2x4Dropdown;
         dd[7] = amt2x6Dropdown;
         dd[8] = amt4x4Dropdown;
+        
+        if(amtStrutDropdown != null)
+        {
+            dd[9] = amtStrutDropdown;
+        }
+        else
+        {
+            dd[9] = amt4x4Dropdown;
+        }
     }
 
     /// <summary>
@@ -119,6 +158,11 @@ public class CutManager : UIManagerParent
         SetDropdownValues((int)default2x4.z - 1, length2x4Dropdown, false, 1);
         SetDropdownValues((int)default2x6.z - 1, length2x6Dropdown, false, 1);
         SetDropdownValues((int)default4x4.z - 1, length4x4Dropdown, false, 1);
+
+        if (lengthStrutDropdown != null)
+        {
+            SetDropdownValues((int)defaultStrut.z - 1, lengthStrutDropdown, false, 1);
+        }
     }
 
     /// <summary>
@@ -130,6 +174,11 @@ public class CutManager : UIManagerParent
         SetDropdownValues(qty2x4, amt2x4Dropdown, true);
         SetDropdownValues(qty2x6, amt2x6Dropdown, true);
         SetDropdownValues(qty4x4, amt4x4Dropdown, true);
+
+        if (amtStrutDropdown != null)
+        {
+            SetDropdownValues(qtySrut, amtStrutDropdown, true);
+        }
     }
 
     /// <summary>
@@ -139,7 +188,7 @@ public class CutManager : UIManagerParent
     /// <param name="d">The dropdown to set</param>
     /// <param name="ascending">If the options are going from low to high or not</param>
     /// <param name="min">The minimum value</param>
-    private void SetDropdownValues(int value, Dropdown d, bool ascending, int min = 0)
+    private void SetDropdownValues(int value, TMP_Dropdown d, bool ascending, int min = 0)
     {
         d.ClearOptions();
 
@@ -147,14 +196,14 @@ public class CutManager : UIManagerParent
         {
             for(int i = min; i <= value; i++)
             {
-                d.options.Add(new Dropdown.OptionData(i.ToString()));
+                d.options.Add(new TMP_Dropdown.OptionData(i.ToString()));
             }
         }
         else
         {
             for(int i = value; i >= min; i--)
             {
-                d.options.Add(new Dropdown.OptionData(i.ToString()));
+                d.options.Add(new TMP_Dropdown.OptionData(i.ToString()));
             }
         }
 
@@ -191,8 +240,18 @@ public class CutManager : UIManagerParent
         ChangeInventory(e4x4, size4x4, num4x4);
         float waste4x4 = (default4x4.z - size4x4.z) * num4x4;
 
-        gm.CutCheckout(wastePly, waste2x4, waste2x6, waste4x4);
-        LeaveCutting();
+        //Strut
+        float wasteStrut = 0;
+        if (lengthStrutDropdown != null)
+        {
+            Vector3 sizeStrut = new Vector3(defaultStrut.x, defaultStrut.y, float.Parse(DropdownToNum(lengthStrutDropdown, (int)defaultStrut.z - 1, 1, false)+"."+shore4x4Decimal.text));
+            int numStrut = DropdownToNum(amtStrutDropdown, qtySrut, 0, true);
+            ChangeInventory(eStrut, sizeStrut, numStrut);
+            wasteStrut = (defaultStrut.z - sizeStrut.z) * numStrut; //Need to  calculate waste
+        }
+
+        gm.CutCheckout(wastePly, waste2x4, waste2x6, waste4x4, wasteStrut);
+        ResetDropdowns();
     }
 
     /// <summary>
@@ -203,6 +262,7 @@ public class CutManager : UIManagerParent
     /// <param name="amt">How many to cut</param>
     private void ChangeInventory(Entry use, Vector3 size, int amt)
     {
+        
         if(amt > 0)
         {
             im.UseItem(use, amt);
@@ -219,7 +279,7 @@ public class CutManager : UIManagerParent
     /// <param name="min">Smallest number</param>
     /// <param name="ascending">If the dropdown is low to high or not</param>
     /// <returns>Number corresponding to dropdown's value</returns>
-    private int DropdownToNum(Dropdown d, int max, int min, bool ascending)
+    private int DropdownToNum(TMP_Dropdown d, int max, int min, bool ascending)
     {
         if (ascending)
         {
@@ -249,13 +309,13 @@ public class CutManager : UIManagerParent
         //The label is only updated when the value changes, so we set it to 1 here then 0 when the cutting appears again
         //Adding in the "FILLER" label lets you change the value to 1, because if there's only 1 option the index won't change from 0
         //Without this, the dropdown shows up as blank instead of its 0 label
-        foreach (Dropdown d in dd)
+        foreach (TMP_Dropdown d in dd)
         {
             if (d.options.Count == 1)
             {
-                d.options.Add(new Dropdown.OptionData("FILLER"));
+                d.options.Add(new TMP_Dropdown.OptionData("0"));
             }
-            d.value = 1;
+            d.value = 0;
         }
 
         length4x4Decimal.ClearText();

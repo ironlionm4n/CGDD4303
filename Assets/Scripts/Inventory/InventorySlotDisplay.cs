@@ -7,12 +7,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventorySlotDisplay : MonoBehaviour
 {
-    public Text typeText;
-    public Text sizeText;
-    public Text qtyText;
+    public TMP_Text typeText;
+    public TMP_Text sizeText;
+    public TMP_Text qtyText;
+    
     
     private Entry entry;
     private BuildManager bm;

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   builtVersion: {fileID: 8202821333840306537, guid: fc6677da41b4545599c14fcae1473a1d, type: 3}
   mesh: {fileID: 7851237549306302675}
+  formWorkType: 1
   raycastLayers:
     serializedVersion: 2
     m_Bits: 9216
@@ -21,6 +22,7 @@ MonoBehaviour:
   unsnappedMat: {fileID: 2100000, guid: 1d20f93db03b015438b8bd798be0c923, type: 2}
   snapTags:
   - Joist_Snap
+  position: 0
 --- !u!1001 &3196765318812287033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46,19 +48,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3492044410418968546, guid: fc6677da41b4545599c14fcae1473a1d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3492044410418968546, guid: fc6677da41b4545599c14fcae1473a1d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3492044410418968546, guid: fc6677da41b4545599c14fcae1473a1d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3492044410418968546, guid: fc6677da41b4545599c14fcae1473a1d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3492044410418968546, guid: fc6677da41b4545599c14fcae1473a1d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -78,6 +80,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3050716dbc6ee764c8b15b1823b46a30, type: 2}
     - target: {fileID: 4658978121821982954, guid: fc6677da41b4545599c14fcae1473a1d, type: 3}
       propertyPath: longestOnZ
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4658978121821982954, guid: fc6677da41b4545599c14fcae1473a1d, type: 3}
+      propertyPath: useZToPosition
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7425139963638865023, guid: fc6677da41b4545599c14fcae1473a1d, type: 3}

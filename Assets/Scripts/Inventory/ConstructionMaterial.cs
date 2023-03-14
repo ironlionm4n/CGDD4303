@@ -10,7 +10,7 @@ using System;
 
 public class ConstructionMaterial : IComparable
 {
-    public enum Type { Plywood, Lumber2x4, Lumber4x4, Lumber2x6, None}
+    public enum Type { Plywood, Lumber2x4, Lumber4x4, Lumber2x6, Tie, Strut, Stud, Clamp, None}
 
     private const float TOLERANCE = 0.01f;
     private const float TWO_INCHES = 2f / 12f;
@@ -45,6 +45,18 @@ public class ConstructionMaterial : IComparable
                 break;
             case (Type.Lumber4x4):
                 size = new Vector3(FOUR_INCHES, FOUR_INCHES, s.z);
+                break;
+            case (Type.Tie):
+                size = new Vector3(41.5f, 41.5f, 4.15f); //Tie cannot change size
+                break;
+            case(Type.Stud):
+                size = new Vector3(TWO_INCHES, FOUR_INCHES, 15.0f);
+                break;
+            case(Type.Strut):
+                size = new Vector3(FOUR_INCHES, FOUR_INCHES, s.z);
+                break;
+            case (Type.Clamp):
+                size = new Vector3(-0.0192f, 0.0017f, 0.0005f);
                 break;
             default:
                 size = new Vector3();
@@ -135,6 +147,12 @@ public class ConstructionMaterial : IComparable
                     return "2x6 Lumber";
                 case (Type.Lumber4x4):
                     return "4x4 Lumber";
+                case (Type.Tie):
+                    return "Tie";
+                case (Type.Strut):
+                    return "Strut";
+                case (Type.Clamp):
+                    return "Clamp";
                 default:
                     return "None";
             }
@@ -207,11 +225,23 @@ public class ConstructionMaterial : IComparable
             }
             else if (type == Type.Lumber2x6)
             {
-                if(compare.type == Type.Lumber2x4)
+                if (compare.type == Type.Lumber2x4)
                 {
                     return 1;
                 }
                 else if (compare.type == Type.Lumber4x4)
+                {
+                    return -1;
+                }
+                else if (compare.type == Type.Strut)
+                {
+                    return -1;
+                }
+                else if (compare.type == Type.Tie)
+                {
+                    return -1;
+                }
+                else if(compare.type == Type.Clamp)
                 {
                     return -1;
                 }
@@ -220,9 +250,102 @@ public class ConstructionMaterial : IComparable
                     return (int)(size.z - compare.size.z);
                 }
             }
-            else //4x4
+            else if (type == Type.Lumber4x4)//4x4
             {
-                if (type != compare.type)
+                if (type != compare.type && compare.type != Type.Strut && compare.type != Type.Tie)
+                {
+                    return 1;
+                }
+                else if(compare.type == Type.Strut)
+                {
+                    return -1;
+                }
+                else if(compare.type == Type.Tie)
+                {
+                    return -1;
+                }
+                else if (compare.type == Type.Clamp)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return (int)(size.z - compare.size.z);
+                }
+            }
+            else if(type == Type.Strut) //Strut
+            {
+                if (compare.type == Type.Lumber2x4)
+                {
+                    return 1;
+                }
+                else if (compare.type == Type.Lumber2x6)
+                {
+                    return 1;
+                }
+                else if (compare.type == Type.Lumber4x4)
+                {
+                    return 1;
+                }
+                else if(compare.type == Type.Tie)
+                {
+                    return -1;
+                }
+                else if (compare.type == Type.Clamp)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return (int)(size.z - compare.size.z);
+                }
+            }
+            else if (type == Type.Tie)//Tie
+            {
+                if (compare.type == Type.Lumber2x4)
+                {
+                    return 1;
+                }
+                else if (compare.type == Type.Lumber2x6)
+                {
+                    return 1;
+                }
+                else if (compare.type == Type.Lumber4x4)
+                {
+                    return 1;
+                }
+                else if (compare.type == Type.Strut)
+                {
+                    return 1;
+                }
+                else if(compare.type == Type.Clamp)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return (int)(size.z - compare.size.z);
+                }
+            }
+            else if(type == Type.Clamp)
+            {
+                if (compare.type == Type.Lumber2x4)
+                {
+                    return 1;
+                }
+                else if (compare.type == Type.Lumber2x6)
+                {
+                    return 1;
+                }
+                else if (compare.type == Type.Lumber4x4)
+                {
+                    return 1;
+                }
+                else if (compare.type == Type.Strut)
+                {
+                    return 1;
+                }
+                else if(compare.type == Type.Tie)
                 {
                     return 1;
                 }
@@ -230,6 +353,10 @@ public class ConstructionMaterial : IComparable
                 {
                     return (int)(size.z - compare.size.z);
                 }
+            }
+            else
+            {
+                return 1;
             }
         }
     }
@@ -291,6 +418,26 @@ public class ConstructionMaterial : IComparable
                 xNum = "4";
                 yNum = "4";
                 zNum = s.z.ToString();
+
+                break;
+            case (Type.Strut):
+                xNum = "4";
+                yNum = "4";
+                zNum = s.z.ToString();
+
+                break;
+
+            case (Type.Tie):
+                xNum = "5";
+                yNum = "5";
+                zNum = s.z.ToString();
+
+                break;
+
+            case (Type.Clamp):
+                xNum = "3.875";
+                yNum = "3.875";
+                zNum = "2";
 
                 break;
             default:

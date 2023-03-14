@@ -7,13 +7,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
     [Header("UI")]
     public RectTransform inventoryHolder;
     public InventorySlotDisplay inventorySlot;
-    public Text outOfMaterialsText;
+    public TMP_Text outOfMaterialsText;
     public float textVisibleTime = 1;
     public float textFadeSpeed = .5f;
 

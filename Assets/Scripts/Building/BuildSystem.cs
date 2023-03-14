@@ -18,6 +18,7 @@ public class BuildSystem : MonoBehaviour
     [Header("Building Modifiers")]
     public float rotateAmount = 90f;
     public float snapTolerance = 1.5f;
+    public FormWorkType workType;
 
     [Header("Raycasting")]
     public LayerMask deletionLayers;
@@ -35,6 +36,7 @@ public class BuildSystem : MonoBehaviour
 
     private const float TWO_INCHES = 2f / 12f;
     private const float FOUR_INCHES = 4f / 12f;
+    private const float FIVE_INCHES = 5f / 12f;
     private const float SIX_INCHES = 6f / 12f;
     private const float THREE_QUARTERS_INCH = .75f / 12f;
 
@@ -42,6 +44,9 @@ public class BuildSystem : MonoBehaviour
     private static Vector3 default2x4;
     private static Vector3 default2x6;
     private static Vector3 default4x4;
+    private static Vector3 defaultStrut;
+    private static Vector3 defaultTie;
+    private static Vector3 defaultClamp;
 
     private bool isBuilding = false;
     private bool moveWithMouse = true;
@@ -62,6 +67,9 @@ public class BuildSystem : MonoBehaviour
         default2x4 = new Vector3(TWO_INCHES, FOUR_INCHES, default2x4Size);
         default2x6 = new Vector3(TWO_INCHES, SIX_INCHES, default2x6Size);
         default4x4 = new Vector3(FOUR_INCHES, FOUR_INCHES, default4x4Size);
+        defaultStrut = new Vector3(FOUR_INCHES, FOUR_INCHES, 20);
+        defaultTie = new Vector3(FIVE_INCHES, FIVE_INCHES, 3);
+        defaultClamp = new Vector3(1.18f, 0.05f, 0.1f);
     }
 
     private void Update()
@@ -71,8 +79,34 @@ public class BuildSystem : MonoBehaviour
         {
             if(previewGameObject != null)
             {
-                previewGameObject.transform.Rotate(0, rotateAmount, 0);
-                previewRot = previewGameObject.transform.rotation;
+                //Column 2x4 needs to face sideways for some of the placements
+                if (workType == FormWorkType.Column && previewGameObject.name.Contains("2x4"))
+                {
+                    previewGameObject.transform.Rotate(0, 0, rotateAmount);
+                    previewRot = previewGameObject.transform.rotation;
+                } else if (workType == FormWorkType.Column && previewGameObject.name.Contains("Plywood Preview_Column"))
+                {
+                    previewGameObject.transform.Rotate(rotateAmount,0,0);
+                    previewRot = previewGameObject.transform.rotation;
+                }
+                else
+                {
+                    previewGameObject.transform.Rotate(0, rotateAmount, 0);
+                    previewRot = previewGameObject.transform.rotation;
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            if(previewGameObject != null)
+            {
+                //Column 2x4 needs to face sideways for some of the placements
+                if (workType == FormWorkType.Column && previewGameObject.name.Contains("Plywood Preview_Column"))
+                {
+                    previewGameObject.transform.Rotate(0, 0, rotateAmount);
+                    previewRot = previewGameObject.transform.rotation;
+                }
             }
         }
 
@@ -164,6 +198,7 @@ public class BuildSystem : MonoBehaviour
                 }
             }
         }
+
     }
 
 
@@ -180,12 +215,13 @@ public class BuildSystem : MonoBehaviour
 
             //Only reflect the previous rotation if this is the same type of game object
             //There are some edge cases where this won't work but close enough
-            previewRot = Quaternion.identity;
+            previewRot = new Quaternion(preview.transform.rotation.x, preview.transform.rotation.y, preview.transform.rotation.z, preview.transform.rotation.w);
         }
 
         //Puts the new preview at the mouse's position
         Vector3 startPos = new Vector3();
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        Debug.Log(preview);
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, preview.raycastLayers))
         {
             startPos = hit.point;
@@ -196,7 +232,46 @@ public class BuildSystem : MonoBehaviour
         previewGameObject = previewScript.gameObject;
         previewScript.Mat = t;
         previewScript.SetPosition(position);
-        previewScript.Resize(t.Size);
+
+        if (t.MaterialType != ConstructionMaterial.Type.Tie)
+        {
+            previewScript.Resize(t.Size);
+        }
+        isBuilding = true;
+    }
+    public void CreatePreview(Preview preview, ConstructionMaterial t, int position, Quaternion previewRotation)
+    {
+        //If there's already a preview object, destroy it
+        //That way you can switch without having to press cancel each time
+        if(previewGameObject != null)
+        {
+            Destroy(previewGameObject);
+
+            //Only reflect the previous rotation if this is the same type of game object
+            //There are some edge cases where this won't work but close enough
+            //previewRot = new Quaternion(preview.transform.rotation.x, preview.transform.rotation.y, preview.transform.rotation.z, preview.transform.rotation.w);
+        }
+        previewRot = previewRotation;
+
+        //Puts the new preview at the mouse's position
+        Vector3 startPos = new Vector3();
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        Debug.Log(preview);
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f, preview.raycastLayers))
+        {
+            startPos = hit.point;
+        }
+
+        //Sets all the necessary variables
+        previewScript = Instantiate(preview, startPos, previewRot);
+        previewGameObject = previewScript.gameObject;
+        previewScript.Mat = t;
+        previewScript.SetPosition(position);
+
+        if (t.MaterialType != ConstructionMaterial.Type.Tie)
+        {
+            previewScript.Resize(t.Size);
+        }
         isBuilding = true;
     }
 
@@ -278,6 +353,12 @@ public class BuildSystem : MonoBehaviour
                 return default2x6;
             case (ConstructionMaterial.Type.Lumber4x4):
                 return default4x4;
+            case (ConstructionMaterial.Type.Strut):
+                return defaultStrut;
+            case (ConstructionMaterial.Type.Tie):
+                return defaultTie;
+            case (ConstructionMaterial.Type.Clamp):
+                return defaultClamp;
             default:
                 return Vector3.zero;
         }

@@ -13,7 +13,7 @@ public class Preview : MonoBehaviour
     [Header("Building")]
     public BuiltObject builtVersion;
     public PositionMesh mesh;
-
+    
     [Header("Movement and Snapping")]
     public LayerMask raycastLayers;
     public Material snappedMat;
@@ -23,12 +23,13 @@ public class Preview : MonoBehaviour
     private BuildSystem buildSys;
     private BuildManager buildM;
     private InventoryManager im;
-    private int position;
+    public int position;
     private MeshRenderer rend;
     private ConstructionMaterial mat;
     private bool isSnapped = false;
 
     private List<SnapPoint> availableSnaps = new List<SnapPoint>();
+    private List<SnapPoint> snapsInRange = new List<SnapPoint>();
     
     private void Start()
     {
@@ -42,7 +43,8 @@ public class Preview : MonoBehaviour
             rend = GetComponentInChildren<MeshRenderer>();
         }
         ChangeColor();
-
+        
+        
         //Gets all the snap points in the scene that could be snapped to
         for(int i = 0; i < snapTags.Count; i++)
         {
@@ -62,6 +64,11 @@ public class Preview : MonoBehaviour
         }
     }
 
+    private void ChangeRotation()
+    {
+        transform.rotation = Quaternion.Euler(90,0,0);
+    }
+
     private void Update()
     {
         if (!isSnapped)
@@ -70,11 +77,40 @@ public class Preview : MonoBehaviour
             {
                 if (sp.InRange(transform.position))
                 {
+                    
+                    // add inrange snaps to list
+                    snapsInRange.Add(sp);
+                    // sort list by closest snaps
+                    // snap to closest snap
                     SnapToPoint(sp.transform.position, sp);
                     break;
                 }
             }
+
+            //var closestSnap = GetClosestSnapInRange();
+            //SnapToPoint(closestSnap.transform.position, closestSnap);
+
         }
+    }
+
+    private SnapPoint GetClosestSnapInRange()
+    {
+        var smallestDistanceFoundIndex = 0;
+        for (int i = 0; i < snapsInRange.Count - 1; i++)
+        {
+            smallestDistanceFoundIndex = i;
+            for (int j = i + 1; j < snapsInRange.Count; j++)
+            {
+                if (snapsInRange[j].distanceFromMouse < snapsInRange[smallestDistanceFoundIndex].distanceFromMouse)
+                {
+                    snapsInRange[smallestDistanceFoundIndex] = snapsInRange[j];
+                    smallestDistanceFoundIndex = j;
+                }
+            }
+        }
+        var snapToReturn = snapsInRange[smallestDistanceFoundIndex];
+        snapsInRange.Clear();
+        return snapToReturn;
     }
 
     /// <summary>
@@ -85,8 +121,36 @@ public class Preview : MonoBehaviour
     {
         if(isSnapped)
         {
-            BuiltObject built = Instantiate(builtVersion, transform.position, transform.rotation);
-            built.Resize(mesh.transform.localScale);
+            BuiltObject built;
+
+            if (mat.MaterialType == ConstructionMaterial.Type.Tie)
+            {
+                Vector3 placePosition;
+                //Tie placement was off from where it was snapping due to resize method not being used need to manually adjust
+                if (transform.eulerAngles.y == 90)
+                {
+                    placePosition = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z - 2.545f); 
+                }
+                else if(transform.eulerAngles.y == 270)
+                {
+                    placePosition = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 2.545f);
+                }
+                else if (transform.eulerAngles.y == 0)
+                {
+                    placePosition = new Vector3(transform.localPosition.x + 2.545f, transform.localPosition.y, transform.localPosition.z);
+                }
+                else
+                {
+                    placePosition = new Vector3(transform.localPosition.x - 2.545f, transform.localPosition.y, transform.localPosition.z); 
+                }
+                built = Instantiate(builtVersion, placePosition, transform.rotation);
+            }
+            else
+            {
+                built = Instantiate(builtVersion, transform.position, transform.rotation);
+                built.Resize(mesh.transform.localScale);
+            }
+
             built.Mat = mat;
             
             buildSys.AddBuiltObject(built);
@@ -145,7 +209,7 @@ public class Preview : MonoBehaviour
     {
         buildSys.ToggleMoveWithMouse(false);
         transform.position = snapPos;
-        transform.rotation = sp.transform.rotation;
+        //transform.rotation = sp.transform.rotation;
         isSnapped = true;
         ChangeColor();
     }
