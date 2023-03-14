@@ -2859,6 +2859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SheathingSnap Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7726502123952007734, guid: 8f6005a69a66247499509b7117390c69, type: 3}
+      propertyPath: snapDistance
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f6005a69a66247499509b7117390c69, type: 3}
 --- !u!4 &163734212 stripped
@@ -14640,6 +14644,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SheathingSnap Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7726502123952007734, guid: 8f6005a69a66247499509b7117390c69, type: 3}
+      propertyPath: snapDistance
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f6005a69a66247499509b7117390c69, type: 3}
 --- !u!4 &915936304 stripped
@@ -22399,6 +22407,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SheathingSnap Variant (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7726502123952007734, guid: 8f6005a69a66247499509b7117390c69, type: 3}
+      propertyPath: snapDistance
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f6005a69a66247499509b7117390c69, type: 3}
 --- !u!4 &1442537560 stripped
@@ -24482,6 +24494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SheathingSnap Variant (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7726502123952007734, guid: 8f6005a69a66247499509b7117390c69, type: 3}
+      propertyPath: snapDistance
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f6005a69a66247499509b7117390c69, type: 3}
 --- !u!4 &1559238189 stripped
@@ -25851,7 +25867,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1590585772}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9104135
+  m_Size: 0.7871363
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

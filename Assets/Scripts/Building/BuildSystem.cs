@@ -84,6 +84,10 @@ public class BuildSystem : MonoBehaviour
                 {
                     previewGameObject.transform.Rotate(0, 0, rotateAmount);
                     previewRot = previewGameObject.transform.rotation;
+                } else if (workType == FormWorkType.Column && previewGameObject.name.Contains("Plywood Preview_Column"))
+                {
+                    previewGameObject.transform.Rotate(rotateAmount,0,0);
+                    previewRot = previewGameObject.transform.rotation;
                 }
                 else
                 {

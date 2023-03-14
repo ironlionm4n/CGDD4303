@@ -19,6 +19,7 @@ public class LayerSelection : MonoBehaviour
         Sheathing,
         Shore,
         Stringer,
+        Tie,
         None
     }
 
