@@ -39,6 +39,7 @@ public class CutManager : UIManagerParent
 
     public PositiveInputField length4x4Decimal;
     public PositiveInputField shore4x4Decimal;
+    public PositiveInputField columnSheathingDecimal;
 
     [Header("QTY Dropdowns")]
 
