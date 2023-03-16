@@ -7,11 +7,11 @@ public class MainMenu : MonoBehaviour
 {
     public void StartLVLOne()
     {
-        SceneManager.LoadScene("TestScene");
+        SceneManager.LoadScene("SlabScene");
     }
     public void StartLVLTwo()
     {
-        SceneManager.LoadScene("WallScene");
+        SceneManager.LoadScene("BestWallScene");
     }
     public void StartLVLThree()
     {

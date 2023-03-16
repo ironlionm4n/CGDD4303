@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SlabScene.unity
     guid: aad9b608882d0df469a0f37c947e4a2f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WallScene.unity
     guid: d260e2a3fc87619468623840b9d2773b
+  - enabled: 1
+    path: Assets/Scenes/BestWallScene.unity
+    guid: 8c85960590a28d045bb59885c48c2a40
   m_configObjects: {}
