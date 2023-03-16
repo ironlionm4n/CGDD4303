@@ -26,24 +26,24 @@ public class BuildManager : MonoBehaviour
 
     public FormWorkType FormworkType;
 
-    [Header("Wall Previews")] 
-    public Preview wall_plywoodPreview;
+    [Header("Wall Previews")] public Preview wall_plywoodPreview;
     public Preview wall_lumber2x4Preview;
     public Preview wall_lumber2x6Preview;
     public Preview wall_lumber4x4Preview;
     public Preview wall_TiePreview;
 
-    [Header("Slab Previews")]
-    public Preview slab_plywoodPreview;
+    [Header("Slab Previews")] public Preview slab_plywoodPreview;
     public Preview slab_lumber2x4Preview;
     public Preview slab_lumber2x6Preview;
     public Preview slab_lumber4x4Preview;
 
-    [Header("Column Previews")] 
-    public Preview column_plywoodPreview;
+    [Header("Column Previews")] public Preview column_plywoodPreview;
     public Preview column_lumber2x4Preview;
     public Preview column_clampPreview;
     public Preview column_lumber4x4Preview;
+
+    [Header("Build Sound Effect")] [SerializeField]
+    private BuildSFX buildSfx;
 
     private BuildSystem buildSystem;
     private bool isAssembling = false;
@@ -132,6 +132,7 @@ public class BuildManager : MonoBehaviour
                         break;
                 }
             }
+
             if (FormworkType == FormWorkType.Column)
             {
                 switch (t.MaterialType)
@@ -154,6 +155,11 @@ public class BuildManager : MonoBehaviour
                 }
             }
 
+            if (preview.tag.Contains("Tie"))
+                buildSfx.PlayTieSFX();
+            else
+                buildSfx.PlayWoodSFX();
+            
             buildSystem.CreatePreview(preview, t, position, preview.transform.rotation);
         }
     }

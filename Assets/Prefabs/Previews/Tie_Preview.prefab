@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4168282042986556120}
   m_Layer: 0
   m_Name: Tie_Preview
-  m_TagString: Untagged
+  m_TagString: Tie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   builtVersion: {fileID: 6540564935290339328, guid: f9818e08d09318a4bb21b8fd1d126e98, type: 3}
   mesh: {fileID: 4509717529619686895}
-  formWorkType: 1
   raycastLayers:
     serializedVersion: 2
     m_Bits: 3
