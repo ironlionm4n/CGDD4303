@@ -12,8 +12,7 @@ using TMPro;
 
 public class CutManager : UIManagerParent
 {
-    [Header("Available QTY Text")]
-    public TMP_Text qtyPlyText;
+    [Header("Available QTY Text")] public TMP_Text qtyPlyText;
     public TMP_Text qty2x4Text;
     public TMP_Text qty2x6Text;
     public TMP_Text qty4x4Text;
@@ -22,15 +21,14 @@ public class CutManager : UIManagerParent
     //These are dropdowns to prevent the player from cutting the material to longer than it is currently
     //4x4 includes a decimal input, but the ones place is still a dropdown for the same reason
     [Header("Size Inputs")]
-
     /*public Dropdown lengthPlyDropdown;
     public Dropdown widthPlyDropdown;
     public Dropdown length2x4Dropdown;
     public Dropdown length2x6Dropdown;
     public Dropdown length4x4Dropdown;
     public Dropdown lengthStrutDropdown;*/
-
     public TMP_Dropdown lengthPlyDropdown;
+
     public TMP_Dropdown widthPlyDropdown;
     public TMP_Dropdown length2x4Dropdown;
     public TMP_Dropdown length2x6Dropdown;
@@ -39,16 +37,16 @@ public class CutManager : UIManagerParent
 
     public PositiveInputField length4x4Decimal;
     public PositiveInputField shore4x4Decimal;
+    public PositiveInputField columnSheathingDecimal;
 
     [Header("QTY Dropdowns")]
-
     /*public Dropdown amtPlyDropdown;
     public Dropdown amt2x4Dropdown;
     public Dropdown amt2x6Dropdown;
     public Dropdown amt4x4Dropdown;
     public Dropdown amtStrutDropdown;*/
-
     public TMP_Dropdown amtPlyDropdown;
+
     public TMP_Dropdown amt2x4Dropdown;
     public TMP_Dropdown amt2x6Dropdown;
     public TMP_Dropdown amt4x4Dropdown;
@@ -96,7 +94,7 @@ public class CutManager : UIManagerParent
     /// Updates the quantity text with the correct amounts from the inventory
     /// </summary>
     private void UpdateQTYText()
-    { 
+    {
         ePly = im.Contains(ConstructionMaterial.Type.Plywood, defaultPly);
         e2x4 = im.Contains(ConstructionMaterial.Type.Lumber2x4, default2x4);
         e2x6 = im.Contains(ConstructionMaterial.Type.Lumber2x6, default2x6);
@@ -135,8 +133,8 @@ public class CutManager : UIManagerParent
         dd[6] = amt2x4Dropdown;
         dd[7] = amt2x6Dropdown;
         dd[8] = amt4x4Dropdown;
-        
-        if(amtStrutDropdown != null)
+
+        if (amtStrutDropdown != null)
         {
             dd[9] = amtStrutDropdown;
         }
@@ -153,15 +151,15 @@ public class CutManager : UIManagerParent
     {
         //For plywood, we let them go up to the default size because they may only want to cut it on one side
         //For the others, we go one less, because otherwise they'd be cutting to the size it is already
-        SetDropdownValues((int)defaultPly.x, lengthPlyDropdown, false, 1);
-        SetDropdownValues((int)defaultPly.z, widthPlyDropdown, false, 1);
-        SetDropdownValues((int)default2x4.z - 1, length2x4Dropdown, false, 1);
-        SetDropdownValues((int)default2x6.z - 1, length2x6Dropdown, false, 1);
-        SetDropdownValues((int)default4x4.z - 1, length4x4Dropdown, false, 1);
+        SetDropdownValues((int) defaultPly.x, lengthPlyDropdown, false, 1);
+        SetDropdownValues((int) defaultPly.z, widthPlyDropdown, false, 1);
+        SetDropdownValues((int) default2x4.z - 1, length2x4Dropdown, false, 1);
+        SetDropdownValues((int) default2x6.z - 1, length2x6Dropdown, false, 1);
+        SetDropdownValues((int) default4x4.z - 1, length4x4Dropdown, false, 1);
 
         if (lengthStrutDropdown != null)
         {
-            SetDropdownValues((int)defaultStrut.z - 1, lengthStrutDropdown, false, 1);
+            SetDropdownValues((int) defaultStrut.z - 1, lengthStrutDropdown, false, 1);
         }
     }
 
@@ -174,7 +172,6 @@ public class CutManager : UIManagerParent
         SetDropdownValues(qty2x4, amt2x4Dropdown, true);
         SetDropdownValues(qty2x6, amt2x6Dropdown, true);
         SetDropdownValues(qty4x4, amt4x4Dropdown, true);
-
         if (amtStrutDropdown != null)
         {
             SetDropdownValues(qtySrut, amtStrutDropdown, true);
@@ -194,14 +191,14 @@ public class CutManager : UIManagerParent
 
         if (ascending)
         {
-            for(int i = min; i <= value; i++)
+            for (int i = min; i <= value; i++)
             {
                 d.options.Add(new TMP_Dropdown.OptionData(i.ToString()));
             }
         }
         else
         {
-            for(int i = value; i >= min; i--)
+            for (int i = value; i >= min; i--)
             {
                 d.options.Add(new TMP_Dropdown.OptionData(i.ToString()));
             }
@@ -216,26 +213,31 @@ public class CutManager : UIManagerParent
     public void CutItems()
     {
         //Plywood
-        Vector3 sizePly = new Vector3(DropdownToNum(lengthPlyDropdown, (int)defaultPly.x, 1, false), defaultPly.y, DropdownToNum(widthPlyDropdown, (int)defaultPly.z, 1, false));
+        Vector3 sizePly = new Vector3(DropdownToNum(lengthPlyDropdown, (int) defaultPly.x, 1, false), defaultPly.y,
+            DropdownToNum(widthPlyDropdown, (int) defaultPly.z, 1, false));
         int numPly = DropdownToNum(amtPlyDropdown, qtyPly, 0, true);
         ChangeInventory(ePly, sizePly, numPly);
         //Waste is in square feet
         float wastePly = ((defaultPly.x * defaultPly.z) - (sizePly.x * sizePly.z)) * numPly;
 
         //2x4
-        Vector3 size2x4 = new Vector3(default2x4.x, default2x4.y, DropdownToNum(length2x4Dropdown, (int)default2x4.z - 1, 1, false));
+        Vector3 size2x4 = new Vector3(default2x4.x, default2x4.y,
+            DropdownToNum(length2x4Dropdown, (int) default2x4.z - 1, 1, false));
         int num2x4 = DropdownToNum(amt2x4Dropdown, qty2x4, 0, true);
         ChangeInventory(e2x4, size2x4, num2x4);
         float waste2x4 = (default2x4.z - size2x4.z) * num2x4;
 
         //2x6
-        Vector3 size2x6 = new Vector3(default2x6.x, default2x6.y, DropdownToNum(length2x6Dropdown, (int)default2x6.z - 1, 1, false));
+        Vector3 size2x6 = new Vector3(default2x6.x, default2x6.y,
+            DropdownToNum(length2x6Dropdown, (int) default2x6.z - 1, 1, false));
         int num2x6 = DropdownToNum(amt2x6Dropdown, qty2x6, 0, true);
         ChangeInventory(e2x6, size2x6, num2x6);
         float waste2x6 = (default2x6.z - size2x6.z) * num2x6;
 
         //4x4
-        Vector3 size4x4 = new Vector3(default4x4.x, default4x4.y, float.Parse(DropdownToNum(length4x4Dropdown, (int)default4x4.z - 1, 1, false) + "." + length4x4Decimal.text));
+        Vector3 size4x4 = new Vector3(default4x4.x, default4x4.y,
+            float.Parse(
+                DropdownToNum(length4x4Dropdown, (int) default4x4.z - 1, 1, false) + "." + length4x4Decimal.text));
         int num4x4 = DropdownToNum(amt4x4Dropdown, qty4x4, 0, true);
         ChangeInventory(e4x4, size4x4, num4x4);
         float waste4x4 = (default4x4.z - size4x4.z) * num4x4;
@@ -244,7 +246,61 @@ public class CutManager : UIManagerParent
         float wasteStrut = 0;
         if (lengthStrutDropdown != null)
         {
-            Vector3 sizeStrut = new Vector3(defaultStrut.x, defaultStrut.y, float.Parse(DropdownToNum(lengthStrutDropdown, (int)defaultStrut.z - 1, 1, false)+"."+shore4x4Decimal.text));
+            Vector3 sizeStrut = new Vector3(defaultStrut.x, defaultStrut.y,
+                float.Parse(DropdownToNum(lengthStrutDropdown, (int) defaultStrut.z - 1, 1, false) + "." +
+                            shore4x4Decimal.text));
+            int numStrut = DropdownToNum(amtStrutDropdown, qtySrut, 0, true);
+            ChangeInventory(eStrut, sizeStrut, numStrut);
+            wasteStrut = (defaultStrut.z - sizeStrut.z) * numStrut; //Need to  calculate waste
+        }
+
+        gm.CutCheckout(wastePly, waste2x4, waste2x6, waste4x4, wasteStrut);
+        ResetDropdowns();
+    }
+
+    /// <summary>
+    /// Calculates the new sizes and quantities of items and adds them to the inventory
+    /// </summary>
+    public void ColumnCutItems()
+    {
+        //Plywood
+        Vector3 sizePly = new Vector3(DropdownToNum(lengthPlyDropdown, (int) defaultPly.x, 1, false), defaultPly.y,
+            float.Parse(DropdownToNum(widthPlyDropdown, (int) defaultPly.z, 1, false) + "." +
+                        columnSheathingDecimal.text));
+        int numPly = DropdownToNum(amtPlyDropdown, qtyPly, 0, true);
+        ChangeInventory(ePly, sizePly, numPly);
+        //Waste is in square feet
+        float wastePly = ((defaultPly.x * defaultPly.z) - (sizePly.x * sizePly.z)) * numPly;
+
+        //2x4
+        Vector3 size2x4 = new Vector3(default2x4.x, default2x4.y,
+            DropdownToNum(length2x4Dropdown, (int) default2x4.z - 1, 1, false));
+        int num2x4 = DropdownToNum(amt2x4Dropdown, qty2x4, 0, true);
+        ChangeInventory(e2x4, size2x4, num2x4);
+        float waste2x4 = (default2x4.z - size2x4.z) * num2x4;
+
+        //2x6
+        Vector3 size2x6 = new Vector3(default2x6.x, default2x6.y,
+            DropdownToNum(length2x6Dropdown, (int) default2x6.z - 1, 1, false));
+        int num2x6 = DropdownToNum(amt2x6Dropdown, qty2x6, 0, true);
+        ChangeInventory(e2x6, size2x6, num2x6);
+        float waste2x6 = (default2x6.z - size2x6.z) * num2x6;
+
+        //4x4
+        Vector3 size4x4 = new Vector3(default4x4.x, default4x4.y,
+            float.Parse(
+                DropdownToNum(length4x4Dropdown, (int) default4x4.z - 1, 1, false) + "." + length4x4Decimal.text));
+        int num4x4 = DropdownToNum(amt4x4Dropdown, qty4x4, 0, true);
+        ChangeInventory(e4x4, size4x4, num4x4);
+        float waste4x4 = (default4x4.z - size4x4.z) * num4x4;
+
+        //Strut
+        float wasteStrut = 0;
+        if (lengthStrutDropdown != null)
+        {
+            Vector3 sizeStrut = new Vector3(defaultStrut.x, defaultStrut.y,
+                float.Parse(DropdownToNum(lengthStrutDropdown, (int) defaultStrut.z - 1, 1, false) + "." +
+                            shore4x4Decimal.text));
             int numStrut = DropdownToNum(amtStrutDropdown, qtySrut, 0, true);
             ChangeInventory(eStrut, sizeStrut, numStrut);
             wasteStrut = (defaultStrut.z - sizeStrut.z) * numStrut; //Need to  calculate waste
@@ -262,8 +318,7 @@ public class CutManager : UIManagerParent
     /// <param name="amt">How many to cut</param>
     private void ChangeInventory(Entry use, Vector3 size, int amt)
     {
-        
-        if(amt > 0)
+        if (amt > 0)
         {
             im.UseItem(use, amt);
             Entry add = new Entry(new ConstructionMaterial(use.Material.MaterialType, size), amt);
@@ -315,6 +370,7 @@ public class CutManager : UIManagerParent
             {
                 d.options.Add(new TMP_Dropdown.OptionData("0"));
             }
+
             d.value = 0;
         }
 
