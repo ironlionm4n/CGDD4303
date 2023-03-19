@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9549,12 +9549,13 @@ MonoBehaviour:
   cutWeight: 400
   assembleWeight: 400
   extraShopReduction: 0.25
-  efficientPlywood: 12
-  efficient2x4: 22
+  efficientPlywood: 8
+  efficient2x4: 32
   efficient2x6: 24
   efficient4x4: 36
-  efficientStrut: 3
+  efficientStrut: 4
   efficientTie: 42
+  efficientClamp: 8
   qtyDifferenceReduction: 0.1
   minimumWaste2x4: 55
   minimumWaste2x6: 0
@@ -9597,7 +9598,7 @@ MonoBehaviour:
   - ASSEMBLE
   - TOTAL
   - TIME
-  type: 1
+  type: 2
   explode: {fileID: 1524205878}
   suspenseTime: 3
   timeTillResults: 3
@@ -10294,11 +10295,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5336406778803482685, guid: c5fd4b53e6b4f6e479ac61ef9c5290ff, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.5
+      value: -0.4999981
       objectReference: {fileID: 0}
     - target: {fileID: 5336406779472121902, guid: c5fd4b53e6b4f6e479ac61ef9c5290ff, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.5
+      value: -0.4999981
       objectReference: {fileID: 0}
     - target: {fileID: 5336406779474256440, guid: c5fd4b53e6b4f6e479ac61ef9c5290ff, type: 3}
       propertyPath: m_Name

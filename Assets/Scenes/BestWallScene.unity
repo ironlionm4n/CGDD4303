@@ -8286,6 +8286,7 @@ MonoBehaviour:
   efficient4x4: 36
   efficientStrut: 3
   efficientTie: 42
+  efficientClamp: 8
   qtyDifferenceReduction: 0.1
   minimumWaste2x4: 55
   minimumWaste2x6: 0
@@ -9099,11 +9100,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5336406778803482685, guid: c5fd4b53e6b4f6e479ac61ef9c5290ff, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.49999905
+      value: -0.4999981
       objectReference: {fileID: 0}
     - target: {fileID: 5336406779472121902, guid: c5fd4b53e6b4f6e479ac61ef9c5290ff, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.49999905
+      value: -0.4999981
       objectReference: {fileID: 0}
     - target: {fileID: 5336406779474256440, guid: c5fd4b53e6b4f6e479ac61ef9c5290ff, type: 3}
       propertyPath: m_Name
@@ -22358,6 +22359,7 @@ MonoBehaviour:
   lengthStrutDropdown: {fileID: 645101118}
   length4x4Decimal: {fileID: 1964793284}
   shore4x4Decimal: {fileID: 1964793284}
+  columnSheathingDecimal: {fileID: 0}
   amtPlyDropdown: {fileID: 1926196625}
   amt2x4Dropdown: {fileID: 1507779129}
   amt2x6Dropdown: {fileID: 479185586}
