@@ -21,6 +21,7 @@ public class UIManagerParent : MonoBehaviour
     public TMP_Text textTie;
     public TMP_Text textClamp;
 
+    private static BuildManager buildManager;
     
     protected InventoryManager im;
     protected GradeManager gm;
@@ -43,6 +44,7 @@ public class UIManagerParent : MonoBehaviour
     protected void Setup()
     {
         GameObject manager = GameObject.FindWithTag("BuildManager");
+        buildManager = manager.GetComponent<BuildManager>();
         im = manager.GetComponent<InventoryManager>();
         gm = manager.GetComponent<GradeManager>();
         mm = manager.GetComponent<MenuManager>();
@@ -96,7 +98,7 @@ public class UIManagerParent : MonoBehaviour
 
         if(textStrut != null)
         {
-            textStrut.text = ConstructionMaterial.SizeToText(strut, defaultStrut, true);
+            textStrut.text = ConstructionMaterial.SizeToText(strut, buildManager.FormworkType == FormWorkType.Column ? new Vector3(defaultStrut.x, defaultStrut.y, 12f) : defaultStrut, true);
         }
 
         if(textTie != null)
