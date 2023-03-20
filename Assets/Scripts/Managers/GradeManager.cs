@@ -29,6 +29,7 @@ public class GradeManager : MonoBehaviour
     public int efficient4x4 = 36;
     public int efficientStrut = 3;
     public int efficientTie = 42;
+    public int efficientClamp = 8;
     public float qtyDifferenceReduction = .1f;
 
     [Header("Minimum Waste Amounts")]
@@ -276,6 +277,53 @@ public class GradeManager : MonoBehaviour
         }
     }
 
+    private void ColumnShopPointsCalculation()
+    {
+        //Difference between efficient and actual
+        int differencePly = Mathf.Abs(efficientPlywood - totalPlywood);
+        // int differencePly = Mathf.Abs(12 - totalPlywood);
+        int difference2x4 = Mathf.Abs(efficient2x4 - total2x4);
+        int differenceStrut = Mathf.Abs((efficientStrut * 10) - (totalStrut * 10));
+        int differenceClamp = Mathf.Abs(efficientClamp - totalClamp);
+
+        //Percentage score for each type
+        //If they get it really wrong, make sure it doesn't go below 0
+        float scorePly = 1 - (differencePly * qtyDifferenceReduction);
+        if (scorePly < 0)
+        {
+            scorePly = 0;
+        }
+        float score2x4 = 1 - (difference2x4 * qtyDifferenceReduction);
+        if (score2x4 < 0)
+        {
+            score2x4 = 0;
+        }
+        float scoreStrut = 1 - (differenceStrut * qtyDifferenceReduction);
+        if (scoreStrut < 0)
+        {
+            scoreStrut = 0;
+        }
+        float scoreClamp = 1 - (differenceClamp * qtyDifferenceReduction);
+        if (scoreClamp < 0)
+        {
+            scoreClamp = 0;
+        }
+
+        //Total score
+        float avgScore = (scorePly + score2x4 + scoreStrut + scoreClamp) / 4;
+        shopPoints = (avgScore * shopWeight);
+
+        //4 or more extra shop visits should result in a 100% point reduction
+        if (extraShopVisits > 0 && extraShopVisits < 4)
+        {
+            shopPoints -= shopPoints * (extraShopVisits * extraShopReduction);
+        }
+        else if (extraShopVisits > 3)
+        {
+            shopPoints = 0;
+        }
+    }
+
     /// <summary>
     /// Calculates how many points earned in the cut phase
     /// </summary>
@@ -310,6 +358,19 @@ public class GradeManager : MonoBehaviour
         float tripReduction = extraShopVisits * extraShopReduction;
 
         float avgWaste = (percentWastePly + percentWaste2x4 + percentWaste2x6 + percentWasteStrut) / 4;
+        cutPoints = cutWeight * avgWaste;
+    }
+
+    private void ColumnCutPointsCalculation()
+    {
+        // Percent of waste related to the minimum waste
+        float percentWastePly = Percent(minimumWastePlywood, wastePlywood);
+        float percentWaste2x4 = Percent(minimumWaste2x4, waste2x4);
+        float percentWasteStrut = Percent(minimumWasteStrut, wasteStrut);
+
+        float tripReduction = extraShopVisits * extraShopReduction;
+
+        float avgWaste = (percentWastePly + percentWaste2x4 + percentWasteStrut) / 3;
         cutPoints = cutWeight * avgWaste;
     }
 
@@ -396,6 +457,11 @@ public class GradeManager : MonoBehaviour
         {
             WallCutPointsCalculation();
             WallShopPointsCalculation();
+        }
+        else if(type == Formwork.Column)
+        {
+            ColumnShopPointsCalculation();
+            ColumnCutPointsCalculation();
         }
         else
         {

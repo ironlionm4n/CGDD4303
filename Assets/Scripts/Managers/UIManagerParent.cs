@@ -21,10 +21,13 @@ public class UIManagerParent : MonoBehaviour
     public TMP_Text textTie;
     public TMP_Text textClamp;
 
+    private static BuildManager buildManager;
     
     protected InventoryManager im;
     protected GradeManager gm;
     protected MenuManager mm;
+
+    private const float FOUR_INCHES = 4f / 12f;
 
     //Purely for readability so the variable names are shorter
     protected ConstructionMaterial.Type ply = ConstructionMaterial.Type.Plywood;
@@ -43,9 +46,11 @@ public class UIManagerParent : MonoBehaviour
     protected void Setup()
     {
         GameObject manager = GameObject.FindWithTag("BuildManager");
+        buildManager = manager.GetComponent<BuildManager>();
         im = manager.GetComponent<InventoryManager>();
         gm = manager.GetComponent<GradeManager>();
         mm = manager.GetComponent<MenuManager>();
+
         SetDefaultSizes();
         SetLabels();
     }
@@ -59,7 +64,16 @@ public class UIManagerParent : MonoBehaviour
         default2x4 = BuildSystem.GetDefaultSize(lumber2x4);
         default2x6 = BuildSystem.GetDefaultSize(lumber2x6);
         default4x4 = BuildSystem.GetDefaultSize(lumber4x4);
-        defaultStrut = BuildSystem.GetDefaultSize(strut);
+
+        if (buildManager.FormworkType == FormWorkType.Wall)
+        {
+            defaultStrut = BuildSystem.GetDefaultSize(strut);
+        }
+        else
+        {
+            defaultStrut = new Vector3(FOUR_INCHES, FOUR_INCHES, 12f);
+        }
+
         defaultTie = BuildSystem.GetDefaultSize(tie);
         defaultClamp = BuildSystem.GetDefaultSize(clamp);
     }
@@ -96,7 +110,7 @@ public class UIManagerParent : MonoBehaviour
 
         if(textStrut != null)
         {
-            textStrut.text = ConstructionMaterial.SizeToText(strut, defaultStrut, true);
+            textStrut.text = ConstructionMaterial.SizeToText(strut, buildManager.FormworkType == FormWorkType.Column ? new Vector3(defaultStrut.x, defaultStrut.y, 12f) : defaultStrut, true);
         }
 
         if(textTie != null)

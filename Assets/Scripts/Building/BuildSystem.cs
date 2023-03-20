@@ -97,7 +97,7 @@ public class BuildSystem : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Y))
+        /*if (Input.GetKeyDown(KeyCode.Y))
         {
             if(previewGameObject != null)
             {
@@ -108,7 +108,7 @@ public class BuildSystem : MonoBehaviour
                     previewRot = previewGameObject.transform.rotation;
                 }
             }
-        }
+        }*/
 
         //Cancel
         if (Input.GetKeyDown(cancelKey))
