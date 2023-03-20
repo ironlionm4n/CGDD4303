@@ -9557,11 +9557,11 @@ MonoBehaviour:
   efficientTie: 42
   efficientClamp: 8
   qtyDifferenceReduction: 0.1
-  minimumWaste2x4: 55
+  minimumWaste2x4: 80
   minimumWaste2x6: 0
   minimumWaste4x4: 54.648
-  minimumWastePlywood: 84
-  minimumWasteStrut: 4.5
+  minimumWastePlywood: 102.25
+  minimumWasteStrut: 1.668
   correctLayers: 0100000000000000030000000400000002000000
   secondsForGrading:
   - 600

@@ -20,7 +20,9 @@ public class ConstructionMaterial : IComparable
 
     private Type type;
     private Vector3 size;
-    
+
+    private BuildManager bm;
+
     /// <summary>
     /// Creates a new ConstructionMaterial object
     /// </summary>
@@ -28,6 +30,8 @@ public class ConstructionMaterial : IComparable
     /// <param name="s">Size of material</param>
     public ConstructionMaterial(Type t, Vector3 s)
     {
+        bm = GameObject.Find("ConstructionManager").GetComponent<BuildManager>();
+
         //We don't just set size for a couple of reasons
         //1. We want plywood to always have the longer side first
         //2. If this is, say, a 2x4, we need to enforce that it is actually 2 inches by 4 inches
@@ -53,7 +57,14 @@ public class ConstructionMaterial : IComparable
                 size = new Vector3(TWO_INCHES, FOUR_INCHES, 15.0f);
                 break;
             case(Type.Strut):
-                size = new Vector3(FOUR_INCHES, FOUR_INCHES, s.z);
+                 if (bm.FormworkType == FormWorkType.Wall)
+                 {
+                    size = new Vector3(FOUR_INCHES, FOUR_INCHES, s.z);
+                }
+                else
+                {
+                    size = new Vector3(FOUR_INCHES, FOUR_INCHES, 12);
+                }
                 break;
             case (Type.Clamp):
                 size = new Vector3(-0.0192f, 0.0017f, 0.0005f);

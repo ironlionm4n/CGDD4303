@@ -361,6 +361,19 @@ public class GradeManager : MonoBehaviour
         cutPoints = cutWeight * avgWaste;
     }
 
+    private void ColumnCutPointsCalculation()
+    {
+        // Percent of waste related to the minimum waste
+        float percentWastePly = Percent(minimumWastePlywood, wastePlywood);
+        float percentWaste2x4 = Percent(minimumWaste2x4, waste2x4);
+        float percentWasteStrut = Percent(minimumWasteStrut, wasteStrut);
+
+        float tripReduction = extraShopVisits * extraShopReduction;
+
+        float avgWaste = (percentWastePly + percentWaste2x4 + percentWasteStrut) / 3;
+        cutPoints = cutWeight * avgWaste;
+    }
+
     /// <summary>
     /// Calculates the percentage of a value
     /// </summary>
@@ -448,7 +461,7 @@ public class GradeManager : MonoBehaviour
         else if(type == Formwork.Column)
         {
             ColumnShopPointsCalculation();
-
+            ColumnCutPointsCalculation();
         }
         else
         {
