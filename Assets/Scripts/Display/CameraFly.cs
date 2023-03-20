@@ -34,6 +34,16 @@ public class CameraFly : MonoBehaviour
             transform.position += transform.forward * vertical * speed * Time.deltaTime;
         }
 
+        if (Input.GetKey(KeyCode.Backslash))
+        {
+            transform.position += transform.up * speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.Return))
+        {
+            transform.position -= transform.up * speed * Time.deltaTime;
+        }
+
 
         /*
         transform.position =
