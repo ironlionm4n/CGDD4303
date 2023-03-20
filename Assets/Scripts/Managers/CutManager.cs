@@ -4,10 +4,8 @@ Handles cutting down materials of default sizes into the size specified by the p
 Inherits from UIManagerParent
 */
 
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class CutManager : UIManagerParent
@@ -306,7 +304,11 @@ public class CutManager : UIManagerParent
             wasteStrut = (defaultStrut.z - sizeStrut.z) * numStrut; //Need to  calculate waste
         }
 
-        gm.CutCheckout(wastePly, waste2x4, waste2x6, waste4x4, wasteStrut);
+        var roundedWasteStrut = Math.Round(wasteStrut, 3);
+        Debug.Log($"Rounded: {roundedWasteStrut}");
+        var attempt = float.Parse(roundedWasteStrut.ToString());
+        Debug.Log($"Attempt: {attempt}");
+        gm.CutCheckout(wastePly, waste2x4, waste2x6, waste4x4, attempt);
         ResetDropdowns();
     }
 
