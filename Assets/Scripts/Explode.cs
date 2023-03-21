@@ -8,6 +8,8 @@ public class Explode : MonoBehaviour
     [Header("Explosion Point")]
     [SerializeField] private GameObject explosionPoint;
 
+    [SerializeField] private ParticleSystem explosionParticles;
+
 
     public Rigidbody[] rigidbodies;
     public MeshCollider[] colliders;
@@ -37,7 +39,7 @@ public class Explode : MonoBehaviour
                 collider.enabled = true;
             }
         }
-
+        explosionParticles.Play();
         for(int i = 0; i < rigidbodies.Length; i++)
         {
             rigidbodies[i].constraints = RigidbodyConstraints.None;
