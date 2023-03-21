@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 using System;
 using System.IO;
 using System.Collections;
+using TMPro;
 
 public class GradeManager : MonoBehaviour
 {
@@ -50,13 +51,21 @@ public class GradeManager : MonoBehaviour
     [Header("UI Display")]
     public GameObject scoreScreen;
     public Text shopScoreText;
+    public TMP_Text shopScoreTMP;
     public Text shopGradeText;
+    public TMP_Text shopGradeTMP;
     public Text cutScoreText;
+    public TMP_Text cutScoreTMP;
     public Text cutGradeText;
+    public TMP_Text cutGradeTMP;
     public Text assembleScoreText;
+    public TMP_Text assembleScoreTMP;
     public Text assembleGradeText;
+    public TMP_Text assembleGradeTMP;
     public Text totalScoreText;
+    public TMP_Text totalScoreTMP;
     public Text totalGradeText;
+    public TMP_Text totalGradeTMP;
 
     [Header("Grade Level Points")]
     public float[] gradeBoundaries = new float[5] { 1, .9f, .8f, .7f, .5f };
@@ -521,20 +530,31 @@ public class GradeManager : MonoBehaviour
     {
         scoreScreen.SetActive(true);
         shopScoreText.text = PointsText(shopPoints, shopWeight);
+        shopScoreTMP.text = PointsText(shopPoints, shopWeight);
         shopGradeText.text = GradeText(shopPoints, shopWeight);
+        shopGradeTMP.text = GradeText(shopPoints, shopWeight);
         cutScoreText.text = PointsText(cutPoints, cutWeight);
+        cutScoreTMP.text = PointsText(cutPoints, cutWeight);
         cutGradeText.text = GradeText(cutPoints, cutWeight);
+        cutGradeTMP.text = GradeText(cutPoints, cutWeight);
+        
         if (!layerFail)
         {
             assembleScoreText.text = PointsText(assemblePoints, assembleWeight);
+            assembleScoreTMP.text = PointsText(assemblePoints, assembleWeight);
             assembleGradeText.text = GradeText(assemblePoints, assembleWeight);
+            assembleGradeTMP.text = GradeText(assemblePoints, assembleWeight);
             totalScoreText.text = PointsText(totalPoints, shopWeight + cutWeight + assembleWeight);
+            totalScoreTMP.text = PointsText(totalPoints, shopWeight + cutWeight + assembleWeight);
             totalGradeText.text = GradeText(totalPoints, shopWeight + cutWeight + assembleWeight);
+            totalGradeTMP.text = GradeText(totalPoints, shopWeight + cutWeight + assembleWeight);
         }
         else
         {
             assembleScoreText.text = "Points: FAIL / " + assembleWeight;
+            assembleScoreTMP.text = $"Points: FAIL / {assembleWeight}";
             assembleGradeText.text = "Grade: F";
+            assembleGradeTMP.text = "Grade: F";
             totalScoreText.text = "Points: FAIL / " + (shopWeight + cutWeight + assembleWeight);
             totalGradeText.text = "Grade: F";
         }
