@@ -57,14 +57,7 @@ public class ConstructionMaterial : IComparable
                 size = new Vector3(TWO_INCHES, FOUR_INCHES, 15.0f);
                 break;
             case(Type.Strut):
-                 if (bm.FormworkType == FormWorkType.Wall)
-                 {
-                    size = new Vector3(FOUR_INCHES, FOUR_INCHES, s.z);
-                }
-                else
-                {
-                    size = new Vector3(FOUR_INCHES, FOUR_INCHES, 12);
-                }
+                size = new Vector3(FOUR_INCHES, FOUR_INCHES, s.z);
                 break;
             case (Type.Clamp):
                 size = new Vector3(-0.0192f, 0.0017f, 0.0005f);

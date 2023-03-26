@@ -67,7 +67,16 @@ public class BuildSystem : MonoBehaviour
         default2x4 = new Vector3(TWO_INCHES, FOUR_INCHES, default2x4Size);
         default2x6 = new Vector3(TWO_INCHES, SIX_INCHES, default2x6Size);
         default4x4 = new Vector3(FOUR_INCHES, FOUR_INCHES, default4x4Size);
-        defaultStrut = new Vector3(FOUR_INCHES, FOUR_INCHES, 20);
+
+        if (GetComponent<BuildManager>().FormworkType == FormWorkType.Column)
+        {
+            defaultStrut = new Vector3(FOUR_INCHES, FOUR_INCHES, 12);
+        }
+        else 
+        {
+            defaultStrut = new Vector3(FOUR_INCHES, FOUR_INCHES, 20);
+        }
+
         defaultTie = new Vector3(FIVE_INCHES, FIVE_INCHES, 3);
         defaultClamp = new Vector3(1.18f, 0.05f, 0.1f);
     }
