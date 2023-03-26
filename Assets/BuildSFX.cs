@@ -7,8 +7,6 @@ using Random = UnityEngine.Random;
 public class BuildSFX : MonoBehaviour
 {
     [SerializeField] private List<AudioSource> woodSfx;
-    [SerializeField] private AudioSource woodSfx1;
-    [SerializeField] private AudioSource woodSfx2;
     [SerializeField] private AudioSource tieSfx;
     public void PlayWoodSFX()
     {

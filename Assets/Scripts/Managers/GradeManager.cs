@@ -556,7 +556,9 @@ public class GradeManager : MonoBehaviour
             assembleGradeText.text = "Grade: F";
             assembleGradeTMP.text = "Grade: F";
             totalScoreText.text = "Points: FAIL / " + (shopWeight + cutWeight + assembleWeight);
+            totalScoreTMP.text = "Points: FAIL / " + (shopWeight + cutWeight + assembleWeight);
             totalGradeText.text = "Grade: F";
+            totalGradeTMP.text = "Grade: F";
         }
 
     }

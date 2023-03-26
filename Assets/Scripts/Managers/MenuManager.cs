@@ -136,6 +136,10 @@ public class MenuManager : MonoBehaviour
         GetComponent<BuildManager>().Unpause();
     }
 
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     #endregion
 
 }
