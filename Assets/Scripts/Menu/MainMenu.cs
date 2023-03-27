@@ -9,18 +9,19 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("SlabScene");
     }
+
     public void StartLVLTwo()
     {
         SceneManager.LoadScene("BestWallScene");
     }
+
     public void StartLVLThree()
     {
-        //SceneManager.LoadScene("TestScene");
+        SceneManager.LoadScene("ColumnScene");
     }
 
     public void QuitGame()
     {
-        Debug.Log("Quit game");
         Application.Quit();
     }
 }
