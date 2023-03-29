@@ -14,17 +14,16 @@ using TMPro;
 
 public class GradeManager : MonoBehaviour
 {
-    [Header("Points Per Section")]
-    public int shopWeight = 400;
+    [Header("Points Per Section")] public int shopWeight = 400;
     public int cutWeight = 400;
     public int assembleWeight = 400;
 
-    [Header("Visit Reductions")]
-    public float extraShopReduction = .25f;
+    [Header("Visit Reductions")] public float extraShopReduction = .25f;
 
     [Header("Efficient Purchase Quantities")]
-   // public int efficientPlywood = 14;
+    // public int efficientPlywood = 14;
     public int efficientPlywood = 12;
+
     public int efficient2x4 = 22;
     public int efficient2x6 = 12;
     public int efficient4x4 = 36;
@@ -34,22 +33,22 @@ public class GradeManager : MonoBehaviour
     public float qtyDifferenceReduction = .1f;
 
     [Header("Minimum Waste Amounts")]
-   //public float minimumWastePlywood = 84;
+    //public float minimumWastePlywood = 84;
     public float minimumWaste2x4 = 55;
+
     public float minimumWaste2x6 = 0;
     public float minimumWaste4x4 = 56.30f;
     public float minimumWastePlywood = 84;
     public float minimumWasteStrut = 4.5f;
 
-    [Header("Correct Layer Order")]
-    public LayerSelection.Layer[] correctLayers;
+    [Header("Correct Layer Order")] public LayerSelection.Layer[] correctLayers;
 
     [Header("Time Requirements")]
-    public float[] secondsForGrading = new float[5] { 600f, 1200f, 1800f, 2400f, float.PositiveInfinity };
-    public float[] timeScorePercents = new float[5] { 1, .9f, .8f, .7f, .5f };
+    public float[] secondsForGrading = new float[5] {600f, 1200f, 1800f, 2400f, float.PositiveInfinity};
 
-    [Header("UI Display")]
-    public GameObject scoreScreen;
+    public float[] timeScorePercents = new float[5] {1, .9f, .8f, .7f, .5f};
+
+    [Header("UI Display")] public GameObject scoreScreen;
     public Text shopScoreText;
     public TMP_Text shopScoreTMP;
     public Text shopGradeText;
@@ -67,13 +66,11 @@ public class GradeManager : MonoBehaviour
     public Text totalGradeText;
     public TMP_Text totalGradeTMP;
 
-    [Header("Grade Level Points")]
-    public float[] gradeBoundaries = new float[5] { 1, .9f, .8f, .7f, .5f };
-    public char[] grades = new char[5] { 'A', 'B', 'C', 'D', 'F' };
+    [Header("Grade Level Points")] public float[] gradeBoundaries = new float[5] {1, .9f, .8f, .7f, .5f};
+    public char[] grades = new char[5] {'A', 'B', 'C', 'D', 'F'};
 
-    [Header("Saving")]
-    public string saveFile = "saveData.csv";
-    public string[] fileHeaders = new string[5] { "SHOP", "CUT", "ASSEMBLE", "TOTAL", "TIME" };
+    [Header("Saving")] public string saveFile = "saveData.csv";
+    public string[] fileHeaders = new string[5] {"SHOP", "CUT", "ASSEMBLE", "TOTAL", "TIME"};
 
     private int extraShopVisits = 0;
 
@@ -102,16 +99,13 @@ public class GradeManager : MonoBehaviour
 
     private List<LayerSelection.Layer> layerOrder = new List<LayerSelection.Layer>();
 
-    [Header("Formwork")]
-    public Formwork type;
+    [Header("Formwork")] public Formwork type;
 
-    [Header("Explosion")]
-    [SerializeField] private Explode explode;
+    [Header("Explosion")] [SerializeField] private Explode explode;
     [SerializeField] private float suspenseTime = 3f;
     [SerializeField] private float timeTillResults = 3f;
 
-    [Header("Events")]
-    [SerializeField] private GameEvent hideLayers;
+    [Header("Events")] [SerializeField] private GameEvent hideLayers;
 
     public enum Formwork
     {
@@ -161,7 +155,8 @@ public class GradeManager : MonoBehaviour
     /// <param name="twoByFourWaste">Waste 2x4</param>
     /// <param name="twoBySixWaste">Waste 2x6</param>
     /// <param name="fourByFourWaste">Waste 4x4</param>
-    public void CutCheckout(float plyWaste, float twoByFourWaste, float twoBySixWaste, float fourByFourWaste, float strutWaste)
+    public void CutCheckout(float plyWaste, float twoByFourWaste, float twoBySixWaste, float fourByFourWaste,
+        float strutWaste)
     {
         wastePlywood += plyWaste;
         waste2x4 += twoByFourWaste;
@@ -177,17 +172,19 @@ public class GradeManager : MonoBehaviour
     {
         extraShopVisits++;
     }
+
     #endregion
 
     #region Calculate Point Totals
+
     /// <summary>
     /// Calculates how many points earned in the shop phase
     /// </summary>
     private void ShopPointsCalculation()
     {
         //Difference between efficient and actual
-       int differencePly = Mathf.Abs(efficientPlywood - totalPlywood);
-       // int differencePly = Mathf.Abs(12 - totalPlywood);
+        int differencePly = Mathf.Abs(efficientPlywood - totalPlywood);
+        // int differencePly = Mathf.Abs(12 - totalPlywood);
         int difference2x4 = Mathf.Abs(efficient2x4 - total2x4);
         int difference2x6 = Mathf.Abs(efficient2x6 - total2x6);
         int difference4x4 = Mathf.Abs(efficient4x4 - total4x4);
@@ -197,40 +194,42 @@ public class GradeManager : MonoBehaviour
         //Percentage score for each type
         //If they get it really wrong, make sure it doesn't go below 0
         float scorePly = 1 - (differencePly * qtyDifferenceReduction);
-        if(scorePly < 0)
+        if (scorePly < 0)
         {
             scorePly = 0;
         }
+
         float score2x4 = 1 - (difference2x4 * qtyDifferenceReduction);
-        if(score2x4 < 0)
+        if (score2x4 < 0)
         {
             score2x4 = 0;
         }
+
         float score2x6 = 1 - (difference2x6 * qtyDifferenceReduction);
-        if(score2x6 < 0)
+        if (score2x6 < 0)
         {
             score2x6 = 0;
         }
+
         float score4x4 = 1 - (difference4x4 * qtyDifferenceReduction);
-        if(score4x4 < 0)
+        if (score4x4 < 0)
         {
             score4x4 = 0;
         }
 
         //Total score
         float avgScore = (scorePly + score2x4 + score2x6 + score4x4) / 4;
-            shopPoints = (avgScore * shopWeight);
+        shopPoints = (avgScore * shopWeight);
 
         //4 or more extra shop visits should result in a 100% point reduction
         if (extraShopVisits > 0 && extraShopVisits < 4)
         {
             shopPoints -= shopPoints * (extraShopVisits * extraShopReduction);
         }
-        else if(extraShopVisits > 3)
+        else if (extraShopVisits > 3)
         {
             shopPoints = 0;
         }
-
     }
 
     private void WallShopPointsCalculation()
@@ -250,23 +249,27 @@ public class GradeManager : MonoBehaviour
         {
             scorePly = 0;
         }
+
         float score2x4 = 1 - (difference2x4 * qtyDifferenceReduction);
         if (score2x4 < 0)
         {
             score2x4 = 0;
         }
+
         float score2x6 = 1 - (difference2x6 * qtyDifferenceReduction);
         if (score2x6 < 0)
         {
             score2x6 = 0;
         }
+
         float scoreStrut = 1 - (differenceStrut * qtyDifferenceReduction);
         if (scoreStrut < 0)
         {
             scoreStrut = 0;
         }
+
         float scoreTie = 1 - (differenceTie * qtyDifferenceReduction);
-        if(scoreTie < 0)
+        if (scoreTie < 0)
         {
             scoreTie = 0;
         }
@@ -278,7 +281,7 @@ public class GradeManager : MonoBehaviour
         //4 or more extra shop visits should result in a 100% point reduction
         if (extraShopVisits > 0 && extraShopVisits < 4)
         {
-            shopPoints -=  shopPoints * (extraShopVisits * extraShopReduction);
+            shopPoints -= shopPoints * (extraShopVisits * extraShopReduction);
         }
         else if (extraShopVisits > 3)
         {
@@ -302,16 +305,19 @@ public class GradeManager : MonoBehaviour
         {
             scorePly = 0;
         }
+
         float score2x4 = 1 - (difference2x4 * qtyDifferenceReduction);
         if (score2x4 < 0)
         {
             score2x4 = 0;
         }
+
         float scoreStrut = 1 - (differenceStrut * qtyDifferenceReduction);
         if (scoreStrut < 0)
         {
             scoreStrut = 0;
         }
+
         float scoreClamp = 1 - (differenceClamp * qtyDifferenceReduction);
         if (scoreClamp < 0)
         {
@@ -353,7 +359,14 @@ public class GradeManager : MonoBehaviour
         //  cutPoints = (avgWaste) * cutWeight;
         // cutPoints = cutWeight;
         //cutPoints = minimumWastePlywood;
-            cutPoints = cutWeight- avgWaste*10;
+
+        if (avgWaste == 1)
+        {
+            cutPoints = 400;
+            return;
+        }
+
+        cutPoints = cutWeight - avgWaste * 10;
     }
 
     private void WallCutPointsCalculation()
@@ -367,6 +380,7 @@ public class GradeManager : MonoBehaviour
         float tripReduction = extraShopVisits * extraShopReduction;
 
         float avgWaste = (percentWastePly + percentWaste2x4 + percentWaste2x6 + percentWasteStrut) / 4;
+        
         cutPoints = cutWeight * avgWaste;
     }
 
@@ -391,22 +405,20 @@ public class GradeManager : MonoBehaviour
     /// <returns>Percentage</returns>
     private float Percent(float efficient, float actual)
     {
-
-        if(efficient == actual)
+        if (efficient == actual)
         {
             return 1;
         }
 
-        if(efficient != 0)
+        if (efficient != 0)
         {
-            return ( Mathf.Abs(actual - efficient)) / efficient;
+            return (Mathf.Abs(actual - efficient)) / efficient;
             //return (efficient - Mathf.Abs(actual - efficient))/efficient;
         }
         else
         {
             return Mathf.Max(0, 1 - actual * qtyDifferenceReduction);
         }
-        
     }
 
     /// <summary>
@@ -415,16 +427,16 @@ public class GradeManager : MonoBehaviour
     private void AssemblePointsCalculation()
     {
         //Check if they have the right number of layers - if they don't, it's a fail
-        if(layerOrder.Count != correctLayers.Length)
+        if (layerOrder.Count != correctLayers.Length)
         {
             layerFail = true;
         }
         //Check for order of layers
         else
         {
-            for(int i = 0; i < layerOrder.Count; i++)
+            for (int i = 0; i < layerOrder.Count; i++)
             {
-                if(layerOrder[i] != correctLayers[i])
+                if (layerOrder[i] != correctLayers[i])
                 {
                     layerFail = true;
                     break;
@@ -440,9 +452,9 @@ public class GradeManager : MonoBehaviour
 
             //Checks which time range the player was in, from shortest to longest
             //This is why the last value in timeScorePercents needs to be Float.Infinity
-            for(int i = 0; i < timeScorePercents.Length; i++)
+            for (int i = 0; i < timeScorePercents.Length; i++)
             {
-                if(finalTime <= secondsForGrading[i])
+                if (finalTime <= secondsForGrading[i])
                 {
                     timePercent = timeScorePercents[i];
                     break;
@@ -467,7 +479,7 @@ public class GradeManager : MonoBehaviour
             WallCutPointsCalculation();
             WallShopPointsCalculation();
         }
-        else if(type == Formwork.Column)
+        else if (type == Formwork.Column)
         {
             ColumnShopPointsCalculation();
             ColumnCutPointsCalculation();
@@ -480,7 +492,6 @@ public class GradeManager : MonoBehaviour
 
         AssemblePointsCalculation();
         totalPoints = shopPoints + cutPoints + assemblePoints;
-      
     }
 
     #endregion
@@ -506,12 +517,12 @@ public class GradeManager : MonoBehaviour
 
         if (assemblePoints == 400)
         {
-
             StartCoroutine(ShowResults());
         }
         else
         {
-            explode.ExplodeBuild();
+            if(explode != null)
+                explode.ExplodeBuild();
             StartCoroutine(ShowResults());
         }
     }
@@ -537,7 +548,7 @@ public class GradeManager : MonoBehaviour
         cutScoreTMP.text = PointsText(cutPoints, cutWeight);
         cutGradeText.text = GradeText(cutPoints, cutWeight);
         cutGradeTMP.text = GradeText(cutPoints, cutWeight);
-        
+
         if (!layerFail)
         {
             assembleScoreText.text = PointsText(assemblePoints, assembleWeight);
@@ -556,9 +567,10 @@ public class GradeManager : MonoBehaviour
             assembleGradeText.text = "Grade: F";
             assembleGradeTMP.text = "Grade: F";
             totalScoreText.text = "Points: FAIL / " + (shopWeight + cutWeight + assembleWeight);
+            totalScoreTMP.text = "Points: FAIL / " + (shopWeight + cutWeight + assembleWeight);
             totalGradeText.text = "Grade: F";
+            totalGradeTMP.text = "Grade: F";
         }
-
     }
 
     /// <summary>
@@ -581,9 +593,9 @@ public class GradeManager : MonoBehaviour
     private string GradeText(float points, int outOf)
     {
         float percent = points / outOf;
-        percent = (float)Math.Round(percent, 3);
+        percent = (float) Math.Round(percent, 3);
 
-        for(int i = gradeBoundaries.Length - 1; i >= 0; i--)
+        for (int i = gradeBoundaries.Length - 1; i >= 0; i--)
         {
             if (percent <= gradeBoundaries[i])
             {
@@ -604,19 +616,22 @@ public class GradeManager : MonoBehaviour
         {
             StreamWriter sw = new StreamWriter(saveFile);
             string header = "";
-            for(int i = 0; i < fileHeaders.Length - 1; i++)
+            for (int i = 0; i < fileHeaders.Length - 1; i++)
             {
                 header += fileHeaders[i] + ",";
             }
+
             header += fileHeaders[fileHeaders.Length - 1];
             sw.WriteLine(header);
             sw.Close();
         }
+
         //Append the new score to what is already in the file
         StreamWriter appendSW = File.AppendText(saveFile);
         appendSW.WriteLine($"{shopPoints},{cutPoints},{assemblePoints},{totalPoints},{finalTime}");
         appendSW.Close();
     }
+
     #endregion
 
     /// <summary>
