@@ -101,6 +101,8 @@ public class GradeManager : MonoBehaviour
 
     [Header("Formwork")] public Formwork type;
 
+    [Header("Confetti")] [SerializeField] private ParticleSystem confetti;
+
     [Header("Explosion")] [SerializeField] private Explode explode;
     [SerializeField] private float suspenseTime = 3f;
     [SerializeField] private float timeTillResults = 3f;
@@ -513,9 +515,16 @@ public class GradeManager : MonoBehaviour
 
     public IEnumerator Suspense()
     {
+        //Debug.Log(totalPoints);
         yield return new WaitForSeconds(suspenseTime);
 
-        if (assemblePoints == 400)
+        if (totalPoints == 1200)
+        {
+            if (confetti != null)
+                confetti.Play();
+            StartCoroutine(ShowResults());
+        }
+        else if (assemblePoints == 400)
         {
             StartCoroutine(ShowResults());
         }
