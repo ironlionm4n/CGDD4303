@@ -108,6 +108,8 @@ public class GradeManager : MonoBehaviour
     [SerializeField] private float timeTillResults = 3f;
     [SerializeField] private AudioSource suspenseMusic;
     [SerializeField] private BackgroundMusic backgroundMusic;
+    [SerializeField] private AudioSource congrats;
+    [SerializeField] private AudioSource congrats2;
 
     [Header("Events")] [SerializeField] private GameEvent hideLayers;
 
@@ -527,10 +529,13 @@ public class GradeManager : MonoBehaviour
         {
             if (confetti != null)
                 confetti.Play();
+    
+            congrats.Play();
             StartCoroutine(ShowResults());
         }
         else if (assemblePoints == 400)
         {
+            congrats2.Play();
             StartCoroutine(ShowResults());
         }
         else
