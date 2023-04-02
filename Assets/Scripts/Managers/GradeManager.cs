@@ -106,6 +106,8 @@ public class GradeManager : MonoBehaviour
     [Header("Explosion")] [SerializeField] private Explode explode;
     [SerializeField] private float suspenseTime = 3f;
     [SerializeField] private float timeTillResults = 3f;
+    [SerializeField] private AudioSource suspenseMusic;
+    [SerializeField] private BackgroundMusic backgroundMusic;
 
     [Header("Events")] [SerializeField] private GameEvent hideLayers;
 
@@ -515,8 +517,11 @@ public class GradeManager : MonoBehaviour
 
     public IEnumerator Suspense()
     {
+        suspenseMusic.Play();
+        backgroundMusic.StopMusic();
+
         //Debug.Log(totalPoints);
-        yield return new WaitForSeconds(suspenseTime);
+        yield return new WaitUntil(()=> !suspenseMusic.isPlaying);
 
         if (totalPoints == 1200)
         {
