@@ -4694,9 +4694,14 @@ MonoBehaviour:
   - TOTAL
   - TIME
   type: 0
+  confetti: {fileID: 0}
   explode: {fileID: 0}
   suspenseTime: 3
   timeTillResults: 3
+  suspenseMusic: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  congrats: {fileID: 0}
+  congrats2: {fileID: 0}
   hideLayers: {fileID: 11400000, guid: 3407b1acb9608f144bb79df32dc8a469, type: 2}
 --- !u!82 &156698738
 AudioSource:
@@ -9893,7 +9898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3118837008368746180, guid: 596e57461dfbd144ba053c951ee1e46b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.9999924
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 3118837008368746180, guid: 596e57461dfbd144ba053c951ee1e46b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -16627,7 +16632,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0000
+  m_Text: 000
 --- !u!222 &593523231
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16795,7 +16800,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 69.7
+  m_fontSize: 41.55
   m_fontSizeBase: 64
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -19281,7 +19286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &688530479
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45259,8 +45264,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1, y: 0.1}
   m_AnchorMax: {x: 0.9, y: 0.8}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.000030517578, y: -15.125}
+  m_SizeDelta: {x: 112, y: 16.5789}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1874138229
 MonoBehaviour:
@@ -45282,18 +45287,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Move camera: Arrow keys
+  m_text: 'Move camera Forward/Backward/Left/Right: Arrow keys
 
-    Rotate camera: Right click and move mouse
+    Rotate camera:
+    Hold right mouse button down and move the mouse
 
-    Delete:
-    D
+    Move Camera Vertically Up:
+    Backslash key
 
-    Put away current preview: E
+    Move Camera Vertically Down: Enter key
 
 
-    Build a slab concrete formwork with
-    the most efficient use of materials.'
+    Delete: D key
+
+    Put
+    away current preview: E key
+
+
+    Build a slab concrete formwork with the most
+    efficient use of materials.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -45320,11 +45332,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 17.45
   m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 10
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -48497,7 +48509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2025732639
 RectTransform:
   m_ObjectHideFlags: 0
