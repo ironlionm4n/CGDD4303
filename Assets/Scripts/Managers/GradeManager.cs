@@ -110,6 +110,7 @@ public class GradeManager : MonoBehaviour
     [SerializeField] private BackgroundMusic backgroundMusic;
     [SerializeField] private AudioSource congrats;
     [SerializeField] private AudioSource congrats2;
+    [SerializeField] private AudioSource explosion;
 
     [Header("Events")] [SerializeField] private GameEvent hideLayers;
 
@@ -542,6 +543,7 @@ public class GradeManager : MonoBehaviour
         {
             if(explode != null)
                 explode.ExplodeBuild();
+                explosion.Play();
             StartCoroutine(ShowResults());
         }
     }
