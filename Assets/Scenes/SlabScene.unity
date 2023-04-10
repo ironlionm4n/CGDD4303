@@ -4702,6 +4702,7 @@ MonoBehaviour:
   backgroundMusic: {fileID: 0}
   congrats: {fileID: 0}
   congrats2: {fileID: 0}
+  explosion: {fileID: 0}
   hideLayers: {fileID: 11400000, guid: 3407b1acb9608f144bb79df32dc8a469, type: 2}
 --- !u!82 &156698738
 AudioSource:
@@ -4712,10 +4713,10 @@ AudioSource:
   m_GameObject: {fileID: 156698730}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7066417513055983960, guid: d08e26f01e37b2a43a052a59171fa4f7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9927a3143c260174980b4b8083c5ef01, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4808,10 +4809,10 @@ AudioSource:
   m_GameObject: {fileID: 156698730}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7066417513055983960, guid: d08e26f01e37b2a43a052a59171fa4f7, type: 2}
   m_audioClip: {fileID: 8300000, guid: cc4622a427fe2c249a91e6e697a8e14b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4904,10 +4905,10 @@ AudioSource:
   m_GameObject: {fileID: 156698730}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7066417513055983960, guid: d08e26f01e37b2a43a052a59171fa4f7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 16648c09e9a659b4dbd7a1a49113e3f1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -33107,10 +33108,10 @@ AudioSource:
   m_GameObject: {fileID: 1324680878}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4264452900514626379, guid: d08e26f01e37b2a43a052a59171fa4f7, type: 2}
   m_audioClip: {fileID: 8300000, guid: 3bc2074c1d82d634c970cf07693f7f3d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -45264,7 +45265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1, y: 0.1}
   m_AnchorMax: {x: 0.9, y: 0.8}
-  m_AnchoredPosition: {x: 0.000030517578, y: -15.125}
+  m_AnchoredPosition: {x: 0, y: -15.125}
   m_SizeDelta: {x: 112, y: 16.5789}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1874138229
