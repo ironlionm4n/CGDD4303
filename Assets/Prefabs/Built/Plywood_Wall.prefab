@@ -172,6 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6195698501679621827}
   - component: {fileID: 1278600866346134936}
+  - component: {fileID: -8382281992157861826}
   m_Layer: 15
   m_Name: Plywood_Wall
   m_TagString: Sheathing
@@ -210,6 +211,22 @@ MonoBehaviour:
   regularMat: {fileID: 2100000, guid: 09b957eaa74e45349a66a7ca441ed01c, type: 2}
   deletionMat: {fileID: 2100000, guid: c2c4e53a3cc85ee4190d5823a01a5ac2, type: 2}
   selectedDeletionMat: {fileID: 2100000, guid: 3ad1d7a24d0dfe54098d9af9f748cfea, type: 2}
+--- !u!54 &-8382281992157861826
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6657851122218598262}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &7278457370815598396
 GameObject:
   m_ObjectHideFlags: 0
