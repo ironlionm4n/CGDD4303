@@ -110,6 +110,10 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void RestartFormwork()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     /// <summary>
     /// Closes the application
     /// </summary>
