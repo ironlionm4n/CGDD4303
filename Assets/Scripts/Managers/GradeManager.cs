@@ -113,6 +113,7 @@ public class GradeManager : MonoBehaviour
     [SerializeField] private AudioSource explosion;
 
     [Header("Events")] [SerializeField] private GameEvent hideLayers;
+    [SerializeField] private GameObject concrete;
 
     public enum Formwork
     {
@@ -528,14 +529,17 @@ public class GradeManager : MonoBehaviour
 
         if (totalPoints == 1200)
         {
+            concrete.SetActive(true);
             if (confetti != null)
                 confetti.Play();
     
+            
             congrats.Play();
             StartCoroutine(ShowResults());
         }
         else if (assemblePoints == 400)
         {
+            concrete.SetActive(true);
             congrats2.Play();
             StartCoroutine(ShowResults());
         }
