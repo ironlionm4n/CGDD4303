@@ -8628,6 +8628,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5880831334546578029, guid: f2a2ed9907e5c024783ce07abaeb55e9, type: 3}
+      propertyPath: m_text
+      value: Start Assembly
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880831334546578029, guid: f2a2ed9907e5c024783ce07abaeb55e9, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7043331941799277390, guid: f2a2ed9907e5c024783ce07abaeb55e9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
