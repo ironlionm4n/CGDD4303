@@ -101,11 +101,19 @@ public class GradeManager : MonoBehaviour
 
     [Header("Formwork")] public Formwork type;
 
+    [Header("Confetti")] [SerializeField] private ParticleSystem confetti;
+
     [Header("Explosion")] [SerializeField] private Explode explode;
     [SerializeField] private float suspenseTime = 3f;
     [SerializeField] private float timeTillResults = 3f;
+    [SerializeField] private AudioSource suspenseMusic;
+    [SerializeField] private BackgroundMusic backgroundMusic;
+    [SerializeField] private AudioSource congrats;
+    [SerializeField] private AudioSource congrats2;
+    [SerializeField] private AudioSource explosion;
 
     [Header("Events")] [SerializeField] private GameEvent hideLayers;
+    [SerializeField] private GameObject concrete;
 
     public enum Formwork
     {
@@ -513,16 +521,33 @@ public class GradeManager : MonoBehaviour
 
     public IEnumerator Suspense()
     {
-        yield return new WaitForSeconds(suspenseTime);
+        suspenseMusic.Play();
+        backgroundMusic.StopMusic();
 
-        if (assemblePoints == 400)
+        //Debug.Log(totalPoints);
+        yield return new WaitUntil(()=> !suspenseMusic.isPlaying);
+
+        if (totalPoints == 1200)
         {
+            concrete.SetActive(true);
+            if (confetti != null)
+                confetti.Play();
+    
+            
+            congrats.Play();
+            StartCoroutine(ShowResults());
+        }
+        else if (assemblePoints == 400)
+        {
+            concrete.SetActive(true);
+            congrats2.Play();
             StartCoroutine(ShowResults());
         }
         else
         {
             if(explode != null)
                 explode.ExplodeBuild();
+                explosion.Play();
             StartCoroutine(ShowResults());
         }
     }

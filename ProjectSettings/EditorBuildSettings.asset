@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ColumnScene.unity
     guid: 8cf53c582b0009c429c7b73357847899
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: ccca7c5d101fd964980ddf6a4381dbfd
   m_configObjects: {}

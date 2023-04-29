@@ -29,6 +29,7 @@ public class Explode : MonoBehaviour
     {
         rigidbodies = FindObjectsOfType<Rigidbody>();
         colliders = FindObjectsOfType<MeshCollider>();
+        var boxColliders = FindObjectsOfType<BoxCollider>();
 
         foreach(MeshCollider collider in colliders)
         {
@@ -39,12 +40,31 @@ public class Explode : MonoBehaviour
                 collider.enabled = true;
             }
         }
+
+        foreach (BoxCollider box in boxColliders)
+        {
+            box.enabled = false;
+        }
+
         explosionParticles.Play();
         for(int i = 0; i < rigidbodies.Length; i++)
         {
             rigidbodies[i].constraints = RigidbodyConstraints.None;
             rigidbodies[i].AddExplosionForce(50 , explosionPoint.transform.position, 200, 1.0f, ForceMode.Impulse);
             rigidbodies[i].useGravity = true;
+        }
+
+        StartCoroutine(ReneableColliders(boxColliders));
+       
+    }
+
+    public IEnumerator ReneableColliders(BoxCollider[] boxes)
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        foreach (BoxCollider box in boxes)
+        {
+            box.enabled = true;
         }
     }
 }

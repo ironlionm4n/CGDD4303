@@ -254,6 +254,9 @@ public class CutManager : UIManagerParent
 
         gm.CutCheckout(wastePly, waste2x4, waste2x6, waste4x4, wasteStrut);
         ResetDropdowns();
+        UpdateQTYText();
+        SetSizeDropdowns();
+        SetAllQTYDropdowns();
     }
 
     /// <summary>
@@ -310,6 +313,9 @@ public class CutManager : UIManagerParent
         Debug.Log($"Attempt: {attempt}");
         gm.CutCheckout(wastePly, waste2x4, waste2x6, waste4x4, attempt);
         ResetDropdowns();
+        UpdateQTYText();
+        SetSizeDropdowns();
+        SetAllQTYDropdowns();
     }
 
     /// <summary>
