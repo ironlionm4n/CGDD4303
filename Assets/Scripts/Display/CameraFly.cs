@@ -15,7 +15,8 @@ public class CameraFly : MonoBehaviour
 
     private void Start()
     {
-        //Cursor.lockState = CursorLockMode.Confined;
+        rotationX = transform.eulerAngles.y;
+        rotationY = transform.eulerAngles.x;
     }
 
     private void Update()
@@ -52,13 +53,13 @@ public class CameraFly : MonoBehaviour
                 */
         var currentPosition = transform.position;
         transform.position = new Vector3(Mathf.Clamp(currentPosition.x, -30, 30),
-            Mathf.Clamp(currentPosition.y, 2f, 30f), Mathf.Clamp(currentPosition.z, -35, 35));
+            Mathf.Clamp(currentPosition.y, 2f, 30f), Mathf.Clamp(currentPosition.z, -40, 40));
 
         if (Input.GetKey(KeyCode.Mouse1))
         {
             rotationX += Input.GetAxis("Mouse X") * sensitivity;
             rotationY += Input.GetAxis("Mouse Y") * -1 * sensitivity;
-            transform.localEulerAngles = new Vector3(rotationY, rotationX, 0f);
+            transform.eulerAngles = new Vector3(rotationY, rotationX, 0f);
         }
     }
 }
